@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pai } from 'src/app/model/pai';
 
 @Component({
   selector: 'app-login',

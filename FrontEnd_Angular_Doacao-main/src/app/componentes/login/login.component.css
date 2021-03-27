@@ -1,0 +1,32 @@
+.contorno{
+    padding: 30px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 25px;
+    
+    margin-right: 1%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.largo{
+    width: 100%;
+    margin: 20px auto;
+}
+
+form {
+    /* padding: 10% 30% 10% 30%;
+    height: 60%; */
+    margin-top: 10%;
+}
+
+label:first-child{
+    margin-top: 20px;
+}
+
+.asteristico{
+    font-size: 20px;
+    color: red;
+    margin-left: 5px;
+}

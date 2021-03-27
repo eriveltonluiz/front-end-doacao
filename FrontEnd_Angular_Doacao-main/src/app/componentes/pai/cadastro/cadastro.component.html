@@ -1,0 +1,140 @@
+<form #formValidate="ngForm">
+    <span class="asteristico" *ngIf="formValidate.invalid"
+      >Necessário o preenchimento dos campos</span
+    >
+  <section class="form-row mb-3">
+    <div class="col-md-12">
+      <label for="id">Nome</label>
+      <span class="asteristico" *ngIf="nomeValidate.invalid">*</span>
+      <input
+        type="text"
+        class="form-control"
+        #nomeValidate="ngModel"
+        [(ngModel)]="pai.nome"
+        id="nome"
+        name="nome"
+        required
+        autocomplete="false"
+      />
+    </div>
+  </section>
+
+  <section class="form-row mb-3">
+    <div class="form-group col-md-12">
+      <label for="id">E-mail</label>
+      <span class="asteristico" *ngIf="emailValidate.invalid">*</span>
+      <input
+        type="email"
+        class="form-control"
+        #emailValidate="ngModel"
+        [(ngModel)]="pai.email"
+        id="email"
+        name="email"
+        required
+        autocomplete="false"
+      />
+    </div>
+  </section>
+
+  <section class="row g-2 mb-3">
+    <div class="form-group col-md-6">
+      <label for="id">Senha</label>
+      <span class="asteristico" *ngIf="senhaValidate.invalid">*</span>
+      <input
+        type="password"
+        class="form-control"
+        #senhaValidate="ngModel"
+        [(ngModel)]="pai.senha"
+        id="senha"
+        name="senha"
+        required
+        autocomplete="false"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="id">CPF</label>
+      <span class="asteristico" *ngIf="cpfValidate.invalid">*</span>
+      <input
+        type="text"
+        class="form-control"
+        mask="000.000.000-00|000.000.000-00"
+        #cpfValidate="ngModel"
+        [(ngModel)]="pai.cpf"
+        id="cpf"
+        name="cpf"
+        required
+        autocomplete="false"
+      />
+    </div>
+  </section>
+
+  <section class="row g-2 mb-3">
+    <div class="form-group col-md-6">
+      <label for="id">Telefone Fixo</label>
+      <span class="asteristico" ></span>
+      <input
+        type="text"
+        class="form-control"
+        #fixoValidate="ngModel"
+        [(ngModel)]="pai.fixo"
+        mask="(00) 0000-0000"
+        id="fixo"
+        name="fixo"
+        autocomplete="false"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="id">Celular</label>
+      <span class="asteristico" *ngIf="celularValidate.invalid">*</span>
+      <input
+        type="text"
+        class="form-control"
+        mask="(00) 0 0000-0000"
+        #celularValidate="ngModel"
+        [(ngModel)]="pai.celular"
+        id="celular"
+        name="celular"
+        required
+        autocomplete="false"
+      />
+    </div>
+  </section>
+
+  <section class="row g-2 mb-3">
+    <div class="form-group col-md-6">
+      <label for="id">Profissão</label>
+      <span class="asteristico" *ngIf="profissaoValidate.invalid">*</span>
+      <input
+        type="text"
+        class="form-control"
+        #profissaoValidate="ngModel"
+        [(ngModel)]="pai.profissao"
+        id="profissao"
+        name="profissao"
+        required
+        autocomplete="false"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="id">Renda</label>
+      <span class="asteristico" *ngIf="rendaValidate.invalid">*</span>
+      <input
+        type="number"
+        class="form-control"
+        #rendaValidate="ngModel"
+        [(ngModel)]="pai.renda"
+        id="renda"
+        name="renda"
+        required
+        autocomplete="false"
+      />
+    </div>
+  </section>
+
+  <div class="modal-footer justify-content-center">
+    <button type="button" class="col-4 btn btn-primary" [disabled]="formValidate.invalid">Cadastre-se</button>
+  </div>
+</form>

@@ -1,1 +1,55 @@
-<p>login works!</p>
+<div class="container ">
+<form class="row justify-content-end " #formValidate="ngForm">
+    <div class="contorno form-group col-md-4">
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="form-label fw-bold fs-5"
+          >Email</label
+        >
+        <input
+          placeholder="Digite seu login"
+          required
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="form-label fw-bold fs-5"
+          >Senha</label
+        >
+        <input
+          type="password"
+          required
+          placeholder="Digite sua senha"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+  
+      <button type="submit" class="largo btn btn-primary center">Acessar</button>
+      <div class="form-group row justify-content-md-center">
+        <a href="#" class="text-primary col-md-auto">Esqueceu a senha?</a>
+        <a
+          data-toggle="modal"
+          href="#modalCadastro"
+          class="text-primary col-md-auto"
+          >Cadastrar conta</a
+        >
+      </div>
+      <div class="modal fade" id="modalCadastro" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">Cadastro</h4>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <app-cadastro></app-cadastro>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  </div>
