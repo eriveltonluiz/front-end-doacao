@@ -1,25 +1,153 @@
-<div *ngFor="let item of materiais">
-  <div class="card" style="width: 25rem; float: left; margin-top: 2%">
-    <div class="card-header">
-      <h5 class="card-title">Material: {{ item.descricao }}</h5>
+<p class="fs-2">Lista de materiais</p>
+<section class="row g-2">
+  <div class="col-md-5">
+    <div class="input-group">
+      <select class="form-select" [(ngModel)]="materialPesquisa.id">
+        <option [ngValue]="p.id" *ngFor="let p of materiais">
+          {{ p.descricao }}
+        </option>
+      </select>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="pesquisarMaterial()"
+      >
+        <i class="bi bi-search"></i>
+      </button>
     </div>
-    <div class="card-body">
-      <div class="row g-2">
-          <div class="form-group col-md-6 mb-3">
-              <img [src]="item.urlFoto" alt="..." width="100" height="100" />
-          </div>  
-        <div class="form-group col-md-1 mb-3 col align-self-center">
-          <input size="1" type="text" readonly class="card-subtitle text-muted fs-4" [(ngModel)]="item.quantidadeDesejada">
+</div>
+  <div class="col-md-3">
+    <button class="btn btn-primary" (click)="todos()">Mostrar todos</button>
+  </div>
+</section>
+
+<div class="mb-3">
+  <div *ngIf="materiais.length > 0"
+    id="carouselExampleControls"
+    class="carousel carousel-dark slide"
+    data-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div
+        class="carousel-item"
+        *ngFor="let item of materiais; let i = index; let f = first"
+        [ngClass]="{ active: f }"
+      >
+        <div class="d-flex justify-content-md-center">
+          <div
+            class="card shadow p-3 mb-5 bg-body rounded"
+            style="width: 25rem; float: left; margin-top: 2%"
+          >
+            <div class="card-header">
+              <h5 class="card-title">Material: {{ item.descricao }}</h5>
+            </div>
+            <div class="card-body">
+              <div class="row g-2 d-flex justify-content-md-center">
+                <div class="form-group col-md-6 mb-3">
+                  <img
+                    [src]="item.urlFoto"
+                    alt="..."
+                    width="100"
+                    height="100"
+                  />
+                </div>
+                <div class="form-group col-md-1 mb-3 col align-self-center">
+                  <input
+                    size="1"
+                    type="text"
+                    readonly
+                    class="card-subtitle text-muted fs-4"
+                    [(ngModel)]="item.quantidadeDesejada"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="btn-toolbar row justify-content-center md-3">
+              <a class="col-4 link-danger" (click)="excluirMaterial()">
+                <i class="bi bi-trash"></i> Excluir
+              </a>
+              <a
+                class="col-4 separa link-primary"
+                (click)="editarMaterial(item)"
+              >
+                <i class="bi bi-vector-pen"></i> Editar
+              </a>
+            </div>
+          </div>
         </div>
-    </div>
-      <div class="btn-toolbar row justify-content-center md-3">
-        <a class="col-4 link-danger" (click)="excluirMaterial()">
-          <i class="bi bi-trash"></i> Excluir
-        </a>
-        <a class="col-4 separa link-primary" (click)="editarMaterial()">
-          <i class="bi bi-vector-pen"></i> Editar
-        </a>
       </div>
     </div>
+
+    <a
+      class="carousel-control-prev"
+      type="button"
+      data-target="#carouselExampleControls"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </a>
+    <a
+      class="carousel-control-next"
+      type="button"
+      data-target="#carouselExampleControls"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
   </div>
 </div>
+
+<form style="padding: 10px" #formValidate="ngForm">
+  <p class="fs-2">Cadastro e edição dos materiais</p>
+  <section class="row g-3 mb-3">
+    <div class="form-group col-md-1">
+      <label>ID</label>
+      <input
+        type="text"
+        #nomeValidate="ngModel"
+        class="form-control"
+        id="id"
+        name="id"
+        [(ngModel)]="material.id"
+        readonly
+        autocomplete="false"
+      />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>Material</label>
+      <span class="asterisco" *ngIf="materialValidate">*</span>
+
+      <select
+        id="material"
+        name="material"
+        class="form-control"
+        [(ngModel)]="material.id"
+        required
+        #materialValidate="ngModel"
+      >
+        <option [ngValue]="">[Selecione]</option>
+        <option [ngValue]="p.id" *ngFor="let p of materiais">
+          {{ p.descricao }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>Quantidade Desejada</label>
+      <span class="asterisco" *ngIf="qtdValidate">*</span>
+      <input
+        type="number"
+        #qtdValidate="ngModel"
+        class="form-control"
+        min="1"
+        id="qtd"
+        name="qtd"
+        [(ngModel)]="material.quantidadeDesejada"
+        required
+        autocomplete="false"
+      />
+    </div>
+  </section>
+</form>

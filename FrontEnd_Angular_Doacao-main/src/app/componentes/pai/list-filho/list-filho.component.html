@@ -1,11 +1,3 @@
-<!-- <ul *ngFor="let item of filhos">
-    <li>{{ item.id }}</li>
-    <li>{{ item.nome }}</li>
-    <li>{{ item.relato }}</li>
-    <li>{{ item.cpf }}</li>
-    <li>{{ item.data_nascimento }}</li>
-</ul> -->
-
 <h1 class="display-5 text-center mb-3">Seus filhos</h1>
 
 <form class="form-inline">
@@ -63,10 +55,10 @@
       </div>
 
       <div class="modal fade" id="materiais" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="exampleModalLabel">Lista de materiais</h4>
+              <h4 class="modal-title" id="exampleModalLabel">{{ item.nome }}</h4>
               <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -75,33 +67,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
-
-<!-- <div id="carouselExampleControlsNoTouching" class="carousel slide" data-touch="false" data-interval="false">
-    <div class="carousel-inner">
-      <div *ngFor="let item of filhos" class="carousel-item">
-        <div class="card text-center">
-            <div class="card-header">
-                <li class="nav-item">
-                    {{ item.nome }}
-                </li>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ item.relato }}</h5>
-              <p class="card-text">{{ item.cpf }}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-target="#carouselExampleControlsNoTouching" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-target="#carouselExampleControlsNoTouching" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div> -->
