@@ -7,7 +7,6 @@ import { LoginComponent } from './componentes/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
-import { CadastroComponent } from './componentes/pai/cadastro/cadastro.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,

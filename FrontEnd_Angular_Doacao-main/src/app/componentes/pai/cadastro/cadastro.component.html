@@ -1,11 +1,11 @@
 <form #formValidate="ngForm">
-    <span class="asteristico" *ngIf="formValidate.invalid"
+    <span class="asterisco" *ngIf="formValidate.invalid"
       >Necessário o preenchimento dos campos</span
     >
   <section class="form-row mb-3">
     <div class="col-md-12">
       <label for="id">Nome</label>
-      <span class="asteristico" *ngIf="nomeValidate.invalid">*</span>
+      <span class="asterisco" *ngIf="nomeValidate.invalid">*</span>
       <input
         type="text"
         class="form-control"
@@ -22,7 +22,7 @@
   <section class="form-row mb-3">
     <div class="form-group col-md-12">
       <label for="id">E-mail</label>
-      <span class="asteristico" *ngIf="emailValidate.invalid">*</span>
+      <span class="asterisco" *ngIf="emailValidate.invalid">*</span>
       <input
         type="email"
         class="form-control"
@@ -39,7 +39,7 @@
   <section class="row g-2 mb-3">
     <div class="form-group col-md-6">
       <label for="id">Senha</label>
-      <span class="asteristico" *ngIf="senhaValidate.invalid">*</span>
+      <span class="asterisco" *ngIf="senhaValidate.invalid">*</span>
       <input
         type="password"
         class="form-control"
@@ -54,7 +54,7 @@
 
     <div class="form-group col-md-6">
       <label for="id">CPF</label>
-      <span class="asteristico" *ngIf="cpfValidate.invalid">*</span>
+      <span class="asterisco" *ngIf="cpfValidate.invalid">*</span>
       <input
         type="text"
         class="form-control"
@@ -72,7 +72,7 @@
   <section class="row g-2 mb-3">
     <div class="form-group col-md-6">
       <label for="id">Telefone Fixo</label>
-      <span class="asteristico" ></span>
+      <span class="asterisco" ></span>
       <input
         type="text"
         class="form-control"
@@ -87,7 +87,7 @@
 
     <div class="form-group col-md-6">
       <label for="id">Celular</label>
-      <span class="asteristico" *ngIf="celularValidate.invalid">*</span>
+      <span class="asterisco" *ngIf="celularValidate.invalid">*</span>
       <input
         type="text"
         class="form-control"
@@ -105,7 +105,7 @@
   <section class="row g-2 mb-3">
     <div class="form-group col-md-6">
       <label for="id">Profissão</label>
-      <span class="asteristico" *ngIf="profissaoValidate.invalid">*</span>
+      <span class="asterisco" *ngIf="profissaoValidate.invalid">*</span>
       <input
         type="text"
         class="form-control"
@@ -120,7 +120,7 @@
 
     <div class="form-group col-md-6">
       <label for="id">Renda</label>
-      <span class="asteristico" *ngIf="rendaValidate.invalid">*</span>
+      <span class="asterisco" *ngIf="rendaValidate.invalid">*</span>
       <input
         type="number"
         class="form-control"

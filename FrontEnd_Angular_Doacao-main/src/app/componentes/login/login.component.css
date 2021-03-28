@@ -1,10 +1,4 @@
-.contorno{
-    padding: 30px 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 25px;
-    
-    margin-right: 1%;
-}
+
 
 a{
     text-decoration: none;
@@ -23,10 +17,4 @@ form {
 
 label:first-child{
     margin-top: 20px;
-}
-
-.asteristico{
-    font-size: 20px;
-    color: red;
-    margin-left: 5px;
 }

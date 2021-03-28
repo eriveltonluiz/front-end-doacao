@@ -1,0 +1,93 @@
+<!-- <ul *ngFor="let item of filhos">
+    <li>{{ item.id }}</li>
+    <li>{{ item.nome }}</li>
+    <li>{{ item.relato }}</li>
+    <li>{{ item.cpf }}</li>
+    <li>{{ item.data_nascimento }}</li>
+</ul> -->
+
+<h1 class="display-5 text-center mb-3">Seus filhos</h1>
+
+<form class="form-inline">
+  <section class="row g-2 mb-3">
+    <div class="col-md-5">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          name="nome"
+          placeholder="Pesquisa por nome"
+        />
+        <button type="button" class="btn btn-primary">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <button
+        type="button"
+        class="btn btn-secondary col-md-4"
+        [routerLink]="['/addfilho']" routerLinkActive="router-link-active"
+        style="margin-left: 7px"
+      >
+        Cadastrar Filho
+      </button>
+    </div>
+  </section>
+</form>
+
+<div *ngFor="let item of filhos">
+  <div class="card contorno" style="width: 25rem; float: left; margin-top: 2%">
+    <div class="card-header">
+      <h5 class="card-title">Nome: {{ item.nome }}</h5>
+    </div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">
+        Data nascimento: {{ item.data_nascimento | date: "dd/MM/yyyy" }}
+      </h6>
+      <h6 class="card-subtitle mb-2 text-muted">
+        CPF: {{ item.cpf | mask: "000.000.000-00" }}
+      </h6>
+      <p class="card-text">Relato: {{ item.relato }}</p>
+      <div class="btn-toolbar row justify-content-center">
+        <button type="button" class="col-4 btn btn-outline-danger">
+          <i class="bi bi-trash"></i> Excluir
+        </button>
+        <button type="button" class="col-4 btn btn-outline-primary separa">
+          <i class="bi bi-person-plus-fill"></i> Editar
+        </button>
+        <button type="button" class="col-4 btn btn-outline-warning separa">
+          <i class="bi bi-vector-pen"></i> Materiais
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="carouselExampleControlsNoTouching" class="carousel slide" data-touch="false" data-interval="false">
+    <div class="carousel-inner">
+      <div *ngFor="let item of filhos" class="carousel-item">
+        <div class="card text-center">
+            <div class="card-header">
+                <li class="nav-item">
+                    {{ item.nome }}
+                </li>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ item.relato }}</h5>
+              <p class="card-text">{{ item.cpf }}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleControlsNoTouching" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#carouselExampleControlsNoTouching" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->

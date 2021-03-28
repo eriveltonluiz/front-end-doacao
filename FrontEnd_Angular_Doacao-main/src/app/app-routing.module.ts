@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './componentes/login/login.component';
 import { RouterModule } from '@angular/router';
 import { PaiModule } from './componentes/pai/pai.module';
+import { ListFilhoComponent } from './componentes/pai/list-filho/list-filho.component';
+import { AddFilhoMateriaisComponent } from './componentes/pai/add-filho-materiais/add-filho-materiais.component';
 
 const routes = [
   {
@@ -10,6 +12,25 @@ const routes = [
     component: LoginComponent
   },
 
+  {
+    path: 'listfilho',
+    component: ListFilhoComponent
+  },
+
+  {
+    path: 'addfilho',
+    children: [
+      {
+        path: '',
+        component: AddFilhoMateriaisComponent
+      },
+
+      {
+        path: ':id',
+        component: AddFilhoMateriaisComponent
+      }
+    ]
+  }
 ]
 
 @NgModule({

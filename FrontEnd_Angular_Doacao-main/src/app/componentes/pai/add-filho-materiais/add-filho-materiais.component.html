@@ -1,0 +1,167 @@
+<h3 class="display-6 md-3">Cadastro de filhos</h3>
+
+<form style="padding: 10px" #formValidate="ngForm">
+  <section class="row g-3 mb-3">
+    <div class="form-group col-md-5">
+      <label>Nome</label>
+      <span class="asterisco" *ngIf="nomeValidate.invalid">*</span>
+      <input
+        type="text"
+        #nomeValidate="ngModel"
+        class="form-control"
+        id="nome"
+        name="nome"
+        [(ngModel)]="filho.nome"
+        required
+        autocomplete="false"
+      />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>Data Nascimento</label>
+      <span class="asterisco" *ngIf="dataNascimento">*</span>
+
+      <div class="input-group">
+        <input
+          type="text"
+          #dataNascimento="ngbDatepicker"
+          class="form-control"
+          id="data"
+          name="data"
+          [minDate]="{ year: 1950, month: 1, day: 1 }"
+          [maxDate]="{ year: 2007, month: 12, day: 31 }"
+          [(ngModel)]="filho.dataNascimento"
+          ngbDatepicker
+          required
+          placeholder="dd/mm/yyyy"
+        />
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="dataNascimento.toggle()"
+        ></button>
+      </div>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>CPF</label>
+      <span class="asterisco" *ngIf="cpfValidate">*</span>
+      <input
+        type="password"
+        #cpfValidate="ngModel"
+        class="form-control"
+        id="senha"
+        name="senha"
+        [(ngModel)]="filho.cpf"
+        required
+        autocomplete="false"
+      />
+    </div>
+  </section>
+
+  <section class="row g-3 mb-3">
+    <div class="form-group col-md-5">
+      <label>Escola</label>
+      <span class="asterisco" *ngIf="nomeValidate.invalid">*</span>
+      <input
+        type="text"
+        #nomeValidate="ngModel"
+        class="form-control"
+        id="nome"
+        name="nome"
+        [(ngModel)]="filho.nome"
+        required
+        autocomplete="false"
+      />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>Estado</label>
+      <select id="estado" name="estado" class="form-control" required>
+        <option [ngValue]="" selected>[Selecione]</option>
+        <option [ngValue]="p" *ngFor="let p of estados">{{ p }}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label>Descricao</label>
+      <select id="descricao" name="descricao" class="form-control" required>
+        <option value="" selected>[Selecione]</option>
+        <option value="Municipal" selected>Municipal</option>
+        <option value="Estadual" selected>Estadual</option>
+      </select>
+    </div>
+  </section>
+
+  <div class="mb-3">
+    <label for="relato" class="form-label">Relato</label>
+    <span class="asterisco" *ngIf="relatoValidate">*</span>
+    <textarea
+      class="form-control"
+      id="relato"
+      name="relato"
+      #relatoValidate="ngModel"
+      required
+      rows="3"
+      [(ngModel)]="filho.relato"
+    ></textarea>
+  </div>
+
+  <section>
+    <div class="form-group row justify-content-center mb-3">
+      <button
+        type="button"
+        class="btn btn-primary col-1"
+        (click)="novo()"
+        style="margin-left: 12px"
+      >
+        Novo
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary col-1"
+        [disabled]="formValidate.invalid"
+        style="margin-left: 12px"
+      >
+        Salvar
+      </button>
+    </div>
+  </section>
+
+  <h3 class="display-6 md-3">Materiais</h3>
+
+  <section class="row g-3 mb-3">
+    <div class="form-group col-md-5">
+      <label>Material</label>
+      <span class="asterisco" *ngIf="descricaoValidate.invalid">*</span>
+      <input
+        type="text"
+        #descricaoValidate="ngModel"
+        class="form-control"
+        id="descricao"
+        name="descricao"
+        [(ngModel)]="material.descricao"
+        required
+        autocomplete="false"
+      />
+    </div>
+
+    <div class="form-group col-md-2">
+      <label>Quantidade desejada</label>
+      <span class="asterisco" *ngIf="qtdValidate.invalid">*</span>
+
+      <div class="input-group">
+        <button type="button" class="btn btn-primary">-</button>
+        <input
+          type="number"
+          #qtdValidate="ngModel"
+          class="form-control"
+          id="qtd"
+          name="qtd"
+          [(ngModel)]="material.quantidadeDesejada"
+          required
+        />
+        <button type="button" class="btn btn-primary">+</button>
+      </div>
+    </div>
+  </section>
+</form>
