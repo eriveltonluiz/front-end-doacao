@@ -1,9 +1,12 @@
 import { Component, Injectable, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Escola } from 'src/app/model/escola';
 import { Estado } from 'src/app/model/estado';
 import { Filho } from 'src/app/model/filho';
 import { Material } from 'src/app/model/material';
+import { Pai } from 'src/app/model/pai';
+import { FilhoService } from 'src/app/seviços/filho.service';
 
 @Injectable()
 export class FormatDateAdapter extends NgbDateAdapter<string> {
@@ -72,42 +75,93 @@ export class AddFilhoComponent implements OnInit {
   material = new Material();
   escola = new Escola();
   estado = new Estado();
-estados = [
-'Acre',
-'Alagoas',
-'Amazonas',
-'Amapá',
-'Bahia',
-'Ceará',
-'Distrito Federal',
-'Espírito Santo',
-'Goiás', 
-'Maranhão',
-'Minas Gerais',
-'Mato Grosso do Sul',
-'Mato Grosso',
-'Pará',
-'Paraíba',
-'Pernambuco',
-'Piauí',
-'Paraná',
-'Rio de Janeiro',
-'Rio Grande do Norte',
-'Rondônia',
-'Roraima',
-'Rio Grande do Sul',
-'Santa Catarina',
-'Sergipe',
-'São Paulo',
-'Tocantins'
-]
+  estados: Array<Estado>
+  // estados = [
+  // 'Acre',
+  // 'Alagoas',
+  // 'Amazonas',
+  // 'Amapá',
+  // 'Bahia',
+  // 'Ceará',
+  // 'Distrito Federal',
+  // 'Espírito Santo',
+  // 'Goiás', 
+  // 'Maranhão',
+  // 'Minas Gerais',
+  // 'Mato Grosso do Sul',
+  // 'Mato Grosso',
+  // 'Pará',
+  // 'Paraíba',
+  // 'Pernambuco',
+  // 'Piauí',
+  // 'Paraná',
+  // 'Rio de Janeiro',
+  // 'Rio Grande do Norte',
+  // 'Rondônia',
+  // 'Roraima',
+  // 'Rio Grande do Sul',
+  // 'Santa Catarina',
+  // 'Sergipe',
+  // 'São Paulo',
+  // 'Tocantins'
+  // ]
 
-  constructor() { }
+  constructor(private filhoService: FilhoService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.filhoService.listarEstados().subscribe(resultado => this.estados = resultado)
+    let id = this.activeRoute.snapshot.paramMap.get('id');
+
+    if (id !== null) {
+      this.filhoService.buscarFilhoPorID(+id).subscribe(resultado => {
+        this.filho = resultado;
+        this.escola = this.filho.escola;
+        this.estado = this.escola.estado;
+      });
+      console.log(this.filho.escola);
+      console.log(this.filho);
+    }
   }
 
-  novo(){
+  salvar() {
+
+    this.filho.pai = {
+      id: 1,
+      nome: "Marcos Sauro",
+      email: "sauro@gmail.com",
+      senha: "ekefsfg3r",
+      celular: "86678768760",
+      renda: 1000,
+      cpf: "13823472143",
+      profissao: "Servente de pedreiro"
+    }
+
+    console.log(this.estado.nome);
+    console.log(this.escola);
+    console.log(this.filho);
+
+    if (this.estado.nome !== null) {
+      this.escola.estado = this.estado;
+      if (this.filho.id === null || this.filho.id === undefined) {
+        this.filhoService.salvarEscola(this.escola).subscribe(resultado => this.escola = resultado);
+        this.filho.escola = this.escola;
+        this.filhoService.salvarFilho(this.filho).subscribe(resultado => this.filho = resultado);
+        console.log(this.filho);
+        alert('Salvo com sucesso!!!');
+        this.novo();
+      } else {
+        this.filhoService.editarEscola(this.escola).subscribe(resultado => this.escola = resultado);
+        this.filho.escola = this.escola;
+        this.filhoService.editarFilho(this.filho).subscribe(resultado => this.filho = resultado);
+        console.log(this.filho);
+        alert('Editado com sucesso!!!')
+      }
+    }
+  }
+
+  novo() {
     this.filho = new Filho();
+    this.escola = new Escola();
+    this.estado = new Estado();
   }
 }

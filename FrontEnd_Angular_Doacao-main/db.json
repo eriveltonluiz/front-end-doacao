@@ -1,0 +1,165 @@
+{
+  "material": [
+    {
+      "id": 1,
+      "descricao": "apontador",
+      "urlFoto": "/assets/imagens/apontador.png"
+    },
+    {
+      "id": 2,
+      "descricao": "borracha",
+      "quantidadeDesejada": 4,
+      "urlFoto": "/assets/imagens/borracha.png"
+    },
+    {
+      "id": 3,
+      "descricao": "Caixa de lápis",
+      "quantidadeDesejada": 2,
+      "urlFoto": "/assets/imagens/caixa-de-lapis.png"
+    }
+  ],
+  "pai": [
+    {
+      "id": 1,
+      "nome": "Marcos Sauro",
+      "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+      "email": "sauro@gmail.com",
+      "senha": "ekefsfg3r",
+      "celular": "86678768760",
+      "renda": "1000",
+      "cpf": "13823472143",
+      "profissao": "Servente de pedreiro"
+    }
+  ],
+  "estado": [
+    {
+      "id": 1,
+      "nome": "Acre"
+    }
+  ],
+  "escola": [
+    {
+      "estado": {
+        "id": 1,
+        "nome": "Acre"
+      },
+      "id": 1,
+      "nome": "Escola Nunes da Silva vist",
+      "descricao": "Estadual"
+    },
+    {
+      "nome": "Grevaldo",
+      "descricao": "Municipal",
+      "estado": {
+        "id": 1
+      },
+      "id": 2
+    }
+  ],
+  "filho": [
+    {
+      "id": 1,
+      "nome": "Marcos",
+      "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+      "dataNascimento": {
+        "year": 2007,
+        "month": 12,
+        "day": 13
+      },
+      "cpf": "13123432543",
+      "pai": {
+        "id": 1,
+        "nome": "Marcos Sauro",
+        "email": "sauro@gmail.com",
+        "senha": "ekefsfg3r",
+        "celular": "86678768760",
+        "renda": 1000,
+        "cpf": "13823472143",
+        "profissao": "Servente de pedreiro"
+      },
+      "escola": {
+        "estado": {
+          "id": 1,
+          "nome": "Acre"
+        },
+        "id": 1,
+        "nome": "Escola Nunes da Silva vist",
+        "descricao": "Estadual"
+      }
+    },
+    {
+      "nome": "Luana",
+      "dataNascimento": {
+        "year": 2007,
+        "month": 12,
+        "day": 15
+      },
+      "cpf": "57041968022",
+      "relato": "Nesse momento passo dificuldades com mateirais, principalmente com agramvamento da pandemia",
+      "pai": {
+        "id": 1,
+        "nome": "Marcos Sauro",
+        "email": "sauro@gmail.com",
+        "senha": "ekefsfg3r",
+        "celular": "86678768760",
+        "renda": 1000,
+        "cpf": "13823472143",
+        "profissao": "Servente de pedreiro"
+      },
+      "escola": {
+        "nome": "Grevaldo",
+        "descricao": "Municipal",
+        "estado": {
+          "id": 1
+        }
+      },
+      "id": 2
+    }
+  ],
+  "crianca_material": [
+    {
+      "quantidadeDesejada": 1,
+      "quantidadeDoada": 1,
+      "statusDoacao": "Confirmado",
+      "filho": [
+        {
+          "id": 1,
+          "nome": "Marcos",
+          "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+          "dataNascimento": {
+            "year": 2007,
+            "month": 12,
+            "day": 13
+          },
+          "cpf": "13123432543",
+          "pai": [
+            {
+              "id": 1,
+              "nome": "Marcos Sauro",
+              "email": "sauro@gmail.com",
+              "senha": "ekefsfg3r",
+              "cpf": "13823472143",
+              "fixo": "3142342343",
+              "celular": "86678768760",
+              "profissao": "Servente de pedreiro",
+              "renda": 1000
+            }
+          ],
+          "escola": [
+            {
+              "id": 1,
+              "nome": "Escola Nunes da Silva",
+              "descricao": "Estadual",
+              "estado": [
+                {
+                  "id": 1,
+                  "nome": "Acre"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -29,7 +29,7 @@
   </section>
 </form>
 
-<div *ngFor="let item of filhos">
+<div *ngFor="let item of filhos; let i = index">
   <div class="card contorno" style="width: 25rem; float: left; margin-top: 2%">
     <div class="card-header">
       <h5 class="card-title">Nome: {{ item.nome }}</h5>
@@ -43,10 +43,10 @@
       </h6>
       <p class="card-text">Relato: {{ item.relato }}</p>
       <div class="btn-toolbar row justify-content-center">
-        <button type="button" class="col-4 btn btn-outline-danger">
+        <button type="button" class="col-4 btn btn-outline-danger" (click)="excluir(item, i)">
           <i class="bi bi-trash"></i> Excluir
         </button>
-        <button type="button" class="col-4 btn btn-outline-primary separa">
+        <button type="button" class="col-4 btn btn-outline-primary separa" [routerLink]="[ '/addfilho', item.id]" routerLinkActive="active">
           <i class="bi bi-person-plus-fill"></i> Editar
         </button>
         <button type="button" class="col-4 btn btn-outline-warning separa" data-toggle="modal" data-target="#materiais">

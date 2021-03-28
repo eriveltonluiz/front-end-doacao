@@ -1,4 +1,4 @@
 export class Estado{
-    id: number;
-    nome: string;
+    id: Number;
+    nome: String;
 }
