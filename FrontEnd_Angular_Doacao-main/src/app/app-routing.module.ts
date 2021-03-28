@@ -4,7 +4,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RouterModule } from '@angular/router';
 import { PaiModule } from './componentes/pai/pai.module';
 import { ListFilhoComponent } from './componentes/pai/list-filho/list-filho.component';
-import { AddFilhoMateriaisComponent } from './componentes/pai/add-filho-materiais/add-filho-materiais.component';
+import { AddFilhoComponent } from './componentes/pai/add-filho/add-filho.component';
 
 const routes = [
   {
@@ -22,12 +22,12 @@ const routes = [
     children: [
       {
         path: '',
-        component: AddFilhoMateriaisComponent
+        component: AddFilhoComponent
       },
 
       {
         path: ':id',
-        component: AddFilhoMateriaisComponent
+        component: AddFilhoComponent
       }
     ]
   }

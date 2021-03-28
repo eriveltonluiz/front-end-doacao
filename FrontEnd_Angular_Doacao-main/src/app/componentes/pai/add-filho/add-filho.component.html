@@ -114,7 +114,7 @@
         (click)="novo()"
         style="margin-left: 12px"
       >
-        Novo
+        Limpar
       </button>
       <button
         type="button"
@@ -124,44 +124,6 @@
       >
         Salvar
       </button>
-    </div>
-  </section>
-
-  <h3 class="display-6 md-3">Materiais</h3>
-
-  <section class="row g-3 mb-3">
-    <div class="form-group col-md-5">
-      <label>Material</label>
-      <span class="asterisco" *ngIf="descricaoValidate.invalid">*</span>
-      <input
-        type="text"
-        #descricaoValidate="ngModel"
-        class="form-control"
-        id="descricao"
-        name="descricao"
-        [(ngModel)]="material.descricao"
-        required
-        autocomplete="false"
-      />
-    </div>
-
-    <div class="form-group col-md-2">
-      <label>Quantidade desejada</label>
-      <span class="asterisco" *ngIf="qtdValidate.invalid">*</span>
-
-      <div class="input-group">
-        <button type="button" class="btn btn-primary">-</button>
-        <input
-          type="number"
-          #qtdValidate="ngModel"
-          class="form-control"
-          id="qtd"
-          name="qtd"
-          [(ngModel)]="material.quantidadeDesejada"
-          required
-        />
-        <button type="button" class="btn btn-primary">+</button>
-      </div>
     </div>
   </section>
 </form>

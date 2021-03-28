@@ -62,11 +62,11 @@ function validarDia(valor) {
   return valor;
 }
 @Component({
-  selector: 'app-add-filho-materiais',
-  templateUrl: './add-filho-materiais.component.html',
-  styleUrls: ['./add-filho-materiais.component.css']
+  selector: 'app-add-filho',
+  templateUrl: './add-filho.component.html',
+  styleUrls: ['./add-filho.component.css']
 })
-export class AddFilhoMateriaisComponent implements OnInit {
+export class AddFilhoComponent implements OnInit {
 
   filho = new Filho();
   material = new Material();

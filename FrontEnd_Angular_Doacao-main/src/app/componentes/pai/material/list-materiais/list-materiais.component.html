@@ -1,0 +1,25 @@
+<div *ngFor="let item of materiais">
+  <div class="card" style="width: 25rem; float: left; margin-top: 2%">
+    <div class="card-header">
+      <h5 class="card-title">Material: {{ item.descricao }}</h5>
+    </div>
+    <div class="card-body">
+      <div class="row g-2">
+          <div class="form-group col-md-6 mb-3">
+              <img [src]="item.urlFoto" alt="..." width="100" height="100" />
+          </div>  
+        <div class="form-group col-md-1 mb-3 col align-self-center">
+          <input size="1" type="text" readonly class="card-subtitle text-muted fs-4" [(ngModel)]="item.quantidadeDesejada">
+        </div>
+    </div>
+      <div class="btn-toolbar row justify-content-center md-3">
+        <a class="col-4 link-danger" (click)="excluirMaterial()">
+          <i class="bi bi-trash"></i> Excluir
+        </a>
+        <a class="col-4 separa link-primary" (click)="editarMaterial()">
+          <i class="bi bi-vector-pen"></i> Editar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

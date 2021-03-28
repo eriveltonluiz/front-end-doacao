@@ -57,9 +57,23 @@
         <button type="button" class="col-4 btn btn-outline-primary separa">
           <i class="bi bi-person-plus-fill"></i> Editar
         </button>
-        <button type="button" class="col-4 btn btn-outline-warning separa">
+        <button type="button" class="col-4 btn btn-outline-warning separa" data-toggle="modal" data-target="#materiais">
           <i class="bi bi-vector-pen"></i> Materiais
         </button>
+      </div>
+
+      <div class="modal fade" id="materiais" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">Lista de materiais</h4>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <app-list-materiais></app-list-materiais>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
