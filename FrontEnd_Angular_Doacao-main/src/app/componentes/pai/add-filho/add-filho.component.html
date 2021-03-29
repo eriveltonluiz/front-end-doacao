@@ -1,6 +1,6 @@
 <h3 class="display-6 md-3">Cadastro de filhos</h3>
 
-<form style="padding: 10px" #formValidate="ngForm" *ngIf="filho.escola !== null">
+<form style="padding: 10px" #formValidate="ngForm">
   <section class="row g-3 mb-3">
     <div class="form-group col-md-5">
       <label>Nome</label>
@@ -9,8 +9,8 @@
         type="text"
         #nomeValidate="ngModel"
         class="form-control"
-        id="nome"
-        name="nome"
+        id="nomemodal"
+        name="nomemodal"
         [(ngModel)]="filho.nome"
         required
         autocomplete="false"
@@ -26,14 +26,14 @@
           type="text"
           #dataNascimento="ngbDatepicker"
           class="form-control"
-          id="data"
-          name="data"
+          id="datamodal"
+          name="datamodal"
           [minDate]="{ year: 1950, month: 1, day: 1 }"
           [maxDate]="{ year: 2007, month: 12, day: 31 }"
           [(ngModel)]="filho.dataNascimento"
           ngbDatepicker
           required
-          placeholder="dd/mm/yyyy"
+          placeholder="dd/MM/yyyy"
         />
         <button
           type="button"
@@ -78,12 +78,16 @@
 
     <div class="form-group col-md-3">
       <label>Estado</label>
-      <select id="estado" name="estado" [(ngModel)]="estado.id" class="form-control" required>
-        <option [ngValue]="e.id" *ngFor="let e of estados">{{ e.nome }}</option>
+      <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
+      <select id="estado" name="estado" [(ngModel)]="estado.id" class="form-select" required>
+        <option [ngValue]="" selected disabled hidden></option>
+        <option [value]="e.id" *ngFor="let e of estados">{{ e.nome }}</option>
       </select>
     </div>
+
     <div class="form-group col-md-3">
       <label>Descricao</label>
+      <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
       <select id="descricao" name="descricao" [(ngModel)]="escola.descricao" class="form-control" required>
         <option value="" selected>[Selecione]</option>
         <option value="Municipal" selected>Municipal</option>

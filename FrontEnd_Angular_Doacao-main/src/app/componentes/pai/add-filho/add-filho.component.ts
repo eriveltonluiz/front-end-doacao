@@ -72,7 +72,7 @@ function validarDia(valor) {
 export class AddFilhoComponent implements OnInit {
 
   filho = new Filho();
-  material = new Material();
+  material: Material;
   escola = new Escola();
   estado = new Estado();
   estados: Array<Estado>
@@ -117,9 +117,8 @@ export class AddFilhoComponent implements OnInit {
         this.filho = resultado;
         this.escola = this.filho.escola;
         this.estado = this.escola.estado;
+        console.log(this.filho)
       });
-      console.log(this.filho.escola);
-      console.log(this.filho);
     }
   }
 
@@ -136,32 +135,46 @@ export class AddFilhoComponent implements OnInit {
       profissao: "Servente de pedreiro"
     }
 
-    console.log(this.estado.nome);
-    console.log(this.escola);
-    console.log(this.filho);
+    this.filhoService.buscarEstadoPorID(this.estado.id).subscribe({
+      next: (result: Filho) => {
+        this.estado = result;
+        this.escola.estado = this.estado;
 
-    if (this.estado.nome !== null) {
-      this.escola.estado = this.estado;
-      if (this.filho.id === null || this.filho.id === undefined) {
-        this.filhoService.salvarEscola(this.escola).subscribe(resultado => this.escola = resultado);
-        this.filho.escola = this.escola;
-        this.filhoService.salvarFilho(this.filho).subscribe(resultado => this.filho = resultado);
-        console.log(this.filho);
-        alert('Salvo com sucesso!!!');
-        this.novo();
-      } else {
-        this.filhoService.editarEscola(this.escola).subscribe(resultado => this.escola = resultado);
-        this.filho.escola = this.escola;
-        this.filhoService.editarFilho(this.filho).subscribe(resultado => this.filho = resultado);
-        console.log(this.filho);
-        alert('Editado com sucesso!!!')
+        if (this.filho.id === null || this.filho.id === undefined) {
+          
+          this.filhoService.salvarEscola(this.escola).subscribe(resultado => {
+            this.escola = resultado;
+            this.filho.escola = this.escola;
+
+            this.filhoService.salvarFilho(this.filho).subscribe(resultado => {
+              this.filho = resultado;
+              this.novo();
+            });
+          });
+          
+          alert('Salvo com sucesso!!!');
+      
+          console.log(this.filho);
+          console.log(this.escola);
+        } else {
+         
+          this.filhoService.editarEscola(this.escola).subscribe(resultado => {
+            this.escola = resultado;
+          });
+          this.filho.escola = this.escola;
+          
+          this.filhoService.editarFilho(this.filho).subscribe(resultado => this.filho = resultado);
+          console.log(this.filho);
+          alert('Editado com sucesso!!!')
+        }
       }
-    }
-  }
+    });
 
+  }
   novo() {
     this.filho = new Filho();
     this.escola = new Escola();
     this.estado = new Estado();
   }
+
 }

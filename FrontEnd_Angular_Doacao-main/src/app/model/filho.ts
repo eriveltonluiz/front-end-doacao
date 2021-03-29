@@ -4,7 +4,7 @@ export class Filho {
     id: number
     nome: string;
     relato: string;
-    dataNascimento: Date;
+    dataNascimento: String;
     cpf: string;
     pai: Pai;
     escola: Escola;
