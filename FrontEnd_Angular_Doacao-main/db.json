@@ -8,14 +8,27 @@
     {
       "id": 2,
       "descricao": "borracha",
-      "quantidadeDesejada": 4,
       "urlFoto": "/assets/imagens/borracha.png"
     },
     {
       "id": 3,
       "descricao": "Caixa de lápis",
-      "quantidadeDesejada": 2,
       "urlFoto": "/assets/imagens/caixa-de-lapis.png"
+    },
+    {
+      "id": 4,
+      "descricao": "Caderno",
+      "urlFoto": "/assets/imagens/caderno.png"
+    },
+    {
+      "id": 5,
+      "descricao": "Caixa de lápis",
+      "urlFoto": "/assets/imagens/caixa-de-lapis.png"
+    },
+    {
+      "id": 6,
+      "descricao": "Lápis",
+      "urlFoto": "/assets/imagens/lapis.png"
     }
   ],
   "pai": [
@@ -88,7 +101,7 @@
       }
     },
     {
-      "nome": "Luana",
+      "nome": "Luana Santos",
       "dataNascimento": {
         "year": 2007,
         "month": 12,
@@ -108,7 +121,7 @@
       },
       "escola": {
         "nome": "Grevaldo",
-        "descricao": "Municipal",
+        "descricao": "Estadual",
         "estado": {
           "id": 1
         }
@@ -116,7 +129,7 @@
       "id": 2
     }
   ],
-  "crianca_material": [
+  "filho-material": [
     {
       "quantidadeDesejada": 1,
       "quantidadeDoada": 1,

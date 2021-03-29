@@ -4,10 +4,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Escola } from '../model/escola';
 import { Estado } from '../model/estado';
+import { FilhoMaterial } from '../model/filho-material';
+import { Material } from '../model/material';
 
 const baseUrl = 'http://localhost:3000/filho/';
 const baseUrlEstado = 'http://localhost:3000/estado/';
 const baseUrlEscola = 'http://localhost:3000/escola/';
+const baseUrlFilhoMaterial = 'http://localhost:3000/filho-material/';
+const baseUrlMaterial = 'http://localhost:3000/material/';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +24,20 @@ export class FilhoService {
     return this.http.get<Estado[]>(baseUrlEstado);
   }
 
+  listarMateriais(): Observable<Material[]> {
+    return this.http.get<Material[]>(baseUrlMaterial);
+  }
+
   listarFilhos(): Observable<Array<Filho>> {
     return this.http.get<Array<Filho>>(baseUrl);
   }
 
   buscarFilhoPorID(id: number): Observable<Filho>{
     return this.http.get<Filho>(`${baseUrl}/${id}`);
+  }
+
+  listarMateriaisFilho(filho: Filho): Observable<Array<FilhoMaterial>>{
+    return this.http.get<Array<FilhoMaterial>>(`${baseUrlFilhoMaterial}/${filho.id}`)
   }
 
   salvarFilho(filho: Filho): Observable<Filho> {

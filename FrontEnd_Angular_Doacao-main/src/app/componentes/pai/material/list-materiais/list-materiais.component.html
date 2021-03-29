@@ -32,7 +32,7 @@
     <div class="carousel-inner">
       <div
         class="carousel-item"
-        *ngFor="let item of materiais; let i = index; let f = first"
+        *ngFor="let item of materiaisFilho; let i = index; let f = first"
         [ngClass]="{ active: f }"
       >
         <div class="d-flex justify-content-md-center">
@@ -41,13 +41,13 @@
             style="width: 25rem; float: left; margin-top: 2%"
           >
             <div class="card-header">
-              <h5 class="card-title">Material: {{ item.descricao }}</h5>
+              <h5 class="card-title">Material: {{ item.material.descricao }}</h5>
             </div>
             <div class="card-body">
               <div class="row g-2 d-flex justify-content-md-center">
                 <div class="form-group col-md-6 mb-3">
                   <img
-                    [src]="item.urlFoto"
+                    [src]="item.material.urlFoto"
                     alt="..."
                     width="100"
                     height="100"
@@ -111,7 +111,7 @@
         class="form-control"
         id="id"
         name="id"
-        [(ngModel)]="material.id"
+        [(ngModel)]="filho.id"
         readonly
         autocomplete="false"
       />
@@ -125,7 +125,7 @@
         id="material"
         name="material"
         class="form-control"
-        [(ngModel)]="material.id"
+        [(ngModel)]="material.material.id"
         required
         #materialValidate="ngModel"
       >
@@ -150,6 +150,22 @@
         required
         autocomplete="false"
       />
+    </div>
+
+    
+  </section>
+
+  <section class="row g-2">
+    <div class="form-group col-md-3">
+      <button class="btn btn-primary" (click)="novo()">
+        Novo
+      </button>
+    </div>
+
+    <div class="form-group col-md-3">
+      <button class="btn btn-primary">
+        Salvar
+      </button>
     </div>
   </section>
 </form>

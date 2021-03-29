@@ -57,5 +57,4 @@ export class ListFilhoComponent implements OnInit {
       this.filhos.splice(indice, 1);
     }
   }
-
 }

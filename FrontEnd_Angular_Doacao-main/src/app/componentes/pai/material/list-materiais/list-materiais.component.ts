@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { FilhoService } from 'src/app/seviços/filho.service';
+import { FilhoMaterial } from './../../../../model/filho-material';
+import { Component, Input, OnInit } from '@angular/core';
 import { Material } from 'src/app/model/material';
+import { Filho } from 'src/app/model/filho';
 
 @Component({
   selector: 'app-list-materiais',
@@ -7,41 +10,48 @@ import { Material } from 'src/app/model/material';
   styleUrls: ['./list-materiais.component.css']
 })
 export class ListMateriaisComponent implements OnInit {
-  material = new Material();
+  material = new FilhoMaterial();
+
   materialPesquisa = new Material();
 materiais: Array<Material>;
-  constructor() { }
+
+  @Input()
+  filho: Filho;
+
+  materiaisFilho: Array<FilhoMaterial>;
+  constructor(private filhoService: FilhoService) { }
 
   ngOnInit(): void {
     this.materiais = [
       {
         id: 1,
         descricao: 'apontador',
-        quantidadeDesejada: 2,
         urlFoto: '/assets/imagens/apontador.png'
       },
     
       {
         id: 2,
         descricao: 'borracha',
-        quantidadeDesejada: 4,
         urlFoto: '/assets/imagens/borracha.png'
       },
     
       {
         id: 3,
         descricao: 'Caixa de lápis',
-        quantidadeDesejada: 2,
         urlFoto: '/assets/imagens/caixa-de-lapis.png'
       },
     ]
+    this.filhoService.listarMateriaisFilho(this.filho).subscribe(resultado => this.materiaisFilho = resultado);
+    this.filhoService.listarMateriais().subscribe(resultado => this.materiais = resultado);
+    console.log(this.materiais);
+    console.log(this.materiaisFilho)
   }
   
   excluirMaterial(){
 
   }
 
-  editarMaterial(item: Material){
+  editarMaterial(item: FilhoMaterial){
     this.material = item;
   }
 
@@ -50,21 +60,18 @@ materiais: Array<Material>;
       {
         id: 1,
         descricao: 'apontador',
-        quantidadeDesejada: 2,
         urlFoto: '/assets/imagens/apontador.png'
       },
     
       {
         id: 2,
         descricao: 'borracha',
-        quantidadeDesejada: 4,
         urlFoto: '/assets/imagens/borracha.png'
       },
     
       {
         id: 3,
         descricao: 'Caixa de lápis',
-        quantidadeDesejada: 2,
         urlFoto: '/assets/imagens/caixa-de-lapis.png'
       },
     ]
@@ -74,5 +81,9 @@ materiais: Array<Material>;
     console.log(this.materialPesquisa)
     this.materiais = this.materiais.filter(m => m.id === this.materialPesquisa.id);
     console.log(this.materiais);
+  }
+
+  novo(){
+    this.material = new FilhoMaterial();
   }
 }
