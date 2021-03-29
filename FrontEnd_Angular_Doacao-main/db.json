@@ -192,7 +192,7 @@
         "day": 6
       },
       "cpf": "84831845086",
-      "relato": "mnfhgwefggwevbf",
+      "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
       "pai": {
         "id": 1,
         "nome": "Marcos Sauro",
@@ -246,52 +246,120 @@
   ],
   "filhomaterial": [
     {
-      "filho": [
-        {
+      "filho": {
+        "id": 1,
+        "nome": "Marcos",
+        "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+        "dataNascimento": {
+          "year": 2007,
+          "month": 12,
+          "day": 13
+        },
+        "cpf": "13123432543",
+        "pai": {
           "id": 1,
-          "nome": "Marcos",
-          "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
-          "dataNascimento": {
-            "year": 2007,
-            "month": 12,
-            "day": 13
-          },
-          "cpf": "13123432543",
-          "pai": [
-            {
-              "id": 1,
-              "nome": "Marcos Sauro",
-              "email": "sauro@gmail.com",
-              "senha": "ekefsfg3r",
-              "cpf": "13823472143",
-              "fixo": "3142342343",
-              "celular": "86678768760",
-              "profissao": "Servente de pedreiro",
-              "renda": 1000
-            }
-          ],
-          "escola": [
-            {
-              "id": 1,
-              "nome": "Escola Nunes da Silva",
-              "descricao": "Estadual",
-              "estado": [
-                {
-                  "id": 1,
-                  "nome": "Acre"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "material": [
-        {
+          "nome": "Marcos Sauro",
+          "email": "sauro@gmail.com",
+          "senha": "ekefsfg3r",
+          "cpf": "13823472143",
+          "fixo": "3142342343",
+          "celular": "86678768760",
+          "profissao": "Servente de pedreiro",
+          "renda": 1000
+        },
+        "escola": {
           "id": 1,
-          "descricao": "apontador",
-          "urlFoto": "/assets/imagens/apontador.png"
+          "nome": "Escola Nunes da Silva",
+          "descricao": "Estadual",
+          "estado": {
+            "id": 1,
+            "nome": "Acre"
+          }
         }
-      ],
+      },
+      "material": {
+        "id": 1,
+        "descricao": "apontador",
+        "urlFoto": "/assets/imagens/apontador.png"
+      },
+      "quantidadeDesejada": 1,
+      "quantidadeDoada": 1,
+      "statusDoacao": "Confirmado"
+    },
+    {
+      "filho": {
+        "nome": "Luana",
+        "dataNascimento": {
+          "year": 2007,
+          "month": 12,
+          "day": 6
+        },
+        "cpf": "84831845086",
+        "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+        "pai": {
+          "id": 1,
+          "nome": "Marcos Sauro",
+          "email": "sauro@gmail.com",
+          "senha": "ekefsfg3r",
+          "celular": "86678768760",
+          "renda": 1000,
+          "cpf": "13823472143",
+          "profissao": "Servente de pedreiro"
+        },
+        "escola": {
+          "descricao": "Municipal",
+          "nome": "ewrgrejhhjb",
+          "estado": {
+            "id": 1,
+            "nome": "Acre"
+          }
+        },
+        "id": 5
+      },
+      "material": {
+        "id": 2,
+        "descricao": "borracha",
+        "urlFoto": "/assets/imagens/borracha.png"
+      },
+      "quantidadeDesejada": 1,
+      "quantidadeDoada": 1,
+      "statusDoacao": "Confirmado"
+    },
+    {
+      "filho": {
+        "nome": "Luana",
+        "dataNascimento": {
+          "year": 2007,
+          "month": 12,
+          "day": 6
+        },
+        "cpf": "84831845086",
+        "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+        "pai": {
+          "id": 1,
+          "nome": "Marcos Sauro",
+          "email": "sauro@gmail.com",
+          "senha": "ekefsfg3r",
+          "celular": "86678768760",
+          "renda": 1000,
+          "cpf": "13823472143",
+          "profissao": "Servente de pedreiro"
+        },
+        "escola": {
+          "descricao": "Municipal",
+          "nome": "ewrgrejhhjb",
+          "estado": {
+            "id": 1,
+            "nome": "Acre"
+          }
+        },
+        "id": 5
+      },
+      "material": {
+        "id": 4,
+        "descricao": "caderno",
+        "urlFoto": "/assets/imagens/caderno.png"
+      },
       "quantidadeDesejada": 1,
       "quantidadeDoada": 1,
       "statusDoacao": "Confirmado"

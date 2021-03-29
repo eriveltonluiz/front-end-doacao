@@ -48,6 +48,10 @@ export class FilhoService {
     return this.http.get<Array<FilhoMaterial>>(`${baseUrlFilhoMaterial}/${filho.id}`)
   }
 
+  listarMateriaisFilhos(): Observable<Array<FilhoMaterial>>{
+    return this.http.get<Array<FilhoMaterial>>(`${baseUrlFilhoMaterial}`)
+  }
+
   salvarMaterialFilho(filhoMaterial: FilhoMaterial): Observable<FilhoMaterial> {
     return this.http.post<FilhoMaterial>(baseUrlFilhoMaterial, filhoMaterial);
   }

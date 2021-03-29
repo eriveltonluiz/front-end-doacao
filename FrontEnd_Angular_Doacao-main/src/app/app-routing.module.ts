@@ -1,3 +1,4 @@
+import { DoadorModule } from './componentes/doador/doador.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './componentes/login/login.component';
@@ -6,6 +7,7 @@ import { PaiModule } from './componentes/pai/pai.module';
 import { ListFilhoComponent } from './componentes/pai/list-filho/list-filho.component';
 import { AddFilhoComponent } from './componentes/pai/add-filho/add-filho.component';
 import { ListFilhosGeralComponent } from './componentes/doador/list-filhos-geral/list-filhos-geral.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes = [
   {
@@ -47,7 +49,9 @@ const routes = [
   ],
   exports: [
     RouterModule,
-    PaiModule
+    PaiModule,
+    DoadorModule,
+    NgbModule
   ]
 })
 export class AppRoutingModule { }
