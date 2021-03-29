@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { PaiModule } from './componentes/pai/pai.module';
 import { ListFilhoComponent } from './componentes/pai/list-filho/list-filho.component';
 import { AddFilhoComponent } from './componentes/pai/add-filho/add-filho.component';
+import { ListFilhosGeralComponent } from './componentes/doador/list-filhos-geral/list-filhos-geral.component';
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
   {
     path: 'listfilho',
     component: ListFilhoComponent
+  },
+
+  {
+    path: 'listfilhosgeral',
+    component: ListFilhosGeralComponent
   },
 
   {

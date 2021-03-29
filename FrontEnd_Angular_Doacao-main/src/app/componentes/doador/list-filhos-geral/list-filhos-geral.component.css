@@ -1,0 +1,25 @@
+input[type="text"]::placeholder {
+    text-align: center;
+    font-size: 23px;
+    font-style: italic;
+    color: #363636;
+}
+
+.inp{
+    border: none;
+}
+
+.inpu{
+    border-right: 3px solid #E8E8E8;
+}
+
+.inp.middle:focus {
+    outline-width: 0;
+}
+
+.borda{
+    width: 60%;
+    padding: 7px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
