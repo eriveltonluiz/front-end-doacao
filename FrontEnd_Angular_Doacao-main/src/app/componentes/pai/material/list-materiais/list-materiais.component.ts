@@ -1,4 +1,4 @@
-import { FilhoService } from 'src/app/seviços/filho.service';
+import { FilhoService } from 'src/app/serviços/filho.service';
 import { FilhoMaterial } from './../../../../model/filho-material';
 import { Component, Input, OnInit } from '@angular/core';
 import { Material } from 'src/app/model/material';

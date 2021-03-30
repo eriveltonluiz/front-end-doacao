@@ -8,6 +8,8 @@
         <input
           placeholder="Digite seu login"
           required
+          [(ngModel)]="pai.email"
+          name="email"
           type="email"
           class="form-control"
           id="exampleInputEmail1"
@@ -21,6 +23,8 @@
         <input
           type="password"
           required
+          name="senha"
+          [(ngModel)]="pai.senha"
           placeholder="Digite sua senha"
           class="form-control"
           id="exampleInputPassword1"

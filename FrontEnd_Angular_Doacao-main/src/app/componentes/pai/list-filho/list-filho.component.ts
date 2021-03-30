@@ -2,7 +2,7 @@ import { FormatDate } from './../add-filho/add-filho.component';
 import { Material } from 'src/app/model/material';
 import { Component, OnInit } from '@angular/core';
 import { Filho } from 'src/app/model/filho';
-import { FilhoService } from 'src/app/seviços/filho.service';
+import { FilhoService } from 'src/app/serviços/filho.service';
 import { FilhoMaterial } from 'src/app/model/filho-material';
 import { stringify } from '@angular/compiler/src/util';
 
@@ -58,6 +58,7 @@ export class ListFilhoComponent implements OnInit {
 
   ngOnInit(): void {
     //console.log(this.filhos);
+    console.log(localStorage.getItem('id'));
     this.filhoService.listarFilhos().subscribe(resultado => {
       this.filhos = resultado;
       this.filhos.forEach(filho => {

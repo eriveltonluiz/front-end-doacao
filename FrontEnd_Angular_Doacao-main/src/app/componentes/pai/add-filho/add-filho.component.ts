@@ -6,7 +6,7 @@ import { Estado } from 'src/app/model/estado';
 import { Filho } from 'src/app/model/filho';
 import { Material } from 'src/app/model/material';
 import { Pai } from 'src/app/model/pai';
-import { FilhoService } from 'src/app/seviços/filho.service';
+import { FilhoService } from 'src/app/serviços/filho.service';
 
 @Injectable()
 export class FormatDateAdapter extends NgbDateAdapter<string> {
