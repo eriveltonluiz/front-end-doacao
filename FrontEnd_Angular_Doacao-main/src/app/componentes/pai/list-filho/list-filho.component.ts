@@ -1,3 +1,4 @@
+import { FormatDate } from './../add-filho/add-filho.component';
 import { Material } from 'src/app/model/material';
 import { Component, OnInit } from '@angular/core';
 import { Filho } from 'src/app/model/filho';
@@ -59,6 +60,10 @@ export class ListFilhoComponent implements OnInit {
     //console.log(this.filhos);
     this.filhoService.listarFilhos().subscribe(resultado => {
       this.filhos = resultado;
+      this.filhos.forEach(filho => {
+        console.log(typeof filho.dataNascimento)
+        
+      })
       console.log(this.filhos);
     });
   }
@@ -67,6 +72,22 @@ export class ListFilhoComponent implements OnInit {
     this.filhoService.listarMateriaisFilho(this.filho).subscribe(resultado => this.materiaisFilho = resultado);
     this.filhoService.listarMateriais().subscribe(resultado => this.materiais = resultado);
     this.filho = filho;
+    let data = new Date();
+    // let aux = {
+    //   "year": 2007,
+    //   "month": 12,
+    //   "day": 13
+    // }
+    console.log(typeof filho.dataNascimento)
+    console.log(data.getDate().valueOf())
+    console.log(data.getDate())
+    console.log(data)
+    console.log(data.getTime())
+    console.log(data.getTime().valueOf())
+    console.log(data.toTimeString())
+    console.log(data.toString())
+    //console.log(new Date(JSON.stringify(aux.day) + '-' + JSON.stringify(aux.month) + '-' + JSON.stringify(aux.year)))
+    console.log(new Date(data.getDate(),data.getMonth() ,data.getDate()))
   }
 
   excluir(filho: Filho, indice: number){

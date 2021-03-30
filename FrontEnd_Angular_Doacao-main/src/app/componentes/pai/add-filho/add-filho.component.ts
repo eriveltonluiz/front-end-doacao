@@ -67,7 +67,9 @@ function validarDia(valor) {
 @Component({
   selector: 'app-add-filho',
   templateUrl: './add-filho.component.html',
-  styleUrls: ['./add-filho.component.css']
+  styleUrls: ['./add-filho.component.css'],
+  providers: [{ provide: NgbDateParserFormatter, useClass: FormatDate },
+    { provide: NgbDateAdapter, useClass: FormatDateAdapter }]
 })
 export class AddFilhoComponent implements OnInit {
 
@@ -124,6 +126,7 @@ export class AddFilhoComponent implements OnInit {
 
   salvar() {
 
+    console.log(this.filho.dataNascimento);
     this.filho.pai = {
       id: 1,
       nome: "Marcos Sauro",

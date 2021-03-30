@@ -129,11 +129,7 @@
       "id": 1,
       "nome": "Marcos",
       "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
-      "dataNascimento": {
-        "year": 2007,
-        "month": 12,
-        "day": 13
-      },
+      "dataNascimento": "2007-12-03",
       "cpf": "13123432543",
       "pai": {
         "id": 1,
@@ -156,13 +152,9 @@
       }
     },
     {
-      "nome": "Marcos",
-      "dataNascimento": {
-        "year": 2007,
-        "month": 12,
-        "day": 13
-      },
-      "cpf": "84831845086",
+      "nome": "André Betoldi",
+      "dataNascimento": "12/12/2007",
+      "cpf": "34223434234",
       "relato": "csagrsgergeththwrhue6rtjtrhr5ujrhyh",
       "pai": {
         "id": 1,
@@ -176,7 +168,7 @@
       },
       "escola": {
         "descricao": "Estadual",
-        "nome": "Grevaldo",
+        "nome": "Grevaldo Marino",
         "estado": {
           "id": 1,
           "nome": "Acre"
@@ -186,11 +178,7 @@
     },
     {
       "nome": "Luana",
-      "dataNascimento": {
-        "year": 2007,
-        "month": 12,
-        "day": 6
-      },
+      "dataNascimento": "2007-12-03",
       "cpf": "84831845086",
       "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
       "pai": {
@@ -215,11 +203,7 @@
     },
     {
       "nome": "Luana Sant",
-      "dataNascimento": {
-        "year": 2007,
-        "month": 12,
-        "day": 13
-      },
+      "dataNascimento": "2007-12-03",
       "cpf": "57041968022",
       "relato": "fsgrfgwgerg",
       "pai": {
@@ -250,11 +234,7 @@
         "id": 1,
         "nome": "Marcos",
         "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
-        "dataNascimento": {
-          "year": 2007,
-          "month": 12,
-          "day": 13
-        },
+        "dataNascimento": "2007-12-03",
         "cpf": "13123432543",
         "pai": {
           "id": 1,
@@ -289,11 +269,7 @@
     {
       "filho": {
         "nome": "Luana",
-        "dataNascimento": {
-          "year": 2007,
-          "month": 12,
-          "day": 6
-        },
+        "dataNascimento": "2007-12-03",
         "cpf": "84831845086",
         "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
         "pai": {
@@ -328,11 +304,7 @@
     {
       "filho": {
         "nome": "Luana",
-        "dataNascimento": {
-          "year": 2007,
-          "month": 12,
-          "day": 6
-        },
+        "dataNascimento": "2007-12-03",
         "cpf": "84831845086",
         "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
         "pai": {
