@@ -1,9 +1,9 @@
 <p class="fs-4">Procure as crianças mais próximas que precisam da sua ajuda!</p>
-<form #formvalidate="ngForm">
+<form #formvalidate="ngForm" class="mb-3 mt-5">
   <div class="rounded-pill">
     <div class="input-group input-group-lg container-sm borda">
       <input
-      type="text"
+        type="text"
         [(ngModel)]="filtroPesquisa.estado"
         placeholder="Estado"
         required
@@ -11,8 +11,8 @@
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
         name="estado"
-      >
-        <!-- <option selected><span class="selectprim">Estado</span></option>
+      />
+      <!-- <option selected><span class="selectprim">Estado</span></option>
         <option [value]="est.nome" *ngFor="let est of estados">
           {{ est.nome }}
         </option>
@@ -28,16 +28,16 @@
         aria-describedby="basic-addon2"
       />
       <input
-      type="text"
-       [(ngModel)]="filtroPesquisa.material"
+        type="text"
+        [(ngModel)]="filtroPesquisa.material"
         name="material"
         required
         class="form-control inp"
         placeholder="Material escolar"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
-      >
-        <!-- <option selected>
+      />
+      <!-- <option selected>
           <span class="selectprim">Material escolar</span>
         </option>
         <option [value]="mat.descricao" *ngFor="let mat of materiais">
@@ -45,7 +45,7 @@
         </option>
       </select> -->
       <button
-      (click)="print()"
+        (click)="print()"
         type="button"
         [disabled]="formvalidate.invalid"
         class="rounded-pill btn btn-danger"
@@ -56,37 +56,130 @@
   </div>
 </form>
 
-<p class="text-center fs-1 text-danger">Como você pode ajudar</p>
-
-<div *ngFor="let i of materiaisFilho" class="separaprim">
+<div class="d-flex justify-content-center flex-wrap mt-5">
+<div *ngFor="let i of materiaisFilho" class="separaprim ">
   <div
-    class="card contorno"
-    style="width: 26rem; height: 23rem; float: left; margin-top: 2%"
+  class="card contorno mr-5 mb-3"
+  style="width: 26rem; height: 22rem; float: left; margin-top: 2%"
   >
+  <!-- <p class="fs-5 text-danger">Como você pode ajudar:</p> -->
     <div class="card-header row">
-      <div class=" col-md-4">
-      <img [src]="i.filho.urlFoto" class="rounded-circle" width="100" height="100" alt="">
+      <div class="col-md-4">
+        <img
+          [src]="i.filho.urlFoto"
+          class="rounded-circle"
+          width="100"
+          height="100"
+          alt=""
+        />
+      </div>
+      <div class="col-md-8">
+        <h5 class="fs-2 text-dark">{{ i.filho.nome }}</h5>
+        <p class="fs-5 text-dark">{{ i.filho.escola.nome }}</p>
+        <div class="d-flex justify-content-end">
+          <a
+            href="#"
+            data-toggle="modal"
+            (click)="setarMateriaisFilho(i)"
+            href="#modalCadastro"
+            class="link-dark fs-5"
+            >Ver mais</a
+          >
+        </div>
+      </div>
     </div>
-      <div class=" col-md-8">
-      <h5 class="fs-2 text-dark">{{ i.filho.nome }}</h5>
-      <p class="fs-5 text-dark">{{ i.filho.escola.nome }}</p>
-      <div class="d-flex justify-content-end">
-      <a href="#" class="link-dark fs-5">Ver mais</a>
-    </div>
-    </div>
+    <div
+      class="modal fade"
+      id="modalCadastro"
+      tabindex="-1"
+      data-backdrop="static"
+      data-keyboard="false"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">Doação</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="card-header row">
+              <div class="col-md-3">
+                <img
+                  [src]="materialFilho.filho.urlFoto"
+                  class="rounded-circle"
+                  width="100"
+                  height="100"
+                  alt=""
+                />
+                <p class="fs-5 text-dark">{{ materialFilho.filho.escola.nome }}</p>
+              </div>
+              <div class="col-md-8">
+                <h5 class="fs-2 text-dark">{{ materialFilho.filho.nome }}</h5>
+                <p class="card-text fs-5">
+                  Doando todos os materias escolares você permite que
+                  {{ materialFilho.filho.nome }} estude o ano todo
+                </p>
+                <div class="d-flex justify-content-end">
+                  <button
+                    type="button"
+                    class="col-4 btn btn-outline-dark separa"
+                  >
+                    Doar tudo!
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="row text-center mt-5">
+              <h3>Selecione quais materiais quer doar</h3>
+            </div>
+
+            <div class="row d-flex justify-content-center mt-3">
+              <div class="col-md-1 ml-3">
+                <img [src]="materialFilho.material.urlFoto" class="mb-2" alt="" height="60" width="60">
+              </div>
+              
+              <div class="col-md-2 mt-2 ml-2">
+                <label for="">{{ materialFilho.quantidadeDesejada }} {{ materialFilho.material.descricao }}</label>
+              </div>
+
+              <div class="col-md-3">
+              <div class="input-group">
+                <button class="btn btn-outline-dark rounded-circle">-</button>
+                <input min="0" [max]="materialFilho.quantidadeDesejada" type="number" class="col-md-3 inp input-bottom " [(ngModel)]="materialFilho.quantidadeDoada">
+                <button class="btn btn-outline-dark rounded-circle">+</button>
+              </div>
+            </div>
+
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+            <button type="button" class="col-4 btn btn-outline-dark separa">
+              Doar itens selecionados
+            </button>
+          </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="card-body">
-      <p class="card-text fs-5 fst-italic">"Doando todos os materias escolares você permite que {{ i.filho.nome }} estude o ano todo"</p>
+      <p class="card-text fs-5">
+        Doando todos os materias escolares você permite que
+        {{ i.filho.nome }} estude o ano todo
+      </p>
     </div>
-    <div class="btn-toolbar row justify-content-center card-footer">
-      <button
-        type="button"
-        class="col-4 btn btn-outline-dark separa"
-        data-toggle="modal"
-        data-target="#materiais"
-      >
-      <i class="bi bi-check2-all"></i> Doar tudo!
+    <div class="btn-toolbar row justify-content-center">
+      <button type="button" class="col-4 btn btn-outline-dark separa">
+        Doar tudo!
       </button>
     </div>
   </div>
+</div>
 </div>

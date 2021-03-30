@@ -7,6 +7,6 @@ export class Filho {
     dataNascimento: String;
     cpf: string;
     urlFoto: string;
-    pai: Pai;
-    escola: Escola;
+    pai: Pai = new Pai();
+    escola: Escola = new Escola();
 }

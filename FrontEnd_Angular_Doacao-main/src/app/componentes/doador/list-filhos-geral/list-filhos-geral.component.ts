@@ -12,6 +12,7 @@ import { Estado } from 'src/app/model/estado';
 })
 export class ListFilhosGeralComponent implements OnInit {
 
+  materialFilho = new FilhoMaterial();
   filtroPesquisa = new FiltroPesquisa();
   materiaisFilho: FilhoMaterial[] = new Array<FilhoMaterial>();
   materiais: Material[];
@@ -24,6 +25,10 @@ export class ListFilhosGeralComponent implements OnInit {
     });
     this.filhoService.listarMateriais().subscribe(res => this.materiais = res);
     this.filhoService.listarEstados().subscribe(res => this.estados = res);
+  }
+
+  setarMateriaisFilho(materialFilho: FilhoMaterial){
+    this.materialFilho = materialFilho;
   }
 
   print(){

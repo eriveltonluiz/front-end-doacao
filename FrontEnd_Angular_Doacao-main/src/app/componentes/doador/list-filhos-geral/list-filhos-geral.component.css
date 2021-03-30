@@ -1,7 +1,6 @@
 input[type="text"]::placeholder {
     text-align: center;
     font-size: 23px;
-    font-style: italic;
     color: #363636;
 }
 
@@ -11,6 +10,21 @@ input[type="text"]::placeholder {
 
 .inpu{
     border-right: 3px solid #E8E8E8;
+}
+
+.input-bottom{
+    border-bottom: 3px solid #E8E8E8;
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
 }
 
 .inp.middle:focus {
