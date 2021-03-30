@@ -78,6 +78,7 @@ export class AddFilhoComponent implements OnInit {
   escola = new Escola();
   estado = new Estado();
   estados: Array<Estado>
+  imagens: Array<string>;
   // estados = [
   // 'Acre',
   // 'Alagoas',
@@ -111,6 +112,15 @@ export class AddFilhoComponent implements OnInit {
   constructor(private filhoService: FilhoService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.imagens = [
+      
+      "background-image: url(&apos;/assets/imagens/apontador.png&amp;r=g&amp;s=16&apos;);",
+      "background-image: url(&apos;/assets/imagens/borracha.png&amp;r=g&amp;s=16&apos;);",
+      "background-image: url(&apos;/assets/imagens/lapis.png&amp;r=g&amp;s=16&apos;);",
+      "background-image: url(/assets/imagens/grampeador.png);",
+      "background-image: url(&apos;/assets/imagens/caderno.png&amp;r=g&amp;s=16&apos;);",
+      "background-image: url(&apos;/assets/imagens/tesoura.png&amp;r=g&amp;s=16&apos;);"
+    ];
     this.filhoService.listarEstados().subscribe(resultado => this.estados = resultado)
     let id = this.activeRoute.snapshot.paramMap.get('id');
 

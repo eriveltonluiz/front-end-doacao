@@ -1,31 +1,92 @@
 <p class="fs-4">Procure as crianças mais próximas que precisam da sua ajuda!</p>
-
-<div class="rounded-pill">
-<div class="input-group input-group-lg container-sm borda">
-    <input type="text" class="form-control inp inpu" placeholder="Estado" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <input type="text" class="form-control inp inpu" placeholder="Escola" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <input type="text" class="form-control inp " placeholder="Material escolar" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <button type="button" class="rounded-pill btn btn-danger">
+<form #formvalidate="ngForm">
+  <div class="rounded-pill">
+    <div class="input-group input-group-lg container-sm borda">
+      <input
+      type="text"
+        [(ngModel)]="filtroPesquisa.estado"
+        placeholder="Estado"
+        required
+        class="form-control inp inpu"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+        name="estado"
+      >
+        <!-- <option selected><span class="selectprim">Estado</span></option>
+        <option [value]="est.nome" *ngFor="let est of estados">
+          {{ est.nome }}
+        </option>
+      </select> -->
+      <input
+        [(ngModel)]="filtroPesquisa.escola"
+        name="escola"
+        type="text"
+        required
+        placeholder="Escola"
+        class="form-control inp inpu"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+      />
+      <input
+      type="text"
+       [(ngModel)]="filtroPesquisa.material"
+        name="material"
+        required
+        class="form-control inp"
+        placeholder="Material escolar"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+      >
+        <!-- <option selected>
+          <span class="selectprim">Material escolar</span>
+        </option>
+        <option [value]="mat.descricao" *ngFor="let mat of materiais">
+          {{ mat.descricao }}
+        </option>
+      </select> -->
+      <button
+      (click)="print()"
+        type="button"
+        [disabled]="formvalidate.invalid"
+        class="rounded-pill btn btn-danger"
+      >
         <i class="bi bi-search"></i>
       </button>
-</div>
+    </div>
+  </div>
+</form>
 
-</div>
 <p class="text-center fs-1 text-danger">Como você pode ajudar</p>
 
 <div *ngFor="let i of materiaisFilho" class="separaprim">
-    <div class="card contorno" style="width: 26rem; height:23rem; float: left; margin-top: 2%">
-      <div class="card-header">
-        <h5 class="text-center fs-1 text-dark">{{ i.filho.nome }}</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text fs-4 fst-italic">"{{ i.filho.relato }}"</p>
-      </div>
-      <div class="btn-toolbar row justify-content-center card-footer">
-        <button type="button" class="col-4 btn btn-outline-danger separa" data-toggle="modal" data-target="#materiais">
-          <i class="bi bi-vector-pen"></i> Doar
-        </button>
-      </div>
+  <div
+    class="card contorno"
+    style="width: 26rem; height: 23rem; float: left; margin-top: 2%"
+  >
+    <div class="card-header row">
+      <div class=" col-md-4">
+      <img [src]="i.filho.urlFoto" class="rounded-circle" width="100" height="100" alt="">
+    </div>
+      <div class=" col-md-8">
+      <h5 class="fs-2 text-dark">{{ i.filho.nome }}</h5>
+      <p class="fs-5 text-dark">{{ i.filho.escola.nome }}</p>
+      <div class="d-flex justify-content-end">
+      <a href="#" class="link-dark fs-5">Ver mais</a>
+    </div>
+    </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text fs-5 fst-italic">"Doando todos os materias escolares você permite que {{ i.filho.nome }} estude o ano todo"</p>
+    </div>
+    <div class="btn-toolbar row justify-content-center card-footer">
+      <button
+        type="button"
+        class="col-4 btn btn-outline-dark separa"
+        data-toggle="modal"
+        data-target="#materiais"
+      >
+      <i class="bi bi-check2-all"></i> Doar tudo!
+      </button>
     </div>
   </div>
-  
+</div>

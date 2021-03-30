@@ -131,6 +131,7 @@
       "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
       "dataNascimento": "2007-12-03",
       "cpf": "13123432543",
+      "urlFoto": "/assets/imagens/boy.png",
       "pai": {
         "id": 1,
         "nome": "Marcos Sauro",
@@ -156,6 +157,7 @@
       "dataNascimento": "12/12/2007",
       "cpf": "34223434234",
       "relato": "csagrsgergeththwrhue6rtjtrhr5ujrhyh",
+      "urlFoto": "/assets/imagens/boy.png",
       "pai": {
         "id": 1,
         "nome": "Marcos Sauro",
@@ -181,6 +183,7 @@
       "dataNascimento": "2007-12-03",
       "cpf": "84831845086",
       "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+      "urlFoto": "/assets/imagens/girl.png",
       "pai": {
         "id": 1,
         "nome": "Marcos Sauro",
@@ -206,6 +209,7 @@
       "dataNascimento": "2007-12-03",
       "cpf": "57041968022",
       "relato": "fsgrfgwgerg",
+      "urlFoto": "/assets/imagens/girl.png",
       "pai": {
         "id": 1,
         "nome": "Marcos Sauro",
@@ -236,6 +240,7 @@
         "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
         "dataNascimento": "2007-12-03",
         "cpf": "13123432543",
+        "urlFoto": "/assets/imagens/boy.png",
         "pai": {
           "id": 1,
           "nome": "Marcos Sauro",
@@ -272,6 +277,7 @@
         "dataNascimento": "2007-12-03",
         "cpf": "84831845086",
         "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+        "urlFoto": "/assets/imagens/girl.png",
         "pai": {
           "id": 1,
           "nome": "Marcos Sauro",
@@ -284,7 +290,7 @@
         },
         "escola": {
           "descricao": "Municipal",
-          "nome": "ewrgrejhhjb",
+          "nome": "Escola Grevaldo",
           "estado": {
             "id": 1,
             "nome": "Acre"
@@ -307,6 +313,7 @@
         "dataNascimento": "2007-12-03",
         "cpf": "84831845086",
         "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
+        "urlFoto": "/assets/imagens/girl.png",
         "pai": {
           "id": 1,
           "nome": "Marcos Sauro",
@@ -319,7 +326,7 @@
         },
         "escola": {
           "descricao": "Municipal",
-          "nome": "ewrgrejhhjb",
+          "nome": "Escola Grevaldo",
           "estado": {
             "id": 1,
             "nome": "Acre"

@@ -6,6 +6,7 @@ export class Filho {
     relato: string;
     dataNascimento: String;
     cpf: string;
+    urlFoto: string;
     pai: Pai;
     escola: Escola;
 }
