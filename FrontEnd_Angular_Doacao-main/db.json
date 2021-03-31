@@ -35,7 +35,6 @@
     {
       "id": 1,
       "nome": "Marcos Sauro",
-      "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
       "email": "sauro@gmail.com",
       "senha": "ekefsfg3r",
       "celular": "86678768760",
@@ -52,13 +51,13 @@
   ],
   "escola": [
     {
-      "id": 1,
-      "nome": "Escola Nunes da Silva vist",
-      "descricao": "Estadual",
       "estado": {
         "id": 1,
         "nome": "Acre"
-      }
+      },
+      "id": 1,
+      "nome": "Escola Nunes da Silva vist",
+      "descricao": "Estadual"
     },
     {
       "descricao": "Municipal",
@@ -127,9 +126,8 @@
   "filho": [
     {
       "id": 1,
-      "nome": "Marcos",
-      "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
-      "dataNascimento": "2007-12-03",
+      "nome": "Erivelton Luiz",
+      "dataNascimento": "03/12/2007",
       "cpf": "13123432543",
       "urlFoto": "/assets/imagens/boy.png",
       "pai": {
@@ -150,13 +148,18 @@
         "id": 1,
         "nome": "Escola Nunes da Silva vist",
         "descricao": "Estadual"
-      }
+      },
+      "bairro": "Pina",
+      "uf": "PE",
+      "localidade": "Recife",
+      "numero": "81",
+      "logradouro": "Avenida Boa Viagem",
+      "cep": "51011000"
     },
     {
       "nome": "André Betoldi",
       "dataNascimento": "12/12/2007",
       "cpf": "34223434234",
-      "relato": "csagrsgergeththwrhue6rtjtrhr5ujrhyh",
       "urlFoto": "/assets/imagens/boy.png",
       "pai": {
         "id": 1,
@@ -182,7 +185,6 @@
       "nome": "Luana",
       "dataNascimento": "2007-12-03",
       "cpf": "84831845086",
-      "relato": "No momento passo dificuldades com materiais, principalmente com agravamento da pandemia",
       "urlFoto": "/assets/imagens/girl.png",
       "pai": {
         "id": 1,
@@ -208,7 +210,6 @@
       "nome": "Luana Sant",
       "dataNascimento": "2007-12-03",
       "cpf": "57041968022",
-      "relato": "fsgrfgwgerg",
       "urlFoto": "/assets/imagens/girl.png",
       "pai": {
         "id": 1,
@@ -241,6 +242,12 @@
         "dataNascimento": "2007-12-03",
         "cpf": "13123432543",
         "urlFoto": "/assets/imagens/boy.png",
+        "bairro": "Pina",
+      "uf": "PE",
+      "localidade": "Recife",
+      "numero": "81",
+      "logradouro": "Avenida Boa Viagem",
+      "cep": "51011000",
         "pai": {
           "id": 1,
           "nome": "Marcos Sauro",

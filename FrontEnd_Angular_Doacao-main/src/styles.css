@@ -2,6 +2,11 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+.tamanho{
+    width: 100%;
 }
 
 .ng-valid[required], .ng-valid.required{
@@ -13,7 +18,7 @@
 }
 
 .contorno{
-    padding: 30px 15px;
+    padding: 20px 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px;
     
@@ -32,5 +37,28 @@
 }
 
 .marginOpc{
-    margin-top: 30px;
+    margin-top: 27px;
+}
+
+.padd{
+    margin-bottom: 0;
+}
+
+.cent{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: start;
+    align-items: center;
+}
+
+.segunda-coluna:nth-child(even){
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.terceira-coluna:nth-child(odd){
+    margin-left: 15px;
+    margin-bottom: 15px;
 }

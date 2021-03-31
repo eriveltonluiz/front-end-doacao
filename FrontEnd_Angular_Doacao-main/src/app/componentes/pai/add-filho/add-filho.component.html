@@ -1,7 +1,8 @@
 <h3 class="display-6 md-3">Cadastro de filhos</h3>
 
 <form style="padding: 10px" #formValidate="ngForm">
-  <section class="row g-3 mb-3">
+  <main class="container-xl">
+  <section class="row g-3 mb-4">
     <div class="form-group col-md-5">
       <label>Nome</label>
       <span class="asterisco" *ngIf="nomeValidate.invalid">*</span>
@@ -60,7 +61,7 @@
     </div>
   </section>
 
-  <section class="row g-4 mb-3">
+  <section class="row g-4 mb-4">
     <div class="form-group col-md-5">
       <label>Escola</label>
       <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
@@ -121,7 +122,7 @@
     </div>
   </section>
 
-  <section class="row g-5 mb-3">
+  <section class="row g-5 mb-4">
     <div class="col-md-4">
       <label for="">Rua</label>
       <input
@@ -207,4 +208,5 @@
       </button>
     </div>
   </section>
+</main>
 </form>

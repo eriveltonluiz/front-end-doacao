@@ -1,7 +1,7 @@
-<h1 class="display-5 text-center mb-3">Seus filhos</h1>
+<h1 class="display-5 text-center mb-3 tamanho">Seus filhos</h1>
 
 <form class="form-inline">
-  <section class="row g-2 mb-3">
+  <section class="row g-2 mb-3 container">
     <div class="col-md-5">
       <div class="input-group">
         <input
@@ -29,13 +29,14 @@
   </section>
 </form>
 
-<div *ngFor="let item of filhos; let i = index" class="separaprim">
-  <div class="card contorno" style="width: 26rem; height:23rem; float: left; margin-top: 2%">
+<div class="container-sm cent mt-4">
+<div *ngFor="let item of filhos; let i = index" class="segunda-coluna terceira-coluna">
+  <div class="card contorno" style="width: 22rem; height:21rem; float: left; margin-top: 2%">
     <div class="card-header d-flex flex-row bd-highlight mb-3">
-      <div class="col-9">
-      <h5 class="card-title">Nome: {{ item.nome }}</h5>
+      <div class="col-7">
+      <h5 class="card-title">{{ item.nome }}</h5>
     </div>
-      <button type="button" class="col-3 btn btn-outline-primary separa" [routerLink]="[ '/addfilho', item.id]" routerLinkActive="active">
+      <button type="button" class="col-4 btn btn-outline-primary separa ml-4" [routerLink]="[ '/addfilho', item.id]" routerLinkActive="active">
         <i class="bi bi-person-plus-fill"></i> Editar
       </button>
     </div>
@@ -46,7 +47,9 @@
       <h6 class="card-subtitle mb-2 text-muted">
         CPF: {{ item.cpf | mask: "000.000.000-00" }}
       </h6>
-      <p class="card-text">Relato: {{ item.relato }}</p>
+      <p class="card-text padd">Escola: {{ item.escola.nome }}</p>
+      <p class="card-text padd">Bairro residência: {{ item.bairro }}</p>
+      <p class="card-text padd">Cidade: {{ item.localidade }}</p>
       
 
       <div class="modal fade" id="materiais" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -235,13 +238,14 @@
 
     </div>
     <div class="btn-toolbar row card-footer">
-      <button type="button" class="col-3 btn btn-outline-secondary" (click)="excluir(item, i)">
+      <button type="button" class="col-5 btn btn-outline-secondary" (click)="excluir(item, i)">
         <i class="bi bi-trash"></i> Excluir
       </button>
       
-      <button type="button" class="col-4 btn btn-outline-sucess separa" (click)="carregarMateriais(item)" data-toggle="modal" data-target="#materiais">
+      <button type="button" class="col-5 btn btn-outline-success separa" (click)="carregarMateriais(item)" data-toggle="modal" data-target="#materiais">
         <i class="bi bi-vector-pen"></i> Materiais
       </button>
     </div>
   </div>
+</div>
 </div>

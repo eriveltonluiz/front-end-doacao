@@ -212,7 +212,7 @@ export class AddFilhoComponent implements OnInit {
       let validacep = /^[0-9]{8}$/;
 
       if (validacep.test(cep)) {
-        this.filho.logradouro = '657567567...';
+        this.filho.logradouro = 'Carregando...';
         this.filho.numero = '...';
         this.filho.bairro = 'Carregando...';
         this.filho.localidade = 'Carregando...';
