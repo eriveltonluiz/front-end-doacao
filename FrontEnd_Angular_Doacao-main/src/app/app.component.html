@@ -1,13 +1,63 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">LOGO</a>
-    <div class="container-fluid d-flex justify-content-end">
-      <a class="navbar-brand" [routerLink]="[ '/addfilho' ]" routerLinkActive="active">Cadastro</a>
-      <a class="navbar-brand" [routerLink]="[ '/listfilho' ]" routerLinkActive="active">Filhos</a>
-      <a class="navbar-brand" href="#">Dados</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-    </div>
-  </nav>
+<nav [hidden]="esconderMenuPai()" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">LOGO</a>
+  <div class="container-fluid d-flex justify-content-end">
+    <a
+      class="navbar-brand"
+      [routerLink]="['/addfilho']"
+      routerLinkActive="active"
+      >Cadastro</a
+    >
+    <a
+      class="navbar-brand"
+      [routerLink]="['/listfilho']"
+      routerLinkActive="active"
+      >Filhos</a
+    >
+    <a class="navbar-brand" href="#">Dados</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavDarkDropdown"
+      aria-controls="navbarNavDarkDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<nav [hidden]="esconderMenuDoador()" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">LOGO</a>
+  <div class="container-fluid d-flex justify-content-end">
+    <a
+      class="navbar-brand"
+      [routerLink]="['/addfilho']"
+      routerLinkActive="active"
+      >Quem somos</a
+    >
+    <a
+      class="navbar-brand"
+      [routerLink]="['/listfilho']"
+      routerLinkActive="active"
+      >O que fazemos</a
+    >
+    <a class="navbar-brand" href="#">Login</a>
+    <a class="navbar-brand" href="#">Doações</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavDarkDropdown"
+      aria-controls="navbarNavDarkDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+
 <router-outlet></router-outlet>

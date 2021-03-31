@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Escola } from 'src/app/model/escola';
 import { Estado } from 'src/app/model/estado';
@@ -109,9 +109,12 @@ export class AddFilhoComponent implements OnInit {
   // 'Tocantins'
   // ]
 
-  constructor(private filhoService: FilhoService, private activeRoute: ActivatedRoute) { }
+  constructor(private filhoService: FilhoService, private activeRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('id') === null){
+      this.router.navigate(['']);
+    }
     this.imagens = [
       
       "background-image: url(&apos;/assets/imagens/apontador.png&amp;r=g&amp;s=16&apos;);",

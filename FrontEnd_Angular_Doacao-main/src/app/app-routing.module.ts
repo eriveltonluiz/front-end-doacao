@@ -8,11 +8,13 @@ import { ListFilhoComponent } from './componentes/pai/list-filho/list-filho.comp
 import { AddFilhoComponent } from './componentes/pai/add-filho/add-filho.component';
 import { ListFilhosGeralComponent } from './componentes/doador/list-filhos-geral/list-filhos-geral.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthGuardianGuard } from './serviços/auth-guardian.guard';
 
 const routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuardianGuard]
   },
 
   {

@@ -17,6 +17,22 @@ export class AppComponent implements OnInit{
       this.router.navigate([''])
     }
   }
+  
+  esconderMenuPai(): boolean{
+    if(this.router.url !== '/listfilho'){ 
+      if(this.router.url !== '/addfilho'){
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  esconderMenuDoador(): boolean{
+    console.log(this.router.url);
+    if(this.router.url === '/listfilho' || this.router.url === '/addfilho')
+      return true;
+    return false;
+  }
 
   sair(){
     localStorage.clear();

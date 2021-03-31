@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormatDate } from './../add-filho/add-filho.component';
 import { Material } from 'src/app/model/material';
 import { Component, OnInit } from '@angular/core';
@@ -54,11 +55,14 @@ export class ListFilhoComponent implements OnInit {
   //   }
   // ]
 
-  constructor(private filhoService: FilhoService) { }
+  constructor(private filhoService: FilhoService, private router: Router) { }
 
   ngOnInit(): void {
     //console.log(this.filhos);
-    console.log(localStorage.getItem('id'));
+    //console.log(localStorage.getItem('id'));
+    if(localStorage.getItem('id') === null){
+      this.router.navigate(['']);
+    }
     this.filhoService.listarFilhos().subscribe(resultado => {
       this.filhos = resultado;
       this.filhos.forEach(filho => {
