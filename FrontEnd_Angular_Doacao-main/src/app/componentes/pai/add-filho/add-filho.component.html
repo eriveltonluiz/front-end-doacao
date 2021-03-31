@@ -60,7 +60,7 @@
     </div>
   </section>
 
-  <section class="row g-3 mb-3">
+  <section class="row g-4 mb-3">
     <div class="form-group col-md-5">
       <label>Escola</label>
       <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
@@ -76,39 +76,106 @@
       />
     </div>
 
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
       <label>Estado</label>
       <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
-      <select id="estado" name="estado" [(ngModel)]="estado.id" class="form-select" required>
+      <select
+        id="estado"
+        name="estado"
+        [(ngModel)]="estado.id"
+        class="form-select"
+        required
+      >
         <option [ngValue]="" selected disabled hidden></option>
         <option [value]="e.id" *ngFor="let e of estados">{{ e.nome }}</option>
       </select>
     </div>
 
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
       <label>Descricao</label>
       <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
-      <select id="descricao" name="descricao" [(ngModel)]="escola.descricao" class="form-control" required>
+      <select
+        id="descricao"
+        name="descricao"
+        [(ngModel)]="escola.descricao"
+        class="form-control"
+        required
+      >
         <option value="" selected>[Selecione]</option>
         <option value="Municipal" selected>Municipal</option>
         <option value="Estadual" selected>Estadual</option>
       </select>
     </div>
+
+    <div class="col-2 marginOpc">
+      <label for="">CEP</label>
+      <input
+        class="form-control"
+        type="text"
+        mask="99999-999||99999"
+        id="cep"
+        name="cep"
+        [(ngModel)]="filho.cep"
+      />
+    </div>
   </section>
 
-  <div class="mb-3">
-    <label for="relato" class="form-label">Relato</label>
-    <span class="asterisco" *ngIf="relatoValidate">*</span>
-    <textarea
-      class="form-control"
-      id="relato"
-      name="relato"
-      #relatoValidate="ngModel"
-      required
-      rows="3"
-      [(ngModel)]="filho.relato"
-    ></textarea>
-  </div>
+  <section class="row g-5 mb-3">
+    <div class="col-md-4">
+      <label for="">Rua</label>
+      <input
+        class="form-control"
+        type="text"
+        id="rua"
+        name="logradouro"
+        [(ngModel)]="filho.logradouro"
+      />
+    </div>
+
+    <div class="col-md-1">
+      <label for="">Número</label>
+      <input
+        class="form-control"
+        type="text"
+        id="numero"
+        name="numero"
+        [(ngModel)]="filho.numero"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label for="">Bairro</label>
+      <input
+        class="form-control"
+        type="text"
+        id="bairro"
+        name="bairro"
+        [(ngModel)]="filho.bairro"
+      />
+    </div>
+
+    <div class="col-md-2">
+      <label for="">Cidade</label>
+      <input
+        class="form-control"
+        type="text"
+        id="cidade"
+        name="localidade"
+        [(ngModel)]="filho.localidade"
+      />
+    </div>
+
+    <div class="col-md-1">
+      <label for="">UF</label>
+      <input
+        class="form-control"
+        type="text"
+        id="rua"
+        name="logradouro"
+        [(ngModel)]="filho.uf"
+      />
+    </div>
+  </section>
 
   <!-- <div class="form-group col-md-3">
     <label>Estado</label>
