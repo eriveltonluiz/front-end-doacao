@@ -6,6 +6,7 @@ import { Escola } from '../model/escola';
 import { Estado } from '../model/estado';
 import { FilhoMaterial } from '../model/filho-material';
 import { Material } from '../model/material';
+import { Cep } from '../model/cep';
 
 const baseUrl = 'http://localhost:3000/filho/';
 const baseUrlEstado = 'http://localhost:3000/estado/';
@@ -19,6 +20,10 @@ const baseUrlMaterial = 'http://localhost:3000/material/';
 export class FilhoService {
 
   constructor(private http: HttpClient) { }
+
+  consultaCep(cep: string): Observable<Cep>{
+    return this.http.get<Cep>(`https://viacep.com.br/ws/${cep}/json/`);
+  }
 
   listarEstados(): Observable<Estado[]> {
     return this.http.get<Estado[]>(baseUrlEstado);

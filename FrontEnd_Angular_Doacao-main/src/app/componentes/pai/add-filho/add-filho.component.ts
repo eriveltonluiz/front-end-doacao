@@ -1,6 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Cep } from 'src/app/model/cep';
 import { Escola } from 'src/app/model/escola';
 import { Estado } from 'src/app/model/estado';
 import { Filho } from 'src/app/model/filho';
@@ -69,7 +70,7 @@ function validarDia(valor) {
   templateUrl: './add-filho.component.html',
   styleUrls: ['./add-filho.component.css'],
   providers: [{ provide: NgbDateParserFormatter, useClass: FormatDate },
-    { provide: NgbDateAdapter, useClass: FormatDateAdapter }]
+  { provide: NgbDateAdapter, useClass: FormatDateAdapter }]
 })
 export class AddFilhoComponent implements OnInit {
 
@@ -112,11 +113,11 @@ export class AddFilhoComponent implements OnInit {
   constructor(private filhoService: FilhoService, private activeRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('id') === null){
+    if (localStorage.getItem('id') === null) {
       this.router.navigate(['']);
     }
     this.imagens = [
-      
+
       "background-image: url(&apos;/assets/imagens/apontador.png&amp;r=g&amp;s=16&apos;);",
       "background-image: url(&apos;/assets/imagens/borracha.png&amp;r=g&amp;s=16&apos;);",
       "background-image: url(&apos;/assets/imagens/lapis.png&amp;r=g&amp;s=16&apos;);",
@@ -157,7 +158,7 @@ export class AddFilhoComponent implements OnInit {
         this.escola.estado = this.estado;
 
         if (this.filho.id === null || this.filho.id === undefined) {
-          
+
           this.filhoService.salvarEscola(this.escola).subscribe(resultado => {
             this.escola = resultado;
             this.filho.escola = this.escola;
@@ -167,18 +168,18 @@ export class AddFilhoComponent implements OnInit {
               this.novo();
             });
           });
-          
+
           alert('Salvo com sucesso!!!');
-      
+
           console.log(this.filho);
           console.log(this.escola);
         } else {
-         
+
           this.filhoService.editarEscola(this.escola).subscribe(resultado => {
             this.escola = resultado;
           });
           this.filho.escola = this.escola;
-          
+
           this.filhoService.editarFilho(this.filho).subscribe(resultado => this.filho = resultado);
           console.log(this.filho);
           alert('Editado com sucesso!!!')
@@ -191,6 +192,49 @@ export class AddFilhoComponent implements OnInit {
     this.filho = new Filho();
     this.escola = new Escola();
     this.estado = new Estado();
+  }
+
+  limpa_formulario_cep() {
+    this.filho.bairro = '';
+    this.filho.uf = '';
+    this.filho.localidade = '';
+    this.filho.numero = '';
+    this.filho.logradouro = '';
+  }
+
+  consultaCep(cep: string) {
+    this.limpa_formulario_cep();
+    let cepObj: Cep = new Cep();
+    cep = cep.replace(/\D/g, '');
+
+    if (cep != "") {
+
+      let validacep = /^[0-9]{8}$/;
+
+      if (validacep.test(cep)) {
+        this.filho.logradouro = '657567567...';
+        this.filho.numero = '...';
+        this.filho.bairro = 'Carregando...';
+        this.filho.localidade = 'Carregando...';
+        this.filho.uf = '...';
+        this.filhoService.consultaCep(cep).subscribe({
+          next: dados => {
+            cepObj = dados;
+            //console.log(cepObj);
+            if (cepObj.bairro === null || cepObj.bairro === undefined) {
+              alert("CEP não encontrado."); this.limpa_formulario_cep();
+              this.filho.cep = '';
+            } else {
+              this.filho.bairro = cepObj.bairro;
+              this.filho.uf = cepObj.uf;
+              this.filho.localidade = cepObj.localidade;
+              this.filho.numero = cepObj.ddd;
+              this.filho.logradouro = cepObj.logradouro;
+            }
+          }
+        })
+      }
+    }
   }
 
 }

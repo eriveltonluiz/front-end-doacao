@@ -113,6 +113,7 @@
         class="form-control"
         type="text"
         mask="99999-999||99999"
+        (blur)="consultaCep($event.target.value)"
         id="cep"
         name="cep"
         [(ngModel)]="filho.cep"
@@ -126,7 +127,7 @@
       <input
         class="form-control"
         type="text"
-        id="rua"
+        id="logradouro"
         name="logradouro"
         [(ngModel)]="filho.logradouro"
       />
