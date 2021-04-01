@@ -109,18 +109,15 @@ export class AddFilhoComponent implements OnInit {
   // 'Tocantins'
   // ]
 
-  constructor(private filhoService: FilhoService, private activeRoute: ActivatedRoute, private router: Router) { }
+  constructor(private filhoService: FilhoService,
+    private activeRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('id') === null) {
       this.router.navigate(['']);
-      console.log(this.router.url)
-    } else{
-      console.log(this.router.url)
-
     }
     this.imagens = [
-
       "/assets/boys/boy-1.png",
       "/assets/boys/boy-2.png",
       "/assets/boys/boy-4.png",
@@ -134,7 +131,7 @@ export class AddFilhoComponent implements OnInit {
       "/assets/girls/girl-25.png",
       "/assets/girls/girl.png",
     ];
-    this.filhoService.listarEstados().subscribe(resultado => this.estados = resultado)
+    this.filhoService.listarEstados().subscribe(resultado => this.estados = resultado);
     let id = this.activeRoute.snapshot.paramMap.get('id');
 
     if (id !== null) {
@@ -142,18 +139,11 @@ export class AddFilhoComponent implements OnInit {
         this.filho = resultado;
         this.escola = this.filho.escola;
         this.estado = this.escola.estado;
-        console.log(this.filho)
       });
     }
   }
 
-  t(){
-    console.log(this.filho.urlFoto);
-  }
-
   salvar() {
-
-    console.log(this.filho.dataNascimento);
     this.filho.pai = {
       id: 1,
       nome: "Marcos Sauro",
@@ -163,7 +153,7 @@ export class AddFilhoComponent implements OnInit {
       renda: 1000,
       cpf: "13823472143",
       profissao: "Servente de pedreiro"
-    }
+    };
 
     this.filhoService.buscarEstadoPorID(this.estado.id).subscribe({
       next: (result: Filho) => {
@@ -184,8 +174,6 @@ export class AddFilhoComponent implements OnInit {
 
           alert('Salvo com sucesso!!!');
 
-          console.log(this.filho);
-          console.log(this.escola);
         } else {
 
           this.filhoService.editarEscola(this.escola).subscribe(resultado => {
@@ -194,13 +182,12 @@ export class AddFilhoComponent implements OnInit {
           this.filho.escola = this.escola;
 
           this.filhoService.editarFilho(this.filho).subscribe(resultado => this.filho = resultado);
-          console.log(this.filho);
           alert('Editado com sucesso!!!')
         }
       }
     });
-
   }
+  
   novo() {
     this.filho = new Filho();
     this.escola = new Escola();
@@ -208,11 +195,11 @@ export class AddFilhoComponent implements OnInit {
   }
 
   limpa_formulario_cep() {
-    this.filho.bairro = '';
-    this.filho.uf = '';
-    this.filho.localidade = '';
-    this.filho.numero = '';
-    this.filho.logradouro = '';
+    this.escola.bairro = '';
+    this.escola.uf = '';
+    this.escola.localidade = '';
+    this.escola.numero = '';
+    this.escola.logradouro = '';
   }
 
   consultaCep(cep: string) {
@@ -225,24 +212,24 @@ export class AddFilhoComponent implements OnInit {
       let validacep = /^[0-9]{8}$/;
 
       if (validacep.test(cep)) {
-        this.filho.logradouro = 'Carregando...';
-        this.filho.numero = '...';
-        this.filho.bairro = 'Carregando...';
-        this.filho.localidade = 'Carregando...';
-        this.filho.uf = '...';
+        this.escola.logradouro = 'Carregando...';
+        this.escola.numero = '...';
+        this.escola.bairro = 'Carregando...';
+        this.escola.localidade = 'Carregando...';
+        this.escola.uf = '...';
         this.filhoService.consultaCep(cep).subscribe({
           next: dados => {
             cepObj = dados;
             //console.log(cepObj);
             if (cepObj.bairro === null || cepObj.bairro === undefined) {
               alert("CEP não encontrado."); this.limpa_formulario_cep();
-              this.filho.cep = '';
+              this.escola.cep = '';
             } else {
-              this.filho.bairro = cepObj.bairro;
-              this.filho.uf = cepObj.uf;
-              this.filho.localidade = cepObj.localidade;
-              this.filho.numero = cepObj.ddd;
-              this.filho.logradouro = cepObj.logradouro;
+              this.escola.bairro = cepObj.bairro;
+              this.escola.uf = cepObj.uf;
+              this.escola.localidade = cepObj.localidade;
+              this.escola.numero = cepObj.ddd;
+              this.escola.logradouro = cepObj.logradouro;
             }
           }
         })

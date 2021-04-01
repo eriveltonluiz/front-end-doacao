@@ -1,5 +1,5 @@
 <div class="card-header row">
-    <div class="col-md-3">
+    <div class="ml-5 col-md-2">
       <img
         [src]="materialFilho.filho.urlFoto"
         class="rounded-circle"
@@ -50,7 +50,7 @@
   </div>
 
   <div class="d-flex justify-content-center mt-3">
-  <button type="button" class="col-4 btn btn-outline-dark separa">
+  <button type="button" class="col-4 btn btn-outline-dark separa" (click)="confirmarDoacao(materialFilho)">
     Doar itens selecionados
   </button>
 </div>

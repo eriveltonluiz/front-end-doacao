@@ -7,12 +7,6 @@ export class Filho {
     dataNascimento: String;
     cpf: string;
     urlFoto: string;
-    cep: string;
-    logradouro: string;
-    bairro: string;
-    localidade: string;
-    uf: string;
-    numero: string;
     pai: Pai = new Pai();
     escola: Escola = new Escola();
 }

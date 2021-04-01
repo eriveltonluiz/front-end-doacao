@@ -1,1 +1,20 @@
-<p>doacao-confirmada works!</p>
+<main class="container-xl">
+    <h3 class="mb-5 mt-5">Lista de itens doado:</h3>
+    <div class="row text-center mt-5 mb-5">
+        <div class="col-md-3 ml-3">
+            <img [src]="materialFilho.material.urlFoto" class="mb-2" alt="" height="120" width="120">
+          </div>
+          
+          <div class="col-md-2 mt-2 ml-2">
+            <h3>{{ materialFilho.quantidadeDesejada }} {{ materialFilho.material.descricao }}</h3>
+          </div>
+    </div>
+
+    <div>
+        <p>Para: {{ materialFilho.filho.nome }} e responsável {{ materialFilho.filho.pai.nome }}</p>
+        <p>Endereço da escola: Rua {{ materialFilho.filho.escola.logradouro }}, {{ materialFilho.filho.escola.numero }}</p>
+        <p>CEP: {{ materialFilho.filho.escola.cep }}</p>
+        <p>{{ materialFilho.filho.escola.uf }} - {{ materialFilho.filho.escola.localidade }}</p>
+        <p>Contato: {{ materialFilho.filho.pai.celular }}</p>
+    </div>
+</main>

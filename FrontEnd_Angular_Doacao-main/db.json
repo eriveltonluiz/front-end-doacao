@@ -148,13 +148,7 @@
         "id": 1,
         "nome": "Escola Nunes da Silva vist",
         "descricao": "Estadual"
-      },
-      "bairro": "Pina",
-      "uf": "PE",
-      "localidade": "Recife",
-      "numero": "81",
-      "logradouro": "Avenida Boa Viagem",
-      "cep": "51011000"
+      }
     },
     {
       "nome": "André Betoldi",
@@ -242,12 +236,6 @@
         "dataNascimento": "2007-12-03",
         "cpf": "13123432543",
         "urlFoto": "/assets/imagens/boy.png",
-        "bairro": "Pina",
-        "uf": "PE",
-        "localidade": "Recife",
-        "numero": "81",
-        "logradouro": "Avenida Boa Viagem",
-        "cep": "51011000",
         "pai": {
           "id": 1,
           "nome": "Marcos Sauro",
@@ -263,6 +251,12 @@
           "id": 1,
           "nome": "Escola Nunes da Silva",
           "descricao": "Estadual",
+          "bairro": "Pina",
+          "uf": "PE",
+          "localidade": "Recife",
+          "numero": "81",
+          "logradouro": "Avenida Boa Viagem",
+          "cep": "51011000",
           "estado": {
             "id": 1,
             "nome": "Acre"
@@ -298,6 +292,12 @@
         "escola": {
           "descricao": "Municipal",
           "nome": "Escola Grevaldo",
+          "bairro": "Pina",
+          "uf": "PE",
+          "localidade": "Recife",
+          "numero": "81",
+          "logradouro": "Avenida Boa Viagem",
+          "cep": "51011000",
           "estado": {
             "id": 1,
             "nome": "Acre"
@@ -334,6 +334,12 @@
         "escola": {
           "descricao": "Municipal",
           "nome": "Escola Grevaldo",
+          "bairro": "Pina",
+          "uf": "PE",
+          "localidade": "Recife",
+          "numero": "81",
+          "logradouro": "Avenida Boa Viagem",
+          "cep": "51011000",
           "estado": {
             "id": 1,
             "nome": "Acre"
