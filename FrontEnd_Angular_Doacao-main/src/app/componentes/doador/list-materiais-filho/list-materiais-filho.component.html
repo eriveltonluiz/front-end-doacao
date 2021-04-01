@@ -1,0 +1,56 @@
+<div class="card-header row">
+    <div class="col-md-3">
+      <img
+        [src]="materialFilho.filho.urlFoto"
+        class="rounded-circle"
+        width="100"
+        height="100"
+        alt=""
+      />
+      <p class="fs-5 text-dark">{{ materialFilho.filho.escola.nome }}</p>
+    </div>
+    <div class="col-md-8">
+      <h5 class="fs-2 text-dark">{{ materialFilho.filho.nome }}</h5>
+      <p class="card-text fs-5">
+        Doando todos os materias escolares você permite que
+        {{ materialFilho.filho.nome }} estude o ano todo
+      </p>
+      <div class="d-flex justify-content-end">
+        <button
+          type="button"
+          class="col-4 btn btn-outline-dark separa"
+        >
+          Doar tudo!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center mt-5">
+    <h3>Selecione quais materiais quer doar</h3>
+  </div>
+
+  <div class="row d-flex justify-content-center mt-3">
+    <div class="col-md-1 ml-3">
+      <img [src]="materialFilho.material.urlFoto" class="mb-2" alt="" height="60" width="60">
+    </div>
+    
+    <div class="col-md-2 mt-2 ml-2">
+      <label for="">{{ materialFilho.quantidadeDesejada }} {{ materialFilho.material.descricao }}</label>
+    </div>
+
+    <div class="col-md-3">
+    <div class="input-group">
+      <button class="btn btn-outline-dark rounded-circle">-</button>
+      <input min="0" [max]="materialFilho.quantidadeDesejada" type="number" class="col-md-2 inp input-bottom " [(ngModel)]="materialFilho.quantidadeDoada">
+      <button class="btn btn-outline-dark rounded-circle">+</button>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="d-flex justify-content-center mt-3">
+  <button type="button" class="col-4 btn btn-outline-dark separa">
+    Doar itens selecionados
+  </button>
+</div>

@@ -1,9 +1,11 @@
+import { DataService } from './../../../serviços/data.service';
 import { FiltroPesquisa } from './../../../model/filtro-pesquisa';
 import { FilhoMaterial } from 'src/app/model/filho-material';
 import { Component, OnInit } from '@angular/core';
 import { FilhoService } from 'src/app/serviços/filho.service';
 import { Material } from 'src/app/model/material';
 import { Estado } from 'src/app/model/estado';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-filhos-geral',
@@ -17,7 +19,7 @@ export class ListFilhosGeralComponent implements OnInit {
   materiaisFilho: FilhoMaterial[] = new Array<FilhoMaterial>();
   materiais: Material[];
   estados: Estado[] = new Array<Estado>();
-  constructor(private filhoService: FilhoService) { }
+  constructor(private filhoService: FilhoService, private router: Router, private dataService: DataService) { }
 
   ngOnInit(): void {
     this.filhoService.listarMateriaisFilhos().subscribe(result => {
@@ -29,6 +31,13 @@ export class ListFilhosGeralComponent implements OnInit {
 
   setarMateriaisFilho(materialFilho: FilhoMaterial){
     this.materialFilho = materialFilho;
+    const navigationExtras: NavigationExtras = {
+      state: {
+        materialFilho
+      }
+    };
+    this.dataService.setFilho(materialFilho);
+    this.router.navigate(['/doacao'])
   }
 
   print(){

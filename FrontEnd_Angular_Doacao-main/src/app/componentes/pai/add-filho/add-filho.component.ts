@@ -118,12 +118,12 @@ export class AddFilhoComponent implements OnInit {
     }
     this.imagens = [
 
-      "background-image: url(&apos;/assets/imagens/apontador.png&amp;r=g&amp;s=16&apos;);",
-      "background-image: url(&apos;/assets/imagens/borracha.png&amp;r=g&amp;s=16&apos;);",
-      "background-image: url(&apos;/assets/imagens/lapis.png&amp;r=g&amp;s=16&apos;);",
-      "background-image: url(/assets/imagens/grampeador.png);",
-      "background-image: url(&apos;/assets/imagens/caderno.png&amp;r=g&amp;s=16&apos;);",
-      "background-image: url(&apos;/assets/imagens/tesoura.png&amp;r=g&amp;s=16&apos;);"
+      "/assets/imagens/apontador.png",
+      "/assets/imagens/borracha.png",
+      "/assets/imagens/lapis.png",
+      // "background-image: url(/assets/imagens/grampeador.png);",
+      "/assets/imagens/caderno.png",
+      "/assets/imagens/tesoura.png"
     ];
     this.filhoService.listarEstados().subscribe(resultado => this.estados = resultado)
     let id = this.activeRoute.snapshot.paramMap.get('id');

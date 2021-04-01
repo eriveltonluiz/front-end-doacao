@@ -1,0 +1,5 @@
+nav{
+    background: linear-gradient(180deg, #083D5E 0%, #07293E 100%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.75));
+    height: 75px;
+}

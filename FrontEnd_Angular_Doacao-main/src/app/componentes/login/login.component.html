@@ -1,39 +1,40 @@
-<div class="container ">
-<form class="row justify-content-end " #formValidate="ngForm">
-    <div class="contorno form-group col-md-4">
-      <div class="form-group">
-        <label for="exampleInputEmail1" class="form-label fw-bold fs-5"
-          >Email</label
-        >
+<form >
+  <section class="row ajuste">
+    <div class="col-md-8 imagem">
+      
+    </div>
+    <div class="col-md-4" style="background: linear-gradient(180deg, #0F5783 0%, #083D5E 100%);">
+    <div class="form-group row justify-content-md-center">
+      <label for="" class="text-light fs-3 mb-3 mt-3" style="text-align:center">Login</label>
+      <div class="form-group col-md-10 mt-4">
         <input
           placeholder="Digite seu login"
           required
           [(ngModel)]="pai.email"
           name="email"
           type="email"
-          class="form-control"
+          style="height: 40px;"
+          class="form-control mb-2"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
         />
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1" class="form-label fw-bold fs-5"
-          >Senha</label
-        >
+      <div class="form-group col-md-10">
+        
         <input
           type="password"
           required
           name="senha"
+          style="height: 40px;"
+          class="col-md-3 input-sm form-control"
           [(ngModel)]="pai.senha"
           placeholder="Digite sua senha"
-          class="form-control"
           id="exampleInputPassword1"
         />
       </div>
   
-      <button type="submit" class="largo btn btn-primary center" (click)="acessar()">Acessar</button>
+      <button type="submit" class="col-md-9 mt-3 mb-3 btn btn-primary center" (click)="acessar()">Acessar</button>
       <div class="form-group row justify-content-md-center">
-        <a href="#" class="text-primary col-md-auto">Esqueceu a senha?</a>
         <a
           data-toggle="modal"
           href="#modalCadastro"
@@ -55,5 +56,6 @@
         </div>
       </div>
     </div>
-  </form>
   </div>
+  </section>
+  </form>

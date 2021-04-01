@@ -1,3 +1,4 @@
+import { ListMateriaisFilhoComponent } from './componentes/doador/list-materiais-filho/list-materiais-filho.component';
 import { DoadorModule } from './componentes/doador/doador.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -25,6 +26,11 @@ const routes = [
   {
     path: 'listfilhosgeral',
     component: ListFilhosGeralComponent
+  },
+
+  {
+    path: 'doacao',
+    component: ListMateriaisFilhoComponent
   },
 
   {

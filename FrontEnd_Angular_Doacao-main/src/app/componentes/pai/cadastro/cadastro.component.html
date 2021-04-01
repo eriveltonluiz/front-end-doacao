@@ -71,16 +71,16 @@
 
   <section class="row g-2 mb-3">
     <div class="form-group col-md-6">
-      <label for="id">Telefone Fixo</label>
-      <span class="asterisco" ></span>
+      <label for="id">Renda</label>
+      <span class="asterisco" *ngIf="rendaValidate.invalid">*</span>
       <input
-        type="text"
+        type="number"
         class="form-control"
-        #fixoValidate="ngModel"
-        [(ngModel)]="pai.fixo"
-        mask="(00) 0000-0000"
-        id="fixo"
-        name="fixo"
+        #rendaValidate="ngModel"
+        [(ngModel)]="pai.renda"
+        id="renda"
+        name="renda"
+        required
         autocomplete="false"
       />
     </div>
@@ -102,37 +102,9 @@
     </div>
   </section>
 
-  <section class="row g-2 mb-3">
-    <div class="form-group col-md-6">
-      <label for="id">Profissão</label>
-      <span class="asterisco" *ngIf="profissaoValidate.invalid">*</span>
-      <input
-        type="text"
-        class="form-control"
-        #profissaoValidate="ngModel"
-        [(ngModel)]="pai.profissao"
-        id="profissao"
-        name="profissao"
-        required
-        autocomplete="false"
-      />
-    </div>
-
-    <div class="form-group col-md-6">
-      <label for="id">Renda</label>
-      <span class="asterisco" *ngIf="rendaValidate.invalid">*</span>
-      <input
-        type="number"
-        class="form-control"
-        #rendaValidate="ngModel"
-        [(ngModel)]="pai.renda"
-        id="renda"
-        name="renda"
-        required
-        autocomplete="false"
-      />
-    </div>
-  </section>
+  <select name="" id="">
+    <option value="">guyguyguvu</option>
+  </select>
 
   <div class="modal-footer justify-content-center">
     <button type="button" class="col-4 btn btn-primary" [disabled]="formValidate.invalid">Cadastre-se</button>

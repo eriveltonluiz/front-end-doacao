@@ -2,184 +2,190 @@
 
 <form style="padding: 10px" #formValidate="ngForm">
   <main class="container-xl">
-  <section class="row g-3 mb-4">
-    <div class="form-group col-md-5">
-      <label>Nome</label>
-      <span class="asterisco" *ngIf="nomeValidate.invalid">*</span>
-      <input
-        type="text"
-        #nomeValidate="ngModel"
-        class="form-control"
-        id="nomemodal"
-        name="nomemodal"
-        [(ngModel)]="filho.nome"
-        required
-        autocomplete="false"
-      />
-    </div>
-
-    <div class="form-group col-md-3">
-      <label>Data Nascimento</label>
-      <span class="asterisco" *ngIf="dataNascimento">*</span>
-
-      <div class="input-group">
+    <section class="row g-3 mb-4">
+      <div class="form-group col-md-5">
+        <label>Nome</label>
+        <span class="asterisco" *ngIf="nomeValidate.invalid">*</span>
         <input
           type="text"
-          #dataNascimento="ngbDatepicker"
+          #nomeValidate="ngModel"
           class="form-control"
-          id="datamodal"
-          name="datamodal"
-          [minDate]="{ year: 1950, month: 1, day: 1 }"
-          [maxDate]="{ year: 2007, month: 12, day: 31 }"
-          [(ngModel)]="filho.dataNascimento"
-          ngbDatepicker
+          id="nomemodal"
+          name="nomemodal"
+          [(ngModel)]="filho.nome"
           required
-          placeholder="dd/MM/yyyy"
+          autocomplete="false"
         />
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="dataNascimento.toggle()"
-        ></button>
       </div>
+
+      <div class="form-group col-md-3">
+        <label>Data Nascimento</label>
+        <span class="asterisco" *ngIf="dataNascimento">*</span>
+
+        <div class="input-group">
+          <input
+            type="text"
+            #dataNascimento="ngbDatepicker"
+            class="form-control"
+            id="datamodal"
+            name="datamodal"
+            [minDate]="{ year: 1950, month: 1, day: 1 }"
+            [maxDate]="{ year: 2007, month: 12, day: 31 }"
+            [(ngModel)]="filho.dataNascimento"
+            ngbDatepicker
+            required
+            placeholder="dd/MM/yyyy"
+          />
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="dataNascimento.toggle()"
+          ></button>
+        </div>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label>CPF</label>
+        <span class="asterisco" *ngIf="cpfValidate">*</span>
+        <input
+          type="text"
+          #cpfValidate="ngModel"
+          class="form-control"
+          id="cpf"
+          name="cpf"
+          mask="000.000.000-00||00.000.000"
+          [(ngModel)]="filho.cpf"
+          required
+          autocomplete="false"
+        />
+      </div>
+    </section>
+
+    <section class="row g-4 mb-4">
+      <div class="form-group col-md-5">
+        <label>Escola</label>
+        <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
+        <input
+          type="text"
+          #escolaValidate="ngModel"
+          class="form-control"
+          id="escola"
+          name="escola"
+          [(ngModel)]="escola.nome"
+          required
+          autocomplete="false"
+        />
+      </div>
+
+      <div class="form-group col-md-2">
+        <label>Estado</label>
+        <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
+        <select
+          id="estado"
+          name="estado"
+          [(ngModel)]="estado.id"
+          class="form-select"
+          required
+        >
+          <option [ngValue]="" selected disabled hidden></option>
+          <option [value]="e.id" *ngFor="let e of estados">{{ e.nome }}</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-2">
+        <label>Descricao</label>
+        <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
+        <select
+          id="descricao"
+          name="descricao"
+          [(ngModel)]="escola.descricao"
+          class="form-control"
+          required
+        >
+          <option value="" selected>[Selecione]</option>
+          <option value="Municipal" selected>Municipal</option>
+          <option value="Estadual" selected>Estadual</option>
+        </select>
+      </div>
+
+      <div class="col-2 marginOpc">
+        <label for="">CEP</label>
+        <input
+          class="form-control"
+          type="text"
+          mask="99999-999||99999"
+          (blur)="consultaCep($event.target.value)"
+          id="cep"
+          name="cep"
+          [(ngModel)]="filho.cep"
+        />
+      </div>
+    </section>
+
+    <section class="row g-5 mb-4">
+      <div class="col-md-4">
+        <label for="">Rua</label>
+        <input
+          class="form-control"
+          type="text"
+          id="logradouro"
+          name="logradouro"
+          [(ngModel)]="filho.logradouro"
+        />
+      </div>
+
+      <div class="col-md-1">
+        <label for="">Número</label>
+        <input
+          class="form-control"
+          type="text"
+          id="numero"
+          name="numero"
+          [(ngModel)]="filho.numero"
+        />
+      </div>
+
+      <div class="col-md-3">
+        <label for="">Bairro</label>
+        <input
+          class="form-control"
+          type="text"
+          id="bairro"
+          name="bairro"
+          [(ngModel)]="filho.bairro"
+        />
+      </div>
+
+      <div class="col-md-2">
+        <label for="">Cidade</label>
+        <input
+          class="form-control"
+          type="text"
+          id="cidade"
+          name="localidade"
+          [(ngModel)]="filho.localidade"
+        />
+      </div>
+
+      <div class="col-md-1">
+        <label for="">UF</label>
+        <input
+          class="form-control"
+          type="text"
+          id="rua"
+          name="logradouro"
+          [(ngModel)]="filho.uf"
+        />
+      </div>
+    </section>
+    <div *ngFor="let imag of imagens" class="row">
+      <label>
+        <input type="radio" name="test" value="big" />
+        <img [src]="imag" width="100" height="100" />
+      </label>
     </div>
 
-    <div class="form-group col-md-3">
-      <label>CPF</label>
-      <span class="asterisco" *ngIf="cpfValidate">*</span>
-      <input
-        type="text"
-        #cpfValidate="ngModel"
-        class="form-control"
-        id="cpf"
-        name="cpf"
-        mask="000.000.000-00||00.000.000"
-        [(ngModel)]="filho.cpf"
-        required
-        autocomplete="false"
-      />
-    </div>
-  </section>
-
-  <section class="row g-4 mb-4">
-    <div class="form-group col-md-5">
-      <label>Escola</label>
-      <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
-      <input
-        type="text"
-        #escolaValidate="ngModel"
-        class="form-control"
-        id="escola"
-        name="escola"
-        [(ngModel)]="escola.nome"
-        required
-        autocomplete="false"
-      />
-    </div>
-
-    <div class="form-group col-md-2">
-      <label>Estado</label>
-      <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
-      <select
-        id="estado"
-        name="estado"
-        [(ngModel)]="estado.id"
-        class="form-select"
-        required
-      >
-        <option [ngValue]="" selected disabled hidden></option>
-        <option [value]="e.id" *ngFor="let e of estados">{{ e.nome }}</option>
-      </select>
-    </div>
-
-    <div class="form-group col-md-2">
-      <label>Descricao</label>
-      <span class="asterisco" *ngIf="escolaValidate.invalid">*</span>
-      <select
-        id="descricao"
-        name="descricao"
-        [(ngModel)]="escola.descricao"
-        class="form-control"
-        required
-      >
-        <option value="" selected>[Selecione]</option>
-        <option value="Municipal" selected>Municipal</option>
-        <option value="Estadual" selected>Estadual</option>
-      </select>
-    </div>
-
-    <div class="col-2 marginOpc">
-      <label for="">CEP</label>
-      <input
-        class="form-control"
-        type="text"
-        mask="99999-999||99999"
-        (blur)="consultaCep($event.target.value)"
-        id="cep"
-        name="cep"
-        [(ngModel)]="filho.cep"
-      />
-    </div>
-  </section>
-
-  <section class="row g-5 mb-4">
-    <div class="col-md-4">
-      <label for="">Rua</label>
-      <input
-        class="form-control"
-        type="text"
-        id="logradouro"
-        name="logradouro"
-        [(ngModel)]="filho.logradouro"
-      />
-    </div>
-
-    <div class="col-md-1">
-      <label for="">Número</label>
-      <input
-        class="form-control"
-        type="text"
-        id="numero"
-        name="numero"
-        [(ngModel)]="filho.numero"
-      />
-    </div>
-
-    <div class="col-md-3">
-      <label for="">Bairro</label>
-      <input
-        class="form-control"
-        type="text"
-        id="bairro"
-        name="bairro"
-        [(ngModel)]="filho.bairro"
-      />
-    </div>
-
-    <div class="col-md-2">
-      <label for="">Cidade</label>
-      <input
-        class="form-control"
-        type="text"
-        id="cidade"
-        name="localidade"
-        [(ngModel)]="filho.localidade"
-      />
-    </div>
-
-    <div class="col-md-1">
-      <label for="">UF</label>
-      <input
-        class="form-control"
-        type="text"
-        id="rua"
-        name="logradouro"
-        [(ngModel)]="filho.uf"
-      />
-    </div>
-  </section>
-
-  <!-- <div class="form-group col-md-3">
+    <!-- <div class="form-group col-md-3">
     <label>Estado</label>
     <select id="estado" name="estado" style="background-image: url(/assets/imagens/grampeador.png);" class="form-select" required>
       <option [ngValue]="" selected disabled hidden></option>
@@ -187,26 +193,26 @@
     </select>
   </div> -->
 
-  <section>
-    <div class="form-group row justify-content-center mb-3">
-      <button
-        type="button"
-        class="btn btn-primary col-1"
-        (click)="novo()"
-        style="margin-left: 12px"
-      >
-        Limpar
-      </button>
-      <button
-        type="button"
-        class="btn btn-primary col-1"
-        [disabled]="formValidate.invalid"
-        style="margin-left: 12px"
-        (click)="salvar()"
-      >
-        Salvar
-      </button>
-    </div>
-  </section>
-</main>
+    <section>
+      <div class="form-group row justify-content-center mb-3">
+        <button
+          type="button"
+          class="btn btn-primary col-1"
+          (click)="novo()"
+          style="margin-left: 12px"
+        >
+          Limpar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary col-1"
+          [disabled]="formValidate.invalid"
+          style="margin-left: 12px"
+          (click)="salvar()"
+        >
+          Salvar
+        </button>
+      </div>
+    </section>
+  </main>
 </form>

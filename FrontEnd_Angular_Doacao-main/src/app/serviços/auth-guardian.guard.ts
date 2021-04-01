@@ -11,16 +11,16 @@ export class AuthGuardianGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       
-      console.log(localStorage.getItem('id'))
-      if(this.router.url === '/' && localStorage.getItem('id') !== null){
-        if(confirm('Se optar por voltar na tela de login será necessário se logar novamente !!')){
-        console.log(localStorage.getItem('id'))
-        localStorage.clear();
-         confirm('Sessão encerrada, para acessar novamente digite o login e a senha!!');
-        } else{
-          this.router.navigate(['/listfilho']);
-        }
-      }
+      // console.log(localStorage.getItem('id'))
+      // if(this.router.url === '/' && localStorage.getItem('id') !== null){
+      //   if(confirm('Se optar por voltar na tela de login será necessário se logar novamente !!')){
+      //   console.log(localStorage.getItem('id'))
+      //   localStorage.clear();
+      //    confirm('Sessão encerrada, para acessar novamente digite o login e a senha!!');
+      //   } else{
+      //     this.router.navigate(['/listfilho']);
+      //   }
+      // }
 
       return true;
   }
