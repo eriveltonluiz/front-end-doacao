@@ -6,7 +6,6 @@ import { Escola } from 'src/app/model/escola';
 import { Estado } from 'src/app/model/estado';
 import { Filho } from 'src/app/model/filho';
 import { Material } from 'src/app/model/material';
-import { Pai } from 'src/app/model/pai';
 import { FilhoService } from 'src/app/serviços/filho.service';
 
 @Injectable()
@@ -115,15 +114,25 @@ export class AddFilhoComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem('id') === null) {
       this.router.navigate(['']);
+      console.log(this.router.url)
+    } else{
+      console.log(this.router.url)
+
     }
     this.imagens = [
 
-      "/assets/imagens/apontador.png",
-      "/assets/imagens/borracha.png",
-      "/assets/imagens/lapis.png",
-      // "background-image: url(/assets/imagens/grampeador.png);",
-      "/assets/imagens/caderno.png",
-      "/assets/imagens/tesoura.png"
+      "/assets/boys/boy-1.png",
+      "/assets/boys/boy-2.png",
+      "/assets/boys/boy-4.png",
+      "/assets/boys/boy-10.png",
+      "/assets/boys/boy-14.png",
+      "/assets/boys/boy.png",
+      "/assets/girls/girl-2.png",
+      "/assets/girls/girl-3.png",
+      "/assets/girls/girl-7.png",
+      "/assets/girls/girl-17.png",
+      "/assets/girls/girl-25.png",
+      "/assets/girls/girl.png",
     ];
     this.filhoService.listarEstados().subscribe(resultado => this.estados = resultado)
     let id = this.activeRoute.snapshot.paramMap.get('id');
@@ -136,6 +145,10 @@ export class AddFilhoComponent implements OnInit {
         console.log(this.filho)
       });
     }
+  }
+
+  t(){
+    console.log(this.filho.urlFoto);
   }
 
   salvar() {

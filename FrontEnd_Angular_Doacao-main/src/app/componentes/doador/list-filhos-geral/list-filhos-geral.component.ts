@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilhoService } from 'src/app/serviços/filho.service';
 import { Material } from 'src/app/model/material';
 import { Estado } from 'src/app/model/estado';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-filhos-geral',
@@ -31,11 +31,6 @@ export class ListFilhosGeralComponent implements OnInit {
 
   setarMateriaisFilho(materialFilho: FilhoMaterial){
     this.materialFilho = materialFilho;
-    const navigationExtras: NavigationExtras = {
-      state: {
-        materialFilho
-      }
-    };
     this.dataService.setFilho(materialFilho);
     this.router.navigate(['/doacao'])
   }

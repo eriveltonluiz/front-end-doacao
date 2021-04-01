@@ -10,12 +10,19 @@ import { AddFilhoComponent } from './componentes/pai/add-filho/add-filho.compone
 import { ListFilhosGeralComponent } from './componentes/doador/list-filhos-geral/list-filhos-geral.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuardianGuard } from './serviços/auth-guardian.guard';
+import { DoacaoConfirmadaComponent } from './componentes/doador/doacao-confirmada/doacao-confirmada.component';
 
 const routes = [
   {
     path: '',
     component: LoginComponent,
-    canActivate: [AuthGuardianGuard]
+    pathMatch: 'full',
+    canActivate: [AuthGuardianGuard],
+  },
+
+  {
+    path: 'detalhes',
+    component: DoacaoConfirmadaComponent
   },
 
   {
@@ -32,6 +39,8 @@ const routes = [
     path: 'doacao',
     component: ListMateriaisFilhoComponent
   },
+
+  
 
   {
     path: 'addfilho',

@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   }
 
   acessar(){
-    this.loginService.logar(this.pai)
-    this.router.navigate(['listfilho']);
+    this.loginService.logar(this.pai);
+    this.router.navigate(['/listfilho']);
   }
 
 
