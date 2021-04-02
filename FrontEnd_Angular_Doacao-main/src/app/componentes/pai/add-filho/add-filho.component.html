@@ -20,12 +20,13 @@
 
       <div class="form-group col-md-3">
         <label>Data Nascimento</label>
-        <span class="asterisco" *ngIf="dataNascimento">*</span>
+        <span class="asterisco" *ngIf="dat.invalid">*</span>
 
         <div class="input-group">
           <input
             type="text"
             #dataNascimento="ngbDatepicker"
+            #dat="ngModel"
             class="form-control"
             id="datamodal"
             name="datamodal"
@@ -34,28 +35,25 @@
             [(ngModel)]="filho.dataNascimento"
             ngbDatepicker
             required
-            placeholder="dd/MM/yyyy"
+            placeholder="dd/mm/yyyy"
           />
           <button
             type="button"
             class="btn btn-primary"
             (click)="dataNascimento.toggle()"
-          ></button>
+          ><i class="bi bi-calendar2-week"></i></button>
         </div>
       </div>
 
       <div class="form-group col-md-3">
         <label>CPF</label>
-        <span class="asterisco" *ngIf="cpfValidate">*</span>
         <input
           type="text"
-          #cpfValidate="ngModel"
           class="form-control"
           id="cpf"
           name="cpf"
           mask="000.000.000-00||00.000.000"
           [(ngModel)]="filho.cpf"
-          required
           autocomplete="false"
         />
       </div>
@@ -108,7 +106,7 @@
         </select>
       </div>
 
-      <div class="col-2 marginOpc">
+      <div class="col-2">
         <label for="">CEP</label>
         <input
           class="form-control"
@@ -212,7 +210,7 @@
         <button
           type="button"
           class="btn btn-primary col-md-1"
-         
+          [disabled]="formValidate.invalid"
           style="margin-left: 12px"
           (click)="salvar()"
         >

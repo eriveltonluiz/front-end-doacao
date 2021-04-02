@@ -57,7 +57,13 @@
       },
       "id": 1,
       "nome": "Escola Nunes da Silva vist",
-      "descricao": "Estadual"
+      "descricao": "Estadual",
+      "cep": "83514290",
+      "bairro": "Tranqueira",
+      "uf": "PR",
+      "localidade": "Almirante Tamandaré",
+      "numero": "41",
+      "logradouro": "Travessa São João"
     },
     {
       "descricao": "Municipal",
@@ -126,7 +132,7 @@
   "filho": [
     {
       "id": 1,
-      "nome": "Erivelton Luiz",
+      "nome": "teste",
       "dataNascimento": "03/12/2007",
       "cpf": "13123432543",
       "urlFoto": "/assets/boys/boy-14.png",
@@ -147,7 +153,13 @@
         },
         "id": 1,
         "nome": "Escola Nunes da Silva vist",
-        "descricao": "Estadual"
+        "descricao": "Estadual",
+        "cep": "83514290",
+        "bairro": "Tranqueira",
+        "uf": "PR",
+        "localidade": "Almirante Tamandaré",
+        "numero": "41",
+        "logradouro": "Travessa São João"
       }
     },
     {
