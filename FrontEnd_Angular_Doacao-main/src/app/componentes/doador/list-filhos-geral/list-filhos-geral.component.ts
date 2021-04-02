@@ -4,7 +4,6 @@ import { FilhoMaterial } from 'src/app/model/filho-material';
 import { Component, OnInit } from '@angular/core';
 import { FilhoService } from 'src/app/serviços/filho.service';
 import { Material } from 'src/app/model/material';
-import { Estado } from 'src/app/model/estado';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +17,6 @@ export class ListFilhosGeralComponent implements OnInit {
   filtroPesquisa = new FiltroPesquisa();
   materiaisFilho: FilhoMaterial[] = new Array<FilhoMaterial>();
   materiais: Material[];
-  estados: Estado[] = new Array<Estado>();
   constructor(private filhoService: FilhoService, private router: Router, private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -26,7 +24,6 @@ export class ListFilhosGeralComponent implements OnInit {
       this.materiaisFilho = result;
     });
     this.filhoService.listarMateriais().subscribe(res => this.materiais = res);
-    this.filhoService.listarEstados().subscribe(res => this.estados = res);
   }
 
   setarMateriaisFilho(materialFilho: FilhoMaterial){

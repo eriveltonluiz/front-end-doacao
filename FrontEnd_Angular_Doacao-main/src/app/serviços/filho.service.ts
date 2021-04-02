@@ -3,7 +3,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Escola } from '../model/escola';
-import { Estado } from '../model/estado';
 import { FilhoMaterial } from '../model/filho-material';
 import { Material } from '../model/material';
 import { Cep } from '../model/cep';
@@ -25,10 +24,6 @@ export class FilhoService {
     return this.http.get<Cep>(`https://viacep.com.br/ws/${cep}/json/`);
   }
 
-  listarEstados(): Observable<Estado[]> {
-    return this.http.get<Estado[]>(baseUrlEstado);
-  }
-
   listarMateriais(): Observable<Material[]> {
     return this.http.get<Material[]>(baseUrlMaterial);
   }
@@ -39,10 +34,6 @@ export class FilhoService {
 
   buscarFilhoPorID(id: number): Observable<Filho>{
     return this.http.get<Filho>(`${baseUrl}/${id}`);
-  }
-
-  buscarEstadoPorID(id: number): Observable<Estado>{
-    return this.http.get<Estado>(`${baseUrlEstado}/${id}`)
   }
 
   buscarMaterialPorID(id: number): Observable<Material>{

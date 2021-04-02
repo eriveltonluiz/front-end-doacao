@@ -254,7 +254,7 @@
       </section>
     </form>
 
-    <form action="" class="carousel-item" #formValidate4="ngForm">
+    <form action="" class="carousel-item">
       <h5 class="text-start mb-2">Escolha um avatar para seu filho (a):</h5>
       <div
         data-bs-touch="false"
@@ -330,7 +330,9 @@
           class="btn btn-primary col-2 float-end"
           type="button"
           (click)="salvar()"
-          [disabled]="formValidate4.invalid"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide-to="0"
+          data-dismiss="modal"
         >
           Finalizar
         </button>

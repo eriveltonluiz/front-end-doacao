@@ -1,11 +1,10 @@
+import { DataFilhoService } from './../../../serviços/data-filho.service';
 import { Router } from '@angular/router';
-import { FormatDate } from './../add-filho/add-filho.component';
 import { Material } from 'src/app/model/material';
 import { Component, OnInit } from '@angular/core';
 import { Filho } from 'src/app/model/filho';
 import { FilhoService } from 'src/app/serviços/filho.service';
 import { FilhoMaterial } from 'src/app/model/filho-material';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-list-filho',
@@ -21,41 +20,8 @@ export class ListFilhoComponent implements OnInit {
   materiais: Material[] = new Array<Material>();
   filhos: Array<Filho> = [];
   materiaisFilho: FilhoMaterial[] = new Array<FilhoMaterial>();
-  // filhos: Array<Filho> = [
-  //   {
-  //     id: 1,
-  //     nome: 'Marcos',
-  //     relato: 'Nesse momento passo dificuldades com mateirais, principalmente com agramvamento da pandemia',
-  //     dataNascimento: new Date(),
-  //     cpf: '13123432543',
-  //   },
 
-  //   {
-  //     id: 2,
-  //     nome: 'Luana',
-  //     relato: 'Nesse momento passo dificuldades com mateirais, principalmente com agramvamento da pandemia',
-  //     dataNascimento: new Date(),
-  //     cpf: '43723931583',
-  //   },
-
-  //   {
-  //     id: 3,
-  //     nome: 'Everaldo',
-  //     relato: 'Nesse momento passo dificuldades com mateirais, principalmente com agramvamento da pandemia',
-  //     dataNascimento: new Date(),
-  //     cpf: '73193432543',
-  //   },
-
-  //   {
-  //     id: 3,
-  //     nome: 'Everaldo',
-  //     relato: 'Nesse momento passo dificuldades com mateirais, principalmente com agramvamento da pandemia',
-  //     dataNascimento: new Date(),
-  //     cpf: '73193432543',
-  //   }
-  // ]
-
-  constructor(private filhoService: FilhoService, private router: Router) { }
+  constructor(private filhoService: FilhoService, private router: Router, private dataFilhoService: DataFilhoService) { }
 
   ngOnInit(): void {
     //console.log(this.filhos);
@@ -65,10 +31,6 @@ export class ListFilhoComponent implements OnInit {
     }
     this.filhoService.listarFilhos().subscribe(resultado => {
       this.filhos = resultado;
-      this.filhos.forEach(filho => {
-        console.log(typeof filho.dataNascimento)
-        
-      })
       console.log(this.filhos);
     });
   }
@@ -110,26 +72,10 @@ export class ListFilhoComponent implements OnInit {
     this.materialFilho = item;
   }
 
-  todos(){
-    this.materiais = [
-      {
-        id: 1,
-        descricao: 'apontador',
-        urlFoto: '/assets/imagens/apontador.png'
-      },
-    
-      {
-        id: 2,
-        descricao: 'borracha',
-        urlFoto: '/assets/imagens/borracha.png'
-      },
-    
-      {
-        id: 3,
-        descricao: 'Caixa de lápis',
-        urlFoto: '/assets/imagens/caixa-de-lapis.png'
-      },
-    ]
+  editarFilho(filho: Filho){
+    this.dataFilhoService.setFilho(filho);
+    this.filho = filho;
+    console.log(this.filho);
   }
 
   pesquisarMaterial(){

@@ -31,7 +31,7 @@
             {{ item.escola.uf }} - {{ item.escola.localidade }}
           </p>
           <div class="row justify-content-center">
-            <button href="#" data-toggle="modal" class="btn btn-primary col-4">
+            <button (click)="editarFilho(item)" href="#modalCadastro1" data-bs-toggle="modal" class="btn btn-primary col-4">
               Editar
             </button>
           </div>
@@ -80,7 +80,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <app-add-filho></app-add-filho>
+                  <app-add-filho [filho]="filho" [escola]="filho.escola"></app-add-filho>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { DataFilhoService } from './../../../serviços/data-filho.service';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Cep } from 'src/app/model/cep';
@@ -7,6 +8,7 @@ import { Filho } from 'src/app/model/filho';
 import { Material } from 'src/app/model/material';
 import { FilhoService } from 'src/app/serviços/filho.service';
 import * as bootstrap from "bootstrap";
+import { Pai } from 'src/app/model/pai';
 
 @Injectable()
 export class FormatDateAdapter extends NgbDateAdapter<string> {
@@ -73,15 +75,20 @@ function validarDia(valor) {
 })
 export class AddFilhoComponent implements OnInit {
 
+  @Input()
   filho = new Filho();
-  material: Material;
+
+  @Input()
   escola = new Escola();
+  
+  material: Material;
   boys: Array<string>;
   girls: Array<string>;
 
   constructor(private filhoService: FilhoService,
     private activeRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dataFilhoService: DataFilhoService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('id') === null) {
@@ -104,14 +111,12 @@ export class AddFilhoComponent implements OnInit {
       "/assets/girls/girl-25.png",
       "/assets/girls/girl.png",
     ];
-    let id = this.activeRoute.snapshot.paramMap.get('id');
-
-    if (id !== null) {
-      this.filhoService.buscarFilhoPorID(+id).subscribe(resultado => {
-        this.filho = resultado;
-        this.escola = this.filho.escola;
-      });
-    }
+    
+    console.log(this.filho);
+    // if (this.dataFilhoService.getFilho() !== undefined || this.dataFilhoService.getFilho() !== null) {
+    //   this.filho = this.dataFilhoService.getFilho();
+    //   this.escola = this.filho.escola;
+    // }
   }
 
   salvar() {
@@ -147,7 +152,10 @@ export class AddFilhoComponent implements OnInit {
         });
         this.filho.escola = this.escola;
 
-        this.filhoService.editarFilho(this.filho).subscribe(resultado => this.filho = resultado);
+        this.filhoService.editarFilho(this.filho).subscribe(resultado => {
+          this.filho = resultado;
+          //this.novo();
+        });
         alert('Editado com sucesso!!!')
     }
   }
