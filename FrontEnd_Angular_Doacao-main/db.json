@@ -43,18 +43,8 @@
       "profissao": "Servente de pedreiro"
     }
   ],
-  "estado": [
-    {
-      "id": 1,
-      "nome": "Acre"
-    }
-  ],
   "escola": [
     {
-      "estado": {
-        "id": 1,
-        "nome": "Acre"
-      },
       "id": 1,
       "nome": "Escola Nunes da Silva vist",
       "descricao": "Estadual",
@@ -68,65 +58,47 @@
     {
       "descricao": "Municipal",
       "nome": "Grevaldo",
-      "estado": {
-        "id": 1,
-        "nome": "Acre"
-      },
       "id": 2
     },
     {
       "descricao": "Estadual",
       "nome": "Grevaldo",
-      "estado": {
-        "id": 1,
-        "nome": "Acre"
-      },
       "id": 3
     },
     {
       "descricao": "Estadual",
       "nome": "ewrgre",
-      "estado": {
-        "id": 1,
-        "nome": "Acre"
-      },
       "id": 4
     },
     {
       "descricao": "Municipal",
       "nome": "ewrgre",
-      "estado": {
-        "id": 1,
-        "nome": "Acre"
-      },
       "id": 5
     },
     {
       "nome": "Grevaldo",
       "descricao": "Municipal",
-      "estado": {
-        "id": 1,
-        "nome": "Acre"
-      },
       "id": 6
     },
     {
       "descricao": "Estadual",
       "nome": "ewrgre",
-      "estado": {
-        "id": 1,
-        "nome": "Acre"
-      },
       "id": 7
     },
     {
       "nome": "Grevaldo",
       "descricao": "Estadual",
-      "estado": {
-        "id": 1,
-        "nome": "Acre"
-      },
       "id": 8
+    },
+    {
+      "nome": "Grevaldo",
+      "cep": "70865140",
+      "bairro": "Asa Norte",
+      "uf": "DF",
+      "localidade": "Brasília",
+      "numero": "61",
+      "logradouro": "SQN 410 Bloco N",
+      "id": 9
     }
   ],
   "filho": [
@@ -147,10 +119,6 @@
         "profissao": "Servente de pedreiro"
       },
       "escola": {
-        "estado": {
-          "id": 1,
-          "nome": "Acre"
-        },
         "id": 1,
         "nome": "Escola Nunes da Silva vist",
         "descricao": "Estadual",
@@ -179,11 +147,7 @@
       },
       "escola": {
         "descricao": "Estadual",
-        "nome": "Grevaldo Marino",
-        "estado": {
-          "id": 1,
-          "nome": "Acre"
-        }
+        "nome": "Grevaldo Marino"
       },
       "id": 3
     },
@@ -204,11 +168,7 @@
       },
       "escola": {
         "descricao": "Municipal",
-        "nome": "ewrgrejhhjb",
-        "estado": {
-          "id": 1,
-          "nome": "Acre"
-        }
+        "nome": "ewrgrejhhjb"
       },
       "id": 5
     },
@@ -230,13 +190,34 @@
       "escola": {
         "nome": "Grevaldo",
         "descricao": "Estadual",
-        "estado": {
-          "id": 1,
-          "nome": "Acre"
-        },
         "id": 8
       },
       "id": 6
+    },
+    {
+      "pai": {
+        "id": 1,
+        "nome": "Marcos Sauro",
+        "email": "sauro@gmail.com",
+        "senha": "ekefsfg3r",
+        "celular": "86678768760",
+        "renda": 1000,
+        "cpf": "13823472143",
+        "profissao": "Servente de pedreiro"
+      },
+      "escola": {
+        "nome": "Grevaldo",
+        "cep": "70865140",
+        "bairro": "Asa Norte",
+        "uf": "DF",
+        "localidade": "Brasília",
+        "numero": "61",
+        "logradouro": "SQN 410 Bloco N",
+        "id": 9
+      },
+      "nome": "Fernando Santos",
+      "dataNascimento": "14/12/2006",
+      "id": 7
     }
   ],
   "filhomaterial": [
@@ -268,11 +249,7 @@
           "localidade": "Recife",
           "numero": "81",
           "logradouro": "Avenida Boa Viagem",
-          "cep": "51011000",
-          "estado": {
-            "id": 1,
-            "nome": "Acre"
-          }
+          "cep": "51011000"
         }
       },
       "material": {
@@ -309,11 +286,7 @@
           "localidade": "Recife",
           "numero": "81",
           "logradouro": "Avenida Boa Viagem",
-          "cep": "51011000",
-          "estado": {
-            "id": 1,
-            "nome": "Acre"
-          }
+          "cep": "51011000"
         },
         "id": 5
       },
@@ -351,11 +324,7 @@
           "localidade": "Recife",
           "numero": "81",
           "logradouro": "Avenida Boa Viagem",
-          "cep": "51011000",
-          "estado": {
-            "id": 1,
-            "nome": "Acre"
-          }
+          "cep": "51011000"
         },
         "id": 5
       },

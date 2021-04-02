@@ -3,3 +3,13 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.tamInput{
+    height: 50px;
+}
+
+.addqueue{
+    height: 70%;
+    max-height: 70%;
+    overflow-y: auto;
+    }

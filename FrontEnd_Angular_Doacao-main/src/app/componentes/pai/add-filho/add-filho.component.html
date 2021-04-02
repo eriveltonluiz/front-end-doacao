@@ -1,197 +1,343 @@
-<form style="padding: 10px" #formValidate="ngForm">
-  <main class="col mt-3">
-    <section class="d-flex justify-content-md-center">
-      <div class="col-md-8 mb-4">
-        <input
-          type="text"
-          #nomeValidate="ngModel"
-          placeholder="Nome completo"
-          class="form-control"
-          id="nomemodal"
-          name="nomemodal"
-          [(ngModel)]="filho.nome"
-          required
-          autocomplete="false"
-        />
-      </div>
-    </section>
+<div
+  data-bs-touch="false"
+  data-bs-interval="false"
+  id="carouselExampleControls"
+  class="carousel carousel-dark slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-inner">
+    <form
+      style="padding: 10px"
+      class="carousel-item active"
+      #formValidate="ngForm"
+    >
+      <main class="col mt-3">
+        <section class="d-flex justify-content-md-center">
+          <div class="col-md-8 mb-4">
+            <input
+              type="text"
+              #nomeValidate="ngModel"
+              placeholder="Nome completo"
+              class="form-control tamInput"
+              id="nomemodal"
+              name="nomemodal"
+              [(ngModel)]="filho.nome"
+              required
+              autocomplete="false"
+            />
+          </div>
+        </section>
 
-    <section class="d-flex justify-content-md-center">
-      <div class="col-md-8 mb-4">
-        <div class="input-group">
-          <input
-            type="text"
-            #dataNascimento="ngbDatepicker"
-            #dat="ngModel"
-            class="form-control"
-            id="datamodal"
-            name="datamodal"
-            [minDate]="{ year: 1950, month: 1, day: 1 }"
-            [maxDate]="{ year: 2007, month: 12, day: 31 }"
-            [(ngModel)]="filho.dataNascimento"
-            ngbDatepicker
-            required
-            placeholder="dd/mm/yyyy"
-          />
+        <section class="d-flex justify-content-md-center">
+          <div class="col-md-8 mb-4">
+            <div class="input-group">
+              <input
+                type="text"
+                #dataNascimento="ngbDatepicker"
+                #dat="ngModel"
+                class="form-control tamInput"
+                id="datamodal"
+                name="datamodal"
+                
+                [minDate]="{ year: 1950, month: 1, day: 1 }"
+                [maxDate]="{ year: 2007, month: 12, day: 31 }"
+                [(ngModel)]="filho.dataNascimento"
+                ngbDatepicker
+                required
+                placeholder="Data de nascimento"
+              />
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="dataNascimento.toggle()"
+              >
+                <i class="bi bi-calendar2-week"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="d-flex justify-content-md-center">
+          <div class="col-md-8 mb-4">
+            <input
+              type="text"
+              class="form-control tamInput"
+              id="cpf"
+              name="cpf"
+              placeholder="CPF"
+              mask="000.000.000-00||00.000.000"
+              [(ngModel)]="filho.cpf"
+              autocomplete="false"
+            />
+          </div>
+          <!-- </section>
+
+        <section class="d-flex justify-content-end">
           <button
+            id="btn1"
             type="button"
-            class="btn btn-primary"
-            (click)="dataNascimento.toggle()"
+            class="btn btn-primary md-3 abrirmodal"
+            [disabled]="formValidate.invalid"
+            (click)="carregar2Modal()"
           >
-            <i class="bi bi-calendar2-week"></i>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="d-flex justify-content-md-center">
-      <div class="col-md-8 mb-4">
-        <input
-          type="text"
-          class="form-control"
-          id="cpf"
-          name="cpf"
-          placeholder="CPF"
-          mask="000.000.000-00||00.000.000"
-          [(ngModel)]="filho.cpf"
-          autocomplete="false"
-        />
-      </div>
-    </section>
-
-    <section class="d-flex justify-content-end">
-      <button
-      id="btn1"
-        type="button"
-        class="btn btn-primary md-3"
-        [disabled]="formValidate.invalid"
-        
-      >
-        Avançar
-      </button>
-    </section>
-  </main>
-</form>
-
-<form style="padding: 10px" #formValidate2="ngForm">
-  <div
-    class="modal fade"
-    id="modalCadastro2"
-    tabindex="-1"
-    data-backdrop="static"
-    data-keyboard="false"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">
-            Qual a escola em que ele (a) estuda?
-          </h4>
-          <button
-            type="button"
-            class="btn-close"
-            data-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <main class="col mt-3">
-            <section class="d-flex justify-content-md-end">
-              <div class="col-md-8 mb-4">
-                <input
-                  type="text"
-                  placeholder="Nome completo"
-                  class="form-control"
-                  id="escola"
-                  name="escola"
-                  [(ngModel)]="escola.nome"
-                  required
-                  autocomplete="false"
-                />
-              </div>
-            </section>
-
-            <section class="d-flex justify-content-end">
-              <button
-                type="button"
-                class="btn btn-primary md-3"
-                [disabled]="formValidate2.invalid"
-                data-dismiss="modal"
-                data-toggle="modal"
-                data-target="#modalCadastro3"
-              >
-                Avançar
-              </button>
-            </section>
-          </main>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-
-<form style="padding: 10px" #formValidate3="ngForm">
-  <div
-    class="modal fade"
-    id="modalCadastro3"
-    tabindex="-1"
-    data-backdrop="static"
-    data-keyboard="false"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-scrollable">
-      <div class="modal-content">
+            Avançar
+          </button> -->
+        </section>
+      </main>
+      <section>
         <button
+          class="btn btn-primary col-2 float-end"
           type="button"
-          class="btn-close"
-          data-dismiss="modal"
-          aria-label="Close"
-        ></button>
-        <div class="modal-body">
-          <main class="col mt-3">
-            <section class="d-flex justify-content-md-end">
-              <div class="col-md-8 mb-4">
-                <input
-                  class="form-control"
-                  type="text"
-                  mask="99999-999||99999"
-                  (blur)="consultaCep($event.target.value)"
-                  id="cep"
-                  name="cep"
-                  [(ngModel)]="escola.cep"
-                />
+          [disabled]="formValidate.invalid"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          next
+        </button>
+      </section>
+    </form>
+
+    <form action="" class="carousel-item" #formValidate2="ngForm">
+      <main class="col mt-3">
+        <section class="d-flex justify-content-md-start">
+          <div class="col-md-8 mb-4">
+            <input
+            type="text"
+            placeholder="Nome da escola"
+            class="form-control tamInput"
+              id="escola"
+              name="escola"
+              [(ngModel)]="escola.nome"
+              required
+              autocomplete="false"
+              />
+          </div>
+        </section>
+        
+        <h4 class="text-start">Essa escola é:</h4>
+        <section class="d-flex justify-content-md-center mb-4">
+            <input class="form-check-input" value="Estadual"
+            [(ngModel)]="escola.descricao" type="radio" name="radioDescricao" id="flexRadioDefault1">
+            <label class="form-check-label mx-2" for="flexRadioDefault1">
+              Estadual
+            </label>
+            
+            <input class="form-check-input mx-2" [(ngModel)]="escola.descricao" type="radio" name="radioDescricao" id="flexRadioDefault2" checked>
+            <label class="form-check-label" value="Municipal"
+             for="flexRadioDefault2">
+              Municipal
+            </label>
+
+        </section>
+      </main>
+      <section>
+        <button
+          class="btn btn-primary col-md-2 float-start"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          Voltar
+        </button>
+        <button
+          class="btn btn-primary col-2 float-end"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+          [disabled]="formValidate2.invalid"
+        >
+          next
+        </button>
+      </section>
+    </form>
+    <form action="" class="carousel-item" #formValidate3="ngForm">
+      <main class="col mt-1">
+        <h4 class="text-start mb-3">
+          Caso queira disponibizar o endereço da escola coque o CEP da mesma
+          abaixo:
+        </h4>
+        <section class="d-flex justify-content-md-start">
+          <div class="col-md-3 mb-4">
+            <input
+              class="form-control tamInput"
+              type="text"
+              mask="99999-999||99999"
+              (blur)="consultaCep($event.target.value)"
+              id="cep"
+              name="cep"
+              placeholder="CEP"
+              [(ngModel)]="escola.cep"
+            />
+          </div>
+        </section>
+
+        <section class="row g-2 mb-4">
+          <div class="col-md-8">
+            <label for="">Rua</label>
+            <input
+              placeholder="Rua"
+              type="text"
+              class="form-control tamInput"
+              id="logradouro"
+              name="logradouro"
+              [(ngModel)]="escola.logradouro"
+            />
+          </div>
+
+          <div class="col-md-2">
+            <label for="">Número</label>
+            <input
+              placeholder="Número"
+              class="form-control tamInput"
+              type="text"
+              id="numero"
+              name="numero"
+              [(ngModel)]="escola.numero"
+            />
+          </div>
+        </section>
+
+        <section class="row g-3 mb-4">
+          <div class="col-md-4">
+            <input
+              placeholder="Bairro"
+              class="form-control tamInput"
+              type="text"
+              id="bairro"
+              name="bairro"
+              [(ngModel)]="escola.bairro"
+            />
+          </div>
+
+          <div class="col-md-4">
+            <input
+              class="form-control tamInput"
+              placeholder="Cidade"
+              type="text"
+              id="cidade"
+              name="localidade"
+              [(ngModel)]="escola.localidade"
+            />
+          </div>
+
+          <div class="col-md-2">
+            <input
+              placeholder="UF"
+              class="form-control tamInput"
+              type="text"
+              id="rua"
+              name="logradouro"
+              [(ngModel)]="escola.uf"
+            />
+          </div>
+        </section>
+      </main>
+      <section>
+        <button
+          class="btn btn-primary col-md-2 float-start"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          Voltar
+        </button>
+
+        <button
+          class="btn btn-primary col-2 float-end"
+          type="button"
+          [disabled]="formValidate3.invalid"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          next
+        </button>
+      </section>
+    </form>
+
+    <form action="" class="carousel-item" #formValidate4="ngForm">
+      <h5 class="text-start mb-2">Escolha um avatar para seu filho (a):</h5>
+      <div
+        data-bs-touch="false"
+        data-bs-interval="false"
+        id="carouselCrianca"
+        class="carousel carousel-dark slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="central d-flex justify-content-center">
+              <div *ngFor="let boy of boys" class="col-md-2 mb-4 mt-4">
+                <label>
+                  <input
+                    [value]="boy"
+                    [(ngModel)]="filho.urlFoto"
+                    type="radio"
+                    name="test"
+                    value="big"
+                  />
+                  <img [src]="boy" width="70" height="70" />
+                </label>
               </div>
-            </section>
+            </div>
+          </div>
 
-            <section class="d-flex justify-content-end">
-              <button
-                type="button"
-                class="btn btn-primary md-3"
-                [disabled]="formValidate3.invalid"
-                data-toggle="modal"
-                data-target="#modalCadastro3"
-              >
-                Avançar
-              </button>
-            </section>
-          </main>
+          <div class="carousel-item">
+            <div class="central d-flex justify-content-center">
+              <div *ngFor="let girl of girls" class="col-md-2 mb-4 mt-4">
+                <label>
+                  <input
+                    [value]="girl"
+                    [(ngModel)]="filho.urlFoto"
+                    type="radio"
+                    name="test"
+                    value="big"
+                  />
+                  <img [src]="girl" width="70" height="70" />
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselCrianca"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselCrianca"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </div>
+      <section>
+        <button
+          class="btn btn-primary col-md-2 float-start"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          Voltar
+        </button>
+        <button
+          class="btn btn-primary col-2 float-end"
+          type="button"
+          (click)="salvar()"
+          [disabled]="formValidate4.invalid"
+        >
+          Finalizar
+        </button>
+      </section>
+    </form>
   </div>
-</form>
-
-<script>
-  $('#btn1').on('click', function(){
-
-    $('#cadastroModal2').modal('show');  
-    $('#cadastroModal1').modal('hide');  
-
-});
-</script>
+</div>
 
 <!-- <h3 class="display-6 md-3">Cadastro de filhos</h3>
 

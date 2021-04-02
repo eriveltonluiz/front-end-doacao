@@ -3,10 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Cep } from 'src/app/model/cep';
 import { Escola } from 'src/app/model/escola';
-import { Estado } from 'src/app/model/estado';
 import { Filho } from 'src/app/model/filho';
 import { Material } from 'src/app/model/material';
 import { FilhoService } from 'src/app/serviços/filho.service';
+import * as bootstrap from "bootstrap";
 
 @Injectable()
 export class FormatDateAdapter extends NgbDateAdapter<string> {
@@ -76,38 +76,8 @@ export class AddFilhoComponent implements OnInit {
   filho = new Filho();
   material: Material;
   escola = new Escola();
-  estado = new Estado();
-  estados: Array<Estado>
-  imagens: Array<string>;
-  // estados = [
-  // 'Acre',
-  // 'Alagoas',
-  // 'Amazonas',
-  // 'Amapá',
-  // 'Bahia',
-  // 'Ceará',
-  // 'Distrito Federal',
-  // 'Espírito Santo',
-  // 'Goiás', 
-  // 'Maranhão',
-  // 'Minas Gerais',
-  // 'Mato Grosso do Sul',
-  // 'Mato Grosso',
-  // 'Pará',
-  // 'Paraíba',
-  // 'Pernambuco',
-  // 'Piauí',
-  // 'Paraná',
-  // 'Rio de Janeiro',
-  // 'Rio Grande do Norte',
-  // 'Rondônia',
-  // 'Roraima',
-  // 'Rio Grande do Sul',
-  // 'Santa Catarina',
-  // 'Sergipe',
-  // 'São Paulo',
-  // 'Tocantins'
-  // ]
+  boys: Array<string>;
+  girls: Array<string>;
 
   constructor(private filhoService: FilhoService,
     private activeRoute: ActivatedRoute,
@@ -117,13 +87,16 @@ export class AddFilhoComponent implements OnInit {
     if (localStorage.getItem('id') === null) {
       this.router.navigate(['']);
     }
-    this.imagens = [
+    this.boys = [
       "/assets/boys/boy-1.png",
       "/assets/boys/boy-2.png",
       "/assets/boys/boy-4.png",
       "/assets/boys/boy-10.png",
       "/assets/boys/boy-14.png",
       "/assets/boys/boy.png",
+    ];
+
+    this.girls = [
       "/assets/girls/girl-2.png",
       "/assets/girls/girl-3.png",
       "/assets/girls/girl-7.png",
@@ -131,14 +104,12 @@ export class AddFilhoComponent implements OnInit {
       "/assets/girls/girl-25.png",
       "/assets/girls/girl.png",
     ];
-    this.filhoService.listarEstados().subscribe(resultado => this.estados = resultado);
     let id = this.activeRoute.snapshot.paramMap.get('id');
 
     if (id !== null) {
       this.filhoService.buscarFilhoPorID(+id).subscribe(resultado => {
         this.filho = resultado;
         this.escola = this.filho.escola;
-        this.estado = this.escola.estado;
       });
     }
   }
@@ -153,45 +124,37 @@ export class AddFilhoComponent implements OnInit {
       renda: 1000,
       cpf: "13823472143",
       profissao: "Servente de pedreiro"
-    };
+    }
 
-    this.filhoService.buscarEstadoPorID(this.estado.id).subscribe({
-      next: (result: Filho) => {
-        this.estado = result;
-        this.escola.estado = this.estado;
+    if (this.filho.id === null || this.filho.id === undefined) {
+      console.log('Objeto escola: ' + this.escola)
+      this.filhoService.salvarEscola(this.escola).subscribe(resultado => {
+        this.escola = resultado;
+        this.filho.escola = this.escola;
 
-        if (this.filho.id === null || this.filho.id === undefined) {
+        this.filhoService.salvarFilho(this.filho).subscribe(resultado => {
+          this.filho = resultado;
+          console.log(this.filho)
+          this.novo();
+        });
+        alert('Salvo com sucesso!!!');
+      });
+    } 
+    
+    else {
+        this.filhoService.editarEscola(this.escola).subscribe(resultado => {
+          this.escola = resultado;
+        });
+        this.filho.escola = this.escola;
 
-          this.filhoService.salvarEscola(this.escola).subscribe(resultado => {
-            this.escola = resultado;
-            this.filho.escola = this.escola;
-
-            this.filhoService.salvarFilho(this.filho).subscribe(resultado => {
-              this.filho = resultado;
-              this.novo();
-            });
-          });
-
-          alert('Salvo com sucesso!!!');
-
-        } else {
-
-          this.filhoService.editarEscola(this.escola).subscribe(resultado => {
-            this.escola = resultado;
-          });
-          this.filho.escola = this.escola;
-
-          this.filhoService.editarFilho(this.filho).subscribe(resultado => this.filho = resultado);
-          alert('Editado com sucesso!!!')
-        }
-      }
-    });
+        this.filhoService.editarFilho(this.filho).subscribe(resultado => this.filho = resultado);
+        alert('Editado com sucesso!!!')
+    }
   }
-  
+
   novo() {
     this.filho = new Filho();
     this.escola = new Escola();
-    this.estado = new Estado();
   }
 
   limpa_formulario_cep() {
@@ -213,10 +176,10 @@ export class AddFilhoComponent implements OnInit {
 
       if (validacep.test(cep)) {
         this.escola.logradouro = 'Carregando...';
-        this.escola.numero = '...';
         this.escola.bairro = 'Carregando...';
         this.escola.localidade = 'Carregando...';
         this.escola.uf = '...';
+        this.escola.numero = '...';
         this.filhoService.consultaCep(cep).subscribe({
           next: dados => {
             cepObj = dados;
@@ -225,11 +188,12 @@ export class AddFilhoComponent implements OnInit {
               alert("CEP não encontrado."); this.limpa_formulario_cep();
               this.escola.cep = '';
             } else {
-              this.escola.bairro = cepObj.bairro;
-              this.escola.uf = cepObj.uf;
-              this.escola.localidade = cepObj.localidade;
-              this.escola.numero = cepObj.ddd;
               this.escola.logradouro = cepObj.logradouro;
+              this.escola.bairro = cepObj.bairro;
+              this.escola.localidade = cepObj.localidade;
+              this.escola.uf = cepObj.uf;
+              this.escola.numero = cepObj.ddd;
+              console.log(this.escola)
             }
           }
         })

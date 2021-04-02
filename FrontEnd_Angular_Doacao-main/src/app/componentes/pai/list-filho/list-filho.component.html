@@ -68,16 +68,16 @@
       <div class="card-body mt-2">
         <div class="justify-content-center text-center">
           <h2>Criar cadastro do filho</h2>
-          <a class="text-decoration-none link-primary" href="#modalCadastro1" data-toggle="modal">
+          <a class="text-decoration-none link-primary" href="#modalCadastro1" data-bs-toggle="modal">
             <i class="bi bi-plus-circle" style="font-size: 120px"></i>
           </a>
 
-          <div class="modal fade" id="modalCadastro1" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal fade addqueue" data-bs-backdrop="static" data-bs-keyboard="false" id="modalCadastro1" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable" >
               <div class="modal-content">
                 <div class="modal-header">
                   <h4 class="modal-title" id="exampleModalLabel">Faça o cadastro do seu filho</h4>
-                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <app-add-filho></app-add-filho>
