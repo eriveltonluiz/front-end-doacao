@@ -1,4 +1,199 @@
-<h3 class="display-6 md-3">Cadastro de filhos</h3>
+<form style="padding: 10px" #formValidate="ngForm">
+  <main class="col mt-3">
+    <section class="d-flex justify-content-md-center">
+      <div class="col-md-8 mb-4">
+        <input
+          type="text"
+          #nomeValidate="ngModel"
+          placeholder="Nome completo"
+          class="form-control"
+          id="nomemodal"
+          name="nomemodal"
+          [(ngModel)]="filho.nome"
+          required
+          autocomplete="false"
+        />
+      </div>
+    </section>
+
+    <section class="d-flex justify-content-md-center">
+      <div class="col-md-8 mb-4">
+        <div class="input-group">
+          <input
+            type="text"
+            #dataNascimento="ngbDatepicker"
+            #dat="ngModel"
+            class="form-control"
+            id="datamodal"
+            name="datamodal"
+            [minDate]="{ year: 1950, month: 1, day: 1 }"
+            [maxDate]="{ year: 2007, month: 12, day: 31 }"
+            [(ngModel)]="filho.dataNascimento"
+            ngbDatepicker
+            required
+            placeholder="dd/mm/yyyy"
+          />
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="dataNascimento.toggle()"
+          >
+            <i class="bi bi-calendar2-week"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="d-flex justify-content-md-center">
+      <div class="col-md-8 mb-4">
+        <input
+          type="text"
+          class="form-control"
+          id="cpf"
+          name="cpf"
+          placeholder="CPF"
+          mask="000.000.000-00||00.000.000"
+          [(ngModel)]="filho.cpf"
+          autocomplete="false"
+        />
+      </div>
+    </section>
+
+    <section class="d-flex justify-content-end">
+      <button
+      id="btn1"
+        type="button"
+        class="btn btn-primary md-3"
+        [disabled]="formValidate.invalid"
+        
+      >
+        Avançar
+      </button>
+    </section>
+  </main>
+</form>
+
+<form style="padding: 10px" #formValidate2="ngForm">
+  <div
+    class="modal fade"
+    id="modalCadastro2"
+    tabindex="-1"
+    data-backdrop="static"
+    data-keyboard="false"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">
+            Qual a escola em que ele (a) estuda?
+          </h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <main class="col mt-3">
+            <section class="d-flex justify-content-md-end">
+              <div class="col-md-8 mb-4">
+                <input
+                  type="text"
+                  placeholder="Nome completo"
+                  class="form-control"
+                  id="escola"
+                  name="escola"
+                  [(ngModel)]="escola.nome"
+                  required
+                  autocomplete="false"
+                />
+              </div>
+            </section>
+
+            <section class="d-flex justify-content-end">
+              <button
+                type="button"
+                class="btn btn-primary md-3"
+                [disabled]="formValidate2.invalid"
+                data-dismiss="modal"
+                data-toggle="modal"
+                data-target="#modalCadastro3"
+              >
+                Avançar
+              </button>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form style="padding: 10px" #formValidate3="ngForm">
+  <div
+    class="modal fade"
+    id="modalCadastro3"
+    tabindex="-1"
+    data-backdrop="static"
+    data-keyboard="false"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <button
+          type="button"
+          class="btn-close"
+          data-dismiss="modal"
+          aria-label="Close"
+        ></button>
+        <div class="modal-body">
+          <main class="col mt-3">
+            <section class="d-flex justify-content-md-end">
+              <div class="col-md-8 mb-4">
+                <input
+                  class="form-control"
+                  type="text"
+                  mask="99999-999||99999"
+                  (blur)="consultaCep($event.target.value)"
+                  id="cep"
+                  name="cep"
+                  [(ngModel)]="escola.cep"
+                />
+              </div>
+            </section>
+
+            <section class="d-flex justify-content-end">
+              <button
+                type="button"
+                class="btn btn-primary md-3"
+                [disabled]="formValidate3.invalid"
+                data-toggle="modal"
+                data-target="#modalCadastro3"
+              >
+                Avançar
+              </button>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+  $('#btn1').on('click', function(){
+
+    $('#cadastroModal2').modal('show');  
+    $('#cadastroModal1').modal('hide');  
+
+});
+</script>
+
+<!-- <h3 class="display-6 md-3">Cadastro de filhos</h3>
 
 <form style="padding: 10px" #formValidate="ngForm">
   <main class="container-xl">
@@ -189,13 +384,6 @@
 
   </section>
 </div>
-    <!-- <div class="form-group col-md-3">
-    <label>Estado</label>
-    <select id="estado" name="estado" style="background-image: url(/assets/imagens/grampeador.png);" class="form-select" required>
-      <option [ngValue]="" selected disabled hidden></option>
-      <option data-class="avatar" data-style="background-image: url(/assets/imagens/grampeador.png);" [value]="e" *ngFor="let e of imagens">t</option>
-    </select>
-  </div> -->
 
     <section class="mt-3">
       <div class="form-group row justify-content-center mb-3">
@@ -219,4 +407,4 @@
       </div>
     </section>
   </main>
-</form>
+</form> -->

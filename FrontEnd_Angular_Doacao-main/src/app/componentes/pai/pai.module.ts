@@ -30,7 +30,8 @@ const maskConfig: Partial<IConfig> = {
     NgbModule
   ],
   exports: [
-    CadastroComponent
+    CadastroComponent,
+    AddFilhoComponent
   ]
 })
 export class PaiModule { }
