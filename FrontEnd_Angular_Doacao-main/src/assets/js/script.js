@@ -1,2 +1,2 @@
-let btnMenu = document.querySelector('button');
+let btnMenu = document.querySelector('#carouselExampleControls');
 console.log(btnMenu)

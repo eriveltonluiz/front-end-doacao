@@ -1,6 +1,7 @@
 <div
   data-bs-touch="false"
   data-bs-interval="false"
+  data-bs-slide-to="0"
   id="carouselExampleControls"
   class="carousel carousel-dark slide"
   data-bs-ride="carousel"
@@ -38,7 +39,6 @@
                 class="form-control tamInput"
                 id="datamodal"
                 name="datamodal"
-                
                 [minDate]="{ year: 1950, month: 1, day: 1 }"
                 [maxDate]="{ year: 2007, month: 12, day: 31 }"
                 [(ngModel)]="filho.dataNascimento"
@@ -86,7 +86,7 @@
       </main>
       <section>
         <button
-          class="btn btn-primary col-2 float-end"
+          class="btn btn-primary float-end"
           type="button"
           [disabled]="formValidate.invalid"
           data-bs-target="#carouselExampleControls"
@@ -102,37 +102,52 @@
         <section class="d-flex justify-content-md-start">
           <div class="col-md-8 mb-4">
             <input
-            type="text"
-            placeholder="Nome da escola"
-            class="form-control tamInput"
+              type="text"
+              placeholder="Nome da escola"
+              class="form-control tamInput"
               id="escola"
               name="escola"
               [(ngModel)]="escola.nome"
               required
               autocomplete="false"
-              />
+            />
           </div>
         </section>
-        
+
         <h4 class="text-start">Essa escola é:</h4>
         <section class="d-flex justify-content-md-start mb-4">
-            <input class="form-check-input" value="Estadual"
-            [(ngModel)]="escola.descricao" type="radio" name="radioDescricao" id="flexRadioDefault1">
-            <label class="form-check-label mx-2" for="flexRadioDefault1">
-              Estadual
-            </label>
-            
-            <input class="form-check-input mx-2" [(ngModel)]="escola.descricao" type="radio" name="radioDescricao" id="flexRadioDefault2" checked>
-            <label class="form-check-label" value="Municipal"
-             for="flexRadioDefault2">
-              Municipal
-            </label>
+          <input
+            class="form-check-input"
+            value="Estadual"
+            [(ngModel)]="escola.descricao"
+            type="radio"
+            name="radioDescricao"
+            id="flexRadioDefault1"
+          />
+          <label class="form-check-label mx-2" for="flexRadioDefault1">
+            Estadual
+          </label>
 
+          <input
+            class="form-check-input mx-2"
+            [(ngModel)]="escola.descricao"
+            type="radio"
+            name="radioDescricao"
+            id="flexRadioDefault2"
+            checked
+          />
+          <label
+            class="form-check-label"
+            value="Municipal"
+            for="flexRadioDefault2"
+          >
+            Municipal
+          </label>
         </section>
       </main>
       <section>
         <button
-          class="btn btn-primary col-md-2 float-start"
+          class="btn btn-primary float-start"
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="prev"
@@ -140,7 +155,7 @@
           Voltar
         </button>
         <button
-          class="btn btn-primary col-2 float-end"
+          class="btn btn-primary float-end"
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="next"
@@ -232,7 +247,7 @@
       </main>
       <section>
         <button
-          class="btn btn-primary col-md-2 float-start"
+          class="btn btn-primary float-start"
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="prev"
@@ -241,7 +256,7 @@
         </button>
 
         <button
-          class="btn btn-primary col-2 float-end"
+          class="btn btn-primary float-end"
           type="button"
           [disabled]="formValidate3.invalid"
           data-bs-target="#carouselExampleControls"
@@ -258,12 +273,12 @@
         data-bs-touch="false"
         data-bs-interval="false"
         id="carouselCrianca"
-        class="carousel carousel-dark slide"
+        class="carousel carousel-dark slide position-relative"
         data-bs-ride="carousel"
       >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="central d-flex justify-content-center">
+            <div class="d-flex justify-content-evenly">
               <div *ngFor="let boy of boys" class="col-md-2 mb-4 mt-4">
                 <label>
                   <input
@@ -273,15 +288,15 @@
                     name="test"
                     value="big"
                   />
-                  <img [src]="boy" width="70" height="70" />
+                  <img [src]="boy" width="60" height="70" />
                 </label>
               </div>
             </div>
           </div>
 
           <div class="carousel-item">
-            <div class="central d-flex justify-content-center">
-              <div *ngFor="let girl of girls" class="col-md-2 mb-4 mt-4">
+            <div class="d-flex justify-content-evenly">
+              <div *ngFor="let girl of girls" class="col-md-2 mb-5 mt-4">
                 <label>
                   <input
                     [value]="girl"
@@ -290,34 +305,38 @@
                     name="test"
                     value="big"
                   />
-                  <img [src]="girl" width="70" height="70" />
+                  <img [src]="girl" width="60" height="70" />
                 </label>
               </div>
             </div>
           </div>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselCrianca"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Voltar</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselCrianca"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Avançar</span>
-        </button>
+        <section class="">
+          <button
+            style="height: 20px; width: 20px; margin-right: 7px"
+            class="carousel-control-prev mt-3 position-absolute top-50 end-0 translate-middle-y"
+            type="button"
+            data-bs-target="#carouselCrianca"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Voltar</span>
+          </button>
+          <button
+            style="height: 20px; width: 20px; margin-left: 7px"
+            class="carousel-control-next mt-3 position-absolute top-50 end-0 translate-middle-y"
+            type="button"
+            data-bs-target="#carouselCrianca"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Avançar</span>
+          </button>
+        </section>
       </div>
       <section>
         <button
-          class="btn btn-primary col-md-2 float-start"
+          class="btn btn-primary float-start"
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="prev"
@@ -325,7 +344,7 @@
           Voltar
         </button>
         <button
-          class="btn btn-primary col-2 float-end"
+          class="btn btn-primary float-end"
           type="button"
           (click)="salvar()"
           data-bs-target="#carouselExampleControls"
@@ -337,6 +356,12 @@
       </section>
     </form>
   </div>
+  <button
+    id="btnReiniciar"
+    class="d-none"
+    data-bs-slide-to="0"
+    data-bs-target="#carouselExampleControls"
+  ></button>
 </div>
 
 <!-- <h3 class="display-6 md-3">Cadastro de filhos</h3>

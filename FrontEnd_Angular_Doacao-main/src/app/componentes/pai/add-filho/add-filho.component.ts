@@ -111,12 +111,17 @@ export class AddFilhoComponent implements OnInit {
       "/assets/girls/girl-25.png",
       "/assets/girls/girl.png",
     ];
-    
+    let filo = ''
     console.log(this.filho);
     // if (this.dataFilhoService.getFilho() !== undefined || this.dataFilhoService.getFilho() !== null) {
     //   this.filho = this.dataFilhoService.getFilho();
     //   this.escola = this.filho.escola;
     // }
+  }
+
+  fecharModal(){
+    let btnFechar = document.getElementById('btnModalFechar');
+    btnFechar.click();
   }
 
   salvar() {

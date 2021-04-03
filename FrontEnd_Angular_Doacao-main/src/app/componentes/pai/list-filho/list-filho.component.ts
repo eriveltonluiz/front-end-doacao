@@ -36,7 +36,10 @@ export class ListFilhoComponent implements OnInit {
   }
 
   carregarMateriais(filho: Filho){
+    /* Com os dados do back-end carregar este
     this.filhoService.listarMateriaisFilho(this.filho).subscribe(resultado => this.materiaisFilho = resultado);
+    */
+    this.filhoService.listarMateriaisFilhos().subscribe(resultado => this.materiaisFilho = resultado);
     this.filhoService.listarMateriais().subscribe(resultado => this.materiais = resultado);
     this.filho = filho;
     let data = new Date();
@@ -57,6 +60,15 @@ export class ListFilhoComponent implements OnInit {
     console.log(new Date(data.getDate(),data.getMonth() ,data.getDate()))
   }
 
+  novoCarou(){
+    this.materialFilho = new FilhoMaterial();
+    this.filho = new Filho();
+    
+    let btn = document.getElementById('btnReiniciar');
+    console.log(btn)
+    btn.click();
+  }
+
   excluir(filho: Filho, indice: number){
     if(confirm('Deseja excluir do sistema seu filho?')){
       this.filhoService.excluirFilho(filho.id).subscribe();
@@ -70,6 +82,8 @@ export class ListFilhoComponent implements OnInit {
 
   editarMaterial(item: FilhoMaterial){
     this.materialFilho = item;
+    this.material = this.materialFilho.material;
+    console.log(this.materialFilho);
   }
 
   editarFilho(filho: Filho){
