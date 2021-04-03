@@ -22,7 +22,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px;
     
-    margin-right: 1%;
+    /* margin-right: 1%; */
 }
 
 
@@ -61,4 +61,12 @@
 .terceira-coluna:nth-child(odd){
     margin-left: 15px;
     margin-bottom: 15px;
+}
+
+.font{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tamInput{
+    height: 45px;
 }

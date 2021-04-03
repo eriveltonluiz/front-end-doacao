@@ -106,6 +106,16 @@
       "logradouro": "SQN 410 Bloco N",
       "id": 9,
       "descricao": "Estadual"
+    },
+    {
+      "nome": "Grevaldo",
+      "bairro": "Asa Norte",
+      "uf": "DF",
+      "localidade": "Brasília",
+      "numero": "61",
+      "logradouro": "SQN 410 Bloco N",
+      "cep": "70865140",
+      "id": 10
     }
   ],
   "filho": [
@@ -244,6 +254,32 @@
       "dataNascimento": "14/12/2006",
       "id": 7,
       "urlFoto": "/assets/boys/boy-4.png"
+    },
+    {
+      "pai": {
+        "id": 1,
+        "nome": "Marcos Sauro",
+        "email": "sauro@gmail.com",
+        "senha": "ekefsfg3r",
+        "celular": "86678768760",
+        "renda": 1000,
+        "cpf": "13823472143",
+        "profissao": "Servente de pedreiro"
+      },
+      "escola": {
+        "nome": "Grevaldo",
+        "bairro": "Asa Norte",
+        "uf": "DF",
+        "localidade": "Brasília",
+        "numero": "61",
+        "logradouro": "SQN 410 Bloco N",
+        "cep": "70865140",
+        "id": 10
+      },
+      "nome": "Gabriel Nunes",
+      "dataNascimento": "13/12/2007",
+      "urlFoto": "/assets/boys/boy-10.png",
+      "id": 8
     }
   ],
   "filhomaterial": [

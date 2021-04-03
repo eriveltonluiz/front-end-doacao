@@ -92,7 +92,7 @@
           data-bs-target="#carouselExampleControls"
           data-bs-slide="next"
         >
-          next
+          Avançar
         </button>
       </section>
     </form>
@@ -115,7 +115,7 @@
         </section>
         
         <h4 class="text-start">Essa escola é:</h4>
-        <section class="d-flex justify-content-md-center mb-4">
+        <section class="d-flex justify-content-md-start mb-4">
             <input class="form-check-input" value="Estadual"
             [(ngModel)]="escola.descricao" type="radio" name="radioDescricao" id="flexRadioDefault1">
             <label class="form-check-label mx-2" for="flexRadioDefault1">
@@ -146,7 +146,7 @@
           data-bs-slide="next"
           [disabled]="formValidate2.invalid"
         >
-          next
+          Avançar
         </button>
       </section>
     </form>
@@ -173,7 +173,6 @@
 
         <section class="row g-2 mb-4">
           <div class="col-md-8">
-            <label for="">Rua</label>
             <input
               placeholder="Rua"
               type="text"
@@ -185,7 +184,6 @@
           </div>
 
           <div class="col-md-2">
-            <label for="">Número</label>
             <input
               placeholder="Número"
               class="form-control tamInput"
@@ -249,7 +247,7 @@
           data-bs-target="#carouselExampleControls"
           data-bs-slide="next"
         >
-          next
+          Avançar
         </button>
       </section>
     </form>
@@ -305,7 +303,7 @@
           data-bs-slide="prev"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+          <span class="visually-hidden">Voltar</span>
         </button>
         <button
           class="carousel-control-next"
@@ -314,7 +312,7 @@
           data-bs-slide="next"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+          <span class="visually-hidden">Avançar</span>
         </button>
       </div>
       <section>
@@ -332,7 +330,7 @@
           (click)="salvar()"
           data-bs-target="#carouselExampleControls"
           data-bs-slide-to="0"
-          data-dismiss="modal"
+          data-bs-dismiss="modal"
         >
           Finalizar
         </button>

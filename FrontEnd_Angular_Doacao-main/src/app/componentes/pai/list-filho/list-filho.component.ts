@@ -86,6 +86,7 @@ export class ListFilhoComponent implements OnInit {
 
   novo(){
     this.materialFilho = new FilhoMaterial();
+    this.filho = new Filho();
   }
 
   salvarMaterialFilho(){

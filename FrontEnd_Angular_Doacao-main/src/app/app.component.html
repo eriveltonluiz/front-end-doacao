@@ -5,8 +5,8 @@
       id="btnMenuPai"
       class="navbar-toggler"
       type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavDarkDropdown"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDarkDropdown"
       aria-controls="navbarNavDarkDropdown"
       aria-expanded="false"
       aria-label="Toggle navigation"
@@ -28,7 +28,7 @@
       routerLinkActive="active"
       >Filhos</a
     >
-    <a class="navbar-brand" href="#"><i class="bi bi-person-circle" style="font-size: 27px;"></i></a>
+    <a class="navbar-brand" (click)="sair()"><i class="bi bi-person-circle" style="font-size: 27px;"></i></a>
   </div>
   </div>
 </div>
@@ -37,12 +37,12 @@
 
 <nav [hidden]="esconderMenuDoador()" class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-  <a class="navbar-brand" href="#">LOGO</a>
+  <a class="navbar-brand">LOGO</a>
   <button
     class="navbar-toggler"
     type="button"
-    data-toggle="collapse"
-    data-target="#navbarDoadorNavDarkDropdown"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarDoadorNavDarkDropdown"
     aria-controls="navbarDoadorNavDarkDropdown"
     aria-expanded="false"
     aria-label="Toggle navigation"
@@ -65,7 +65,7 @@
       >O que fazemos</a
     >
     <a class="navbar-brand" href="#">Cadastre-se</a>
-    <a class="navbar-brand" href="#">Doações</a>
+    <a class="navbar-brand" [routerLink]="[ '/listfilhosgeral' ]" routerLinkActive="active">Doações</a>
   </div>
 </div>
 </div>
