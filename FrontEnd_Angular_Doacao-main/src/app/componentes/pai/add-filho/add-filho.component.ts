@@ -1,3 +1,4 @@
+import { LoginService } from 'src/app/serviços/login.service';
 import { DataFilhoService } from './../../../serviços/data-filho.service';
 import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -80,17 +81,21 @@ export class AddFilhoComponent implements OnInit {
 
   @Input()
   escola = new Escola();
+
+  pai = new Pai();
   
   material: Material;
   boys: Array<string>;
   girls: Array<string>;
 
   constructor(private filhoService: FilhoService,
+    private loginService: LoginService,
     private activeRoute: ActivatedRoute,
     private router: Router,
     private dataFilhoService: DataFilhoService) { }
 
   ngOnInit(): void {
+this.loginService.retornarPai(+localStorage.getItem('id')).subscribe(retorno => this.pai = retorno)
     if (localStorage.getItem('id') === null) {
       this.router.navigate(['']);
     }
@@ -125,15 +130,7 @@ export class AddFilhoComponent implements OnInit {
   }
 
   salvar() {
-    this.filho.pai = {
-      id: 1,
-      nome: "Marcos Sauro",
-      email: "sauro@gmail.com",
-      senha: "ekefsfg3r",
-      celular: "86678768760",
-      renda: 1000,
-      cpf: "13823472143"
-    }
+    this.filho.pai = this.pai;
 
     if (this.filho.id === null || this.filho.id === undefined) {
       console.log('Objeto escola: ' + this.escola)

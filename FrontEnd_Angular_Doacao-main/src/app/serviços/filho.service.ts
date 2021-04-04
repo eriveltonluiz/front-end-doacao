@@ -8,6 +8,8 @@ import { FilhoMaterial } from '../model/filho-material';
 import { Material } from '../model/material';
 import { Cep } from '../model/cep';
 
+const baseUrlJava = 'http://localhost:8090/filho/';
+const baseUrlJavaEscola = 'http://localhost:8090/escola/';
 const baseUrl = 'http://localhost:3000/filho/';
 const baseUrlEscola = 'http://localhost:3000/escola/';
 const baseUrlMaterial = 'http://localhost:3000/material/';
@@ -29,11 +31,11 @@ export class FilhoService {
   }
 
   listarFilhos(): Observable<Array<Filho>> {
-    return this.http.get<Array<Filho>>(baseUrl);
+    return this.http.get<Array<Filho>>(baseUrlJava);
   }
 
   buscarFilhoPorID(id: number): Observable<Filho>{
-    return this.http.get<Filho>(`${baseUrl}/${id}`);
+    return this.http.get<Filho>(`${baseUrlJava}${id}`);
   }
 
   buscarMaterialPorID(id: number): Observable<Material>{
@@ -49,22 +51,23 @@ export class FilhoService {
   }
 
   salvarFilho(filho: Filho): Observable<Filho> {
-    return this.http.post<Filho>(baseUrl, filho);
+    return this.http.post<Filho>(baseUrlJava, filho);
   }
 
   editarFilho(filho: Filho): Observable<Filho> {
-    return this.http.put<Filho>(`${baseUrl}/${filho.id}`, filho);
-  }
-
-  salvarEscola(escola: Escola): Observable<Escola> {
-    return this.http.post<Escola>(baseUrlEscola, escola);
-  }
-
-  editarEscola(escola: Escola): Observable<Escola> {
-    return this.http.put<Escola>(`${baseUrlEscola}/${escola.id}`, escola);
+    return this.http.put<Filho>(`${baseUrlJava}`, filho);
   }
 
   excluirFilho(id: number): Observable<any> {
-    return this.http.delete<any>(`${baseUrl}/${id}`);
+    return this.http.delete<any>(`${baseUrlJava}${id}`);
   }
+
+  salvarEscola(escola: Escola): Observable<Escola> {
+    return this.http.post<Escola>(baseUrlJavaEscola, escola);
+  }
+
+  editarEscola(escola: Escola): Observable<Escola> {
+    return this.http.put<Escola>(`${baseUrlJavaEscola}`, escola);
+  }
+
 }
