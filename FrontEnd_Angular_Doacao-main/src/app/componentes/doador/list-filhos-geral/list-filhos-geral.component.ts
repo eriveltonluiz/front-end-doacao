@@ -1,3 +1,4 @@
+import { DoacaoService } from 'src/app/serviços/doacao.service';
 import { DataService } from './../../../serviços/data.service';
 import { FiltroPesquisa } from './../../../model/filtro-pesquisa';
 import { FilhoMaterial } from 'src/app/model/filho-material';
@@ -20,10 +21,11 @@ export class ListFilhosGeralComponent implements OnInit {
   filtroPesquisa = new FiltroPesquisa();
   materiaisFilho: FilhoMaterial[] = new Array<FilhoMaterial>();
   materiais: Material[];
-  constructor(private filhoService: FilhoService, private router: Router, private dataService: DataService) { }
+  constructor(private filhoService: FilhoService, private router: Router, private dataService: DataService, 
+    private doacaoService: DoacaoService) { }
 
   ngOnInit(): void {
-    this.filhoService.listarMateriaisFilhosTest().subscribe(r => {
+    this.doacaoService.listarMateriaisFilhosTest().subscribe(r => {
       let array = Array<Object>();
 
       let objFilho = [];

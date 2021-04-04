@@ -10,9 +10,8 @@ import { Cep } from '../model/cep';
 
 const baseUrl = 'http://localhost:3000/filho/';
 const baseUrlEscola = 'http://localhost:3000/escola/';
-const baseUrlFilhoMaterial = 'http://localhost:3000/filhomaterial/';
 const baseUrlMaterial = 'http://localhost:3000/material/';
-const baseUrlMaterialJava = 'http://localhost:8090/doacao/';
+const baseUrlFilhoMaterial = 'http://localhost:3000/filhomaterial/';
 
 @Injectable({
   providedIn: 'root'
@@ -67,13 +66,5 @@ export class FilhoService {
 
   excluirFilho(id: number): Observable<any> {
     return this.http.delete<any>(`${baseUrl}/${id}`);
-  }
-
-  listarMateriaisFilhosTest(): Observable<Array<Object>>{
-    return this.http.get<Array<Object>>(`${baseUrlMaterialJava}`)
-  }
-
-  listarMateriaisFilho(nome: string): Observable<Array<FilhoMaterial>>{
-    return this.http.get<Array<FilhoMaterial>>(`${baseUrlMaterialJava}/${nome}`)
   }
 }

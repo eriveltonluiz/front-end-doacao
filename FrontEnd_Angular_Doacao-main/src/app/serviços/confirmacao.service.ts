@@ -7,6 +7,7 @@ import { FilhoMaterial } from '../model/filho-material';
 export class ConfirmacaoService {
   
   filho: FilhoMaterial;
+  filhoMateriais: FilhoMaterial[];
   
   constructor() { }
   
@@ -16,5 +17,13 @@ export class ConfirmacaoService {
   
   public getFilho() : FilhoMaterial {
     return this.filho;
+  }
+
+  public setFilhoMateriais(filhoMateriais : FilhoMaterial[]) {
+    this.filhoMateriais = filhoMateriais;
+  }
+  
+  public getFilhoMateriais() : FilhoMaterial[] {
+    return this.filhoMateriais;
   }
 }
