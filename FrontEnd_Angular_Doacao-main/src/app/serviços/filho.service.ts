@@ -1,3 +1,4 @@
+import { ObjFilho } from './../model/obj-filho';
 import { Filho } from 'src/app/model/filho';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,10 +9,10 @@ import { Material } from '../model/material';
 import { Cep } from '../model/cep';
 
 const baseUrl = 'http://localhost:3000/filho/';
-const baseUrlEstado = 'http://localhost:3000/estado/';
 const baseUrlEscola = 'http://localhost:3000/escola/';
 const baseUrlFilhoMaterial = 'http://localhost:3000/filhomaterial/';
 const baseUrlMaterial = 'http://localhost:3000/material/';
+const baseUrlMaterialJava = 'http://localhost:8090/doacao/';
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +41,6 @@ export class FilhoService {
     return this.http.get<Material>(`${baseUrlMaterial}/${id}`)
   }
 
-  listarMateriaisFilho(filho: Filho): Observable<Array<FilhoMaterial>>{
-    return this.http.get<Array<FilhoMaterial>>(`${baseUrlFilhoMaterial}/${filho.id}`)
-  }
-
   listarMateriaisFilhos(): Observable<Array<FilhoMaterial>>{
     return this.http.get<Array<FilhoMaterial>>(`${baseUrlFilhoMaterial}`)
   }
@@ -70,5 +67,13 @@ export class FilhoService {
 
   excluirFilho(id: number): Observable<any> {
     return this.http.delete<any>(`${baseUrl}/${id}`);
+  }
+
+  listarMateriaisFilhosTest(): Observable<Array<Object>>{
+    return this.http.get<Array<Object>>(`${baseUrlMaterialJava}`)
+  }
+
+  listarMateriaisFilho(nome: string): Observable<Array<FilhoMaterial>>{
+    return this.http.get<Array<FilhoMaterial>>(`${baseUrlMaterialJava}/${nome}`)
   }
 }

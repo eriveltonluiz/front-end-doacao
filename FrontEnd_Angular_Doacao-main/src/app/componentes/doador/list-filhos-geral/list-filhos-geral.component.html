@@ -1,10 +1,20 @@
-<p class="fs-4">Procure as crianças mais próximas que precisam da sua ajuda!</p>
+<div class="d-flex justify-content-center flex-wrap mt-5 mb-5" style="margin-left: 15%;">
+  <div class="col-md-3">
+    <img src="/assets/img-geral/donation.png" alt="" width="150" height="150">
+  </div>
+
+  <div class="col">
+    <p class="fs-4">Seja um doador e transforme a vida de diversas crianças</p>
+    <p class="">Doe seus materiais escolares em bom estado que você não usa!</p>
+  </div>
+</div>
+
+<p class="fs-4 text-center mt-4" >Procure as crianças mais próximas que precisam da sua ajuda!</p>
 <form #formvalidate="ngForm" class="mb-3 mt-5">
   <div class="rounded-pill">
     <div class="input-group input-group-lg container-sm borda">
       <input
         type="text"
-        [(ngModel)]="filtroPesquisa.estado"
         placeholder="Estado"
         required
         class="form-control inp inpu"
@@ -57,16 +67,16 @@
 </form>
 
 <div class="d-flex justify-content-center flex-wrap mt-5">
-<div *ngFor="let i of materiaisFilho" class="separaprim">
+<div *ngFor="let i of objFilhos" class="">
   <div
-  class="card contorno mr-5 mb-3"
-  style="width: 26rem; height: 25rem; float: left; margin-top: 2%"
+  class="card contorno mb-3 mx-5 my-5"
+  style="width: 26rem; height: 22rem;"
   >
   <!-- <p class="fs-5 text-danger">Como você pode ajudar:</p> -->
     <div class="card-header row">
-      <div class="col-md-4">
+      <div class="col">
         <img
-          [src]="i.filho.urlFoto"
+          [src]="i.urlFoto"
           class="rounded-circle"
           width="100"
           height="100"
@@ -74,111 +84,22 @@
         />
       </div>
       <div class="col-8">
-        <h5 class="fs-2 text-dark">{{ i.filho.nome }}</h5>
-        <p class="fs-5 text-dark padd">{{ i.filho.escola.nome }}</p>
-        <p class="fs-5 text-dark padd">{{ i.filho.escola.uf }} - {{ i.filho.escola.localidade }}</p>
-        <div class="d-flex justify-content-end">
-          <a
-            href="#"
-            data-bs-toggle="modal"
-            (click)="setarMateriaisFilho(i)"
-            
-            class="link-dark fs-5"
-            >Ver mais</a
-          >
-        </div>
+        <h5 class="fs-2 text-dark">{{ i.nomeFilho }}</h5>
+        <p class="fs-5 text-dark padd">{{ i.nomeEscola }}</p>
+        <p class="fs-5 text-dark padd">{{ i.uf }} - {{ i.localidade }}</p>
+        
       </div>
     </div>
-    <div
-      class="modal fade"
-      id="modalCadastro"
-      tabindex="-1"
-      data-backdrop="static"
-      data-keyboard="false"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="exampleModalLabel">Doação</h4>
-            <button
-              type="button"
-              class="btn-close"
-              data-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="card-header row">
-              <div class="col-md-3">
-                <img
-                  [src]="materialFilho.filho.urlFoto"
-                  class="rounded-circle"
-                  width="100"
-                  height="100"
-                  alt=""
-                />
-                <p class="fs-5 text-dark">{{ materialFilho.filho.escola.nome }}</p>
-              </div>
-              <div class="col-md-8">
-                <h5 class="fs-2 text-dark">{{ materialFilho.filho.nome }}</h5>
-                <p class="card-text fs-5">
-                  Doando todos os materias escolares você permite que
-                  {{ materialFilho.filho.nome }} estude o ano todo
-                </p>
-                <div class="d-flex justify-content-end">
-                  <button
-                    type="button"
-                    class="col-4 btn btn-outline-dark separa"
-                  >
-                    Doar tudo!
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="row text-center mt-5">
-              <h3>Selecione quais materiais quer doar</h3>
-            </div>
-
-            <div class="row d-flex justify-content-center mt-3">
-              <div class="col-md-1 ml-3">
-                <img [src]="materialFilho.material.urlFoto" class="mb-2" alt="" height="60" width="60">
-              </div>
-              
-              <div class="col-md-2 mt-2 ml-2">
-                <label for="">{{ materialFilho.quantidadeDesejada }} {{ materialFilho.material.descricao }}</label>
-              </div>
-
-              <div class="col-md-3">
-              <div class="input-group">
-                <button class="btn btn-outline-dark rounded-circle">-</button>
-                <input min="0" [max]="materialFilho.quantidadeDesejada" type="number" class="col-md-3 inp input-bottom" [(ngModel)]="materialFilho.quantidadeDoada">
-                <button class="btn btn-outline-dark rounded-circle">+</button>
-              </div>
-            </div>
-
-            </div>
-
-            <div class="d-flex justify-content-center mt-3">
-            <button type="button" class="col-4 btn btn-outline-dark separa">
-              Doar itens selecionados
-            </button>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <div class="card-body">
       <p class="card-text fs-5">
         Doando todos os materias escolares você permite que
-        {{ i.filho.nome }} estude o ano todo
+        {{ i.nomeFilho }} estude o ano todo
       </p>
     </div>
     <div class="btn-toolbar row justify-content-center">
-      <button type="button" class="col-4 btn btn-outline-dark separa">
-        Doar tudo!
+      <button type="button" class="col-4 btn botao-principal" (click)="setarMateriaisFilho(i)">
+        Ver mais
       </button>
     </div>
   </div>

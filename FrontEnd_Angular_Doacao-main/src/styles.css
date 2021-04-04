@@ -1,72 +1,129 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.tamanho{
-    width: 100%;
+.tamanho {
+  width: 100%;
 }
 
-.ng-valid[required], .ng-valid.required{
-    border-left: 7px solid #42A948;
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 7px solid #42a948;
 }
 
-.ng-invalid:not(form){
-    border-left: 7px solid #a94442;
+.ng-invalid:not(form) {
+  border-left: 7px solid #a94442;
 }
 
-.contorno{
-    padding: 20px 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 25px;
-    
-    /* margin-right: 1%; */
+.contorno {
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 25px;
+
+  /* margin-right: 1%; */
 }
 
-
-.asterisco{
-    /* font-size: 20px; */
-    color: red;
-    margin-left: 5px;
+.asterisco {
+  /* font-size: 20px; */
+  color: red;
+  margin-left: 5px;
 }
 
-.separaprim{
-    margin-left: 40px;
+.separaprim {
+  margin-left: 40px;
 }
 
-.marginOpc{
-    margin-top: 27px;
+.marginOpc {
+  margin-top: 27px;
 }
 
-.padd{
-    margin-bottom: 0;
+.padd {
+  margin-bottom: 0;
 }
 
-.cent{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.cent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-    justify-content: start;
-    align-items: center;
+  justify-content: start;
+  align-items: center;
 }
 
-.segunda-coluna:nth-child(even){
-    margin-left: 15px;
-    margin-bottom: 15px;
+.segunda-coluna:nth-child(even) {
+  margin-left: 15px;
+  margin-bottom: 15px;
 }
 
-.terceira-coluna:nth-child(odd){
-    margin-left: 15px;
-    margin-bottom: 15px;
+.terceira-coluna:nth-child(odd) {
+  margin-left: 15px;
+  margin-bottom: 15px;
 }
 
-.font{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.font {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.tamInput{
+.tamInput {
+  height: 45px;
+}
+
+.tam-botao{
     height: 45px;
+}
+
+.botao-principal {
+  /* Botão importante */
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  background: #f2530f;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+
+  color: #f9f9f9;
+}
+
+.botao-excluir {
+  background: #f9f9f9;
+  border: 1px solid #d41604;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  color: #d41604;
+}
+
+.botao-material {
+  background: #f9f9f9;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  color: #375060;
+}
+
+.botao-editar {
+  background: #f9f9f9;
+  border: 1px solid #309cc9;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  color: #309cc9;
+}
+
+.botao-branco {
+  background: #f9f9f9;
+  border: 1px solid #46494c;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
 }

@@ -1,24 +1,25 @@
-<div class="card-header row">
-    <div class="ml-5 col-md-2">
+<div class="card-header d-flex justify-content-start">
+    <div class="ml-5 col-md-3 mt-2">
       <img
-        [src]="materialFilho.filho.urlFoto"
+        [src]="materialFilho.id.filho.urlFoto"
         class="rounded-circle"
         width="100"
         height="100"
         alt=""
       />
-      <p class="fs-5 text-dark">{{ materialFilho.filho.escola.nome }}</p>
+      <p class="fs-5 text-dark">{{ materialFilho.id.filho.escola.nome }}</p>
+      <p class="fs-5 text-dark">{{ materialFilho.id.filho.escola.uf }} - {{ materialFilho.id.filho.escola.localidade }}</p>
     </div>
-    <div class="col-md-8">
-      <h5 class="fs-2 text-dark">{{ materialFilho.filho.nome }}</h5>
-      <p class="card-text fs-5">
+    <div class="col">
+      <h5 class="fs-2 text-dark text-center">{{ materialFilho.id.filho.nome }}</h5>
+      <p class="card-text fs-5 text-center" style="font-size: 10px;">
         Doando todos os materias escolares você permite que
-        {{ materialFilho.filho.nome }} estude o ano todo
+        {{ materialFilho.id.filho.nome }} estude o ano todo
       </p>
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-center">
         <button
           type="button"
-          class="col-4 btn btn-outline-dark separa"
+          class="btn botao-principal separa"
         >
           Doar tudo!
         </button>
@@ -30,27 +31,27 @@
     <h3>Selecione quais materiais quer doar</h3>
   </div>
 
-  <div class="row d-flex justify-content-center mt-3">
+  <div class="d-flex justify-content-evenly mt-3" style="width: 75%; margin: 0 auto;" *ngFor="let mat of materiais">
     <div class="col-md-1 ml-3">
-      <img [src]="materialFilho.material.urlFoto" class="mb-2" alt="" height="60" width="60">
+      <img [src]="mat.id.material.urlFoto" class="mb-2" alt="" height="60" width="60">
     </div>
     
-    <div class="col-md-2 mt-2 ml-2">
-      <label for="">{{ materialFilho.quantidadeDesejada }} {{ materialFilho.material.descricao }}</label>
+    <div class="col-md-1 mt-2 ml-2">
+      <label class="fs-5" for="">{{ mat.id.material.descricao }}</label>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-2">
     <div class="input-group">
-      <button class="btn btn-outline-dark rounded-circle">-</button>
-      <input min="0" [max]="materialFilho.quantidadeDesejada" type="number" class="col-md-2 inp input-bottom " [(ngModel)]="materialFilho.quantidadeDoada">
-      <button class="btn btn-outline-dark rounded-circle">+</button>
+      <button class="btn btn-outline-primary rounded-circle">-</button>
+      <input min="0" [max]="mat.quantidadeDesejada" type="number" class="inp input-bottom " [(ngModel)]="mat.quantidadeDoada">
+      <button class="btn btn-outline-primary rounded-circle">+</button>
     </div>
   </div>
 
   </div>
 
-  <div class="d-flex justify-content-center mt-3">
-  <button type="button" class="col-4 btn btn-outline-dark separa" (click)="confirmarDoacao(materialFilho)">
+  <div class="d-flex justify-content-center mt-3 mb-3">
+  <button type="button" class="btn botao-principal separa" (click)="confirmarDoacao(materialFilho)">
     Doar itens selecionados
   </button>
 </div>

@@ -12,9 +12,10 @@
       class="carousel-item active"
       #formValidate="ngForm"
     >
-      <main class="col mt-3">
-        <section class="d-flex justify-content-md-center">
-          <div class="col-md-8 mb-4">
+      <h4 class="text-start fs-5">Dados do seu filho:</h4>
+      <main class="mt-3">
+        <section class="d-flex justify-content-md-start">
+          <div class="col-md-5 mb-4">
             <input
               type="text"
               #nomeValidate="ngModel"
@@ -27,10 +28,25 @@
               autocomplete="false"
             />
           </div>
+
+          <div class="col d-flex justify-content-end">
+            <div class="mr-3 mb-3">
+              <input
+                type="text"
+                class="form-control tamInput"
+                id="cpf"
+                name="cpf"
+                placeholder="CPF"
+                mask="000.000.000-00||00.000.000"
+                [(ngModel)]="filho.cpf"
+                autocomplete="false"
+              />
+            </div>
+          </div>
         </section>
 
-        <section class="d-flex justify-content-md-center">
-          <div class="col-md-8 mb-4">
+        <section class="d-flex justify-content-md-start border-bottom border-2">
+          <div class="col-md-5 mb-5">
             <div class="input-group">
               <input
                 type="text"
@@ -57,50 +73,11 @@
           </div>
         </section>
 
-        <section class="d-flex justify-content-md-center">
-          <div class="col-md-8 mb-4">
-            <input
-              type="text"
-              class="form-control tamInput"
-              id="cpf"
-              name="cpf"
-              placeholder="CPF"
-              mask="000.000.000-00||00.000.000"
-              [(ngModel)]="filho.cpf"
-              autocomplete="false"
-            />
-          </div>
-          <!-- </section>
-
-        <section class="d-flex justify-content-end">
-          <button
-            id="btn1"
-            type="button"
-            class="btn btn-primary md-3 abrirmodal"
-            [disabled]="formValidate.invalid"
-            (click)="carregar2Modal()"
-          >
-            Avançar
-          </button> -->
-        </section>
-      </main>
-      <section>
-        <button
-          class="btn btn-primary float-end"
-          type="button"
-          [disabled]="formValidate.invalid"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          Avançar
-        </button>
-      </section>
-    </form>
-
-    <form action="" class="carousel-item" #formValidate2="ngForm">
-      <main class="col mt-3">
-        <section class="d-flex justify-content-md-start">
-          <div class="col-md-8 mb-4">
+        <h4 class="text-start fs-5 mt-4">
+          Qual escola em que seu filho (a) estuda?
+        </h4>
+        <section class="d-flex justify-content-md-start mt-2">
+          <div class="col-md-5 mt-1">
             <input
               type="text"
               placeholder="Nome da escola"
@@ -112,65 +89,59 @@
               autocomplete="false"
             />
           </div>
-        </section>
 
-        <h4 class="text-start">Essa escola é:</h4>
-        <section class="d-flex justify-content-md-start mb-4">
-          <input
-            class="form-check-input"
-            value="Estadual"
-            [(ngModel)]="escola.descricao"
-            type="radio"
-            name="radioDescricao"
-            id="flexRadioDefault1"
-          />
-          <label class="form-check-label mx-2" for="flexRadioDefault1">
-            Estadual
-          </label>
+          <div class="col d-flex justify-content-center mt-2">
+            <input
+              class="form-check-input"
+              value="Estadual"
+              [(ngModel)]="escola.descricao"
+              type="radio"
+              name="radioDescricao"
+              id="flexRadioDefault1"
+            />
+            <label class="form-check-label mx-2" for="flexRadioDefault1">
+              Estadual
+            </label>
 
-          <input
-            class="form-check-input mx-2"
-            [(ngModel)]="escola.descricao"
-            type="radio"
-            name="radioDescricao"
-            id="flexRadioDefault2"
-            checked
-          />
-          <label
-            class="form-check-label"
-            value="Municipal"
-            for="flexRadioDefault2"
-          >
-            Municipal
-          </label>
+            <input
+              class="form-check-input mx-2"
+              [(ngModel)]="escola.descricao"
+              type="radio"
+              name="radioDescricao"
+              id="flexRadioDefault2"
+              checked
+            />
+            <label
+              class="form-check-label"
+              value="Municipal"
+              for="flexRadioDefault2"
+            >
+              Municipal
+            </label>
+          </div>
         </section>
       </main>
       <section>
         <button
-          class="btn btn-primary float-start"
+          class="btn botao-branco float-end"
           type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          Voltar
-        </button>
-        <button
-          class="btn btn-primary float-end"
-          type="button"
+          [disabled]="formValidate.invalid"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="next"
-          [disabled]="formValidate2.invalid"
         >
           Avançar
         </button>
       </section>
     </form>
+
     <form action="" class="carousel-item" #formValidate3="ngForm">
       <main class="col mt-1">
-        <h4 class="text-start mb-3">
-          Caso queira disponibizar o endereço da escola coque o CEP da mesma
-          abaixo:
-        </h4>
+        <h4 class="text-start fs-5">Por favor insira o endereço da escola</h4>
+        <p class="text-start">
+          A forma de entrega e recebimento dos materiais escolares está aberta a
+          decisão dos responsáveis e doadores envolvidos. Para sua segurança um
+          dos pontos de encontro sugeridos é a escola.
+        </p>
         <section class="d-flex justify-content-md-start">
           <div class="col-md-3 mb-4">
             <input
@@ -245,9 +216,9 @@
           </div>
         </section>
       </main>
-      <section>
+      <section class="mb-2">
         <button
-          class="btn btn-primary float-start"
+          class="btn botao-branco float-start mb-2"
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="prev"
@@ -256,7 +227,7 @@
         </button>
 
         <button
-          class="btn btn-primary float-end"
+          class="btn botao-branco float-end mb-2"
           type="button"
           [disabled]="formValidate3.invalid"
           data-bs-target="#carouselExampleControls"
@@ -268,7 +239,7 @@
     </form>
 
     <form action="" class="carousel-item">
-      <h5 class="text-start mb-2">Escolha um avatar para seu filho (a):</h5>
+      <h4 class="text-start fs-5">Escolha um avatar para seu filho (a):</h4>
       <div
         data-bs-touch="false"
         data-bs-interval="false"
@@ -334,9 +305,9 @@
           </button>
         </section>
       </div>
-      <section>
+      <section class="mb-2">
         <button
-          class="btn btn-primary float-start"
+          class="btn botao-branco float-start mb-2"
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="prev"
@@ -344,7 +315,7 @@
           Voltar
         </button>
         <button
-          class="btn btn-primary float-end"
+          class="btn botao-branco float-end mb-2"
           type="button"
           (click)="salvar()"
           data-bs-target="#carouselExampleControls"

@@ -24,6 +24,7 @@ export class ListFilhoComponent implements OnInit {
   constructor(private filhoService: FilhoService, private router: Router, private dataFilhoService: DataFilhoService) { }
 
   ngOnInit(): void {
+    
     //console.log(this.filhos);
     //console.log(localStorage.getItem('id'));
     if(localStorage.getItem('id') === null){
@@ -82,7 +83,7 @@ export class ListFilhoComponent implements OnInit {
 
   editarMaterial(item: FilhoMaterial){
     this.materialFilho = item;
-    this.material = this.materialFilho.material;
+    this.material = this.materialFilho.id.material;
     console.log(this.materialFilho);
   }
 
@@ -106,17 +107,12 @@ export class ListFilhoComponent implements OnInit {
   salvarMaterialFilho(){
     this.filhoService.buscarMaterialPorID(this.material.id).subscribe(result => { 
       this.material = result; 
-      this.materialFilho.material = this.material;
-      this.materialFilho.filho = this.filho;
+      this.materialFilho.id.material = this.material;
+      this.materialFilho.id.filho = this.filho;
       this.materialFilho.quantidadeDoada = 0;
       this.materialFilho.statusDoacao = "Em aberto";
       console.log(this.materialFilho);
       this.filhoService.salvarMaterialFilho(this.materialFilho).subscribe(result => {this.materialFilho = result;alert("Material salvo com sucesso");});
-      
-
-      error:{
-        alert("Erro ao salvar");
-      }
     });
     
   }

@@ -3,7 +3,6 @@ import { Pai } from 'src/app/model/pai';
 export class Filho {
     id: number
     nome: string;
-    relato: string;
     dataNascimento: String;
     cpf: string;
     urlFoto: string;

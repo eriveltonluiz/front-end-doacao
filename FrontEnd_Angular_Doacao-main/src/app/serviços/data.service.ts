@@ -1,3 +1,4 @@
+import { ObjFilho } from './../model/obj-filho';
 import { FilhoMaterial } from './../model/filho-material';
 import { Injectable } from '@angular/core';
 
@@ -6,15 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  private filho: FilhoMaterial;
+  private filho: ObjFilho;
   
   constructor() { }
 
-  setFilho(filho: FilhoMaterial){
+  setFilho(filho: ObjFilho){
     this.filho = filho;
   }
 
-  getFilho(): FilhoMaterial{
+  getFilho(): ObjFilho{
     return this.filho;
   }
 }

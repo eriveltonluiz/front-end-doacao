@@ -10,13 +10,13 @@ export class AppComponent implements OnInit {
 
   title = 'frontend';
 
+  
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.router.url);
-    console.log(((this.router.url.includes('listfilhosgeral')) || 
-    (this.router.url.includes('doacao')) || 
-    (this.router.url.includes('detalhes'))))
+
+    console.log()
 
     if ((localStorage.getItem('id') === null || localStorage.getItem('id') === undefined)
       && ((this.router.url.includes('listfilhosgeral')) || 
@@ -26,6 +26,10 @@ export class AppComponent implements OnInit {
       console.log(this.router.url);
     }
     console.log(localStorage.getItem('id'));
+
+    if(localStorage.getItem('id') !== null && this.router.url === ''){
+      this.router.navigate(['listfilho'])
+    }
   }
 
   esconderMenuPai(): boolean {

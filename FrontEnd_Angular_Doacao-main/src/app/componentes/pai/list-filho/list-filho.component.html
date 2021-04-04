@@ -1,12 +1,4 @@
-<h1 class="display-5 text-center mb-3 tamanho">Seus filhos</h1>
-
-<form class="form-inline">
-  <section class="row g-2 mb-3 container">
-    <div class="col-md-5">
-      <div class="input-group">Olá {{ filho.pai.nome }}</div>
-    </div>
-  </section>
-</form>
+<h1 class="display-6 mb-3 text-center tamanho">Bem-vindo (a) {{ filho.pai.nome }}</h1>
 
 <div class="d-flex justify-content-center flex-wrap mt-4">
   <div *ngFor="let item of filhos; let i = index" class="separaprim my-1">
@@ -29,7 +21,7 @@
               href="#modalCadastro1"
               data-bs-toggle="modal"
               style="margin-right: 11px;"
-              class="btn btn-primary row mt-3"
+              class="btn botao-editar row mt-3"
             >
               Editar
             </button>
@@ -49,20 +41,20 @@
       <div class="mt-4 d-flex justify-content-md-center">
         <button
           type="button"
-          class="btn btn-outline-danger"
+          class="btn botao-excluir"
           (click)="excluir(item, i)"
         >
-          <i class="bi bi-trash"></i> Excluir
+          Excluir
         </button>
 
         <button
           type="button"
-          class="btn btn-outline-success separa"
+          class="btn botao-material separa"
           (click)="carregarMateriais(item)"
           data-bs-toggle="modal"
           data-bs-target="#materiais"
         >
-          <i class="bi bi-vector-pen"></i> Materiais
+          Materiais
         </button>
       </div>
     </div>

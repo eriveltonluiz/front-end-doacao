@@ -1,23 +1,28 @@
-form{
-    padding: 0;
-    margin: 0;
+form {
+  padding: 0;
+  margin: 0;
 }
 
-.largo{
-    width: 100%;
-    margin: 20px auto;
+.largo {
+  width: 100%;
+  margin: 20px auto;
 }
 
-.login{
-    background-color: aliceblue;
+.login {
+  background-color: aliceblue;
 }
 
-.ajuste{
-    height: 500px;
-    
+.ajuste {
+  height: 500px;
 }
 
-.imagem{
-    background: url("https://cdn.discordapp.com/attachments/822990379594547230/826941647148679178/Imagem_de_criancas_estudando_1.png") no-repeat center;
-    background-size: 100% 750px;
+.imagem {
+  background: url("https://cdn.discordapp.com/attachments/822990379594547230/826941647148679178/Imagem_de_criancas_estudando_1.png")
+    no-repeat center;
+  background-size: 100% 750px;
+}
+
+.fundo-login {
+  background: #f8f9fb;
+  border-radius: 5px;
 }

@@ -132,8 +132,7 @@ export class AddFilhoComponent implements OnInit {
       senha: "ekefsfg3r",
       celular: "86678768760",
       renda: 1000,
-      cpf: "13823472143",
-      profissao: "Servente de pedreiro"
+      cpf: "13823472143"
     }
 
     if (this.filho.id === null || this.filho.id === undefined) {
