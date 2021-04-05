@@ -1,3 +1,4 @@
+import { FiltroPesquisa } from './../model/filtro-pesquisa';
 import { FilhoMaterial } from 'src/app/model/filho-material';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -47,5 +48,9 @@ export class DoacaoService {
 
   salvarMaterialFilho(filhoMaterial: FilhoMaterial): Observable<FilhoMaterial> {
     return this.http.post<FilhoMaterial>(baseUrlMaterialJava, filhoMaterial);
+  }
+
+  listarFilhosPorFiiltro(id: number): Observable<Array<Object>>{
+    return this.http.get<Array<Object>>(baseUrlMaterialJava + 'filtros/' + id)
   }
 }

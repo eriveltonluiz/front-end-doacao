@@ -149,8 +149,13 @@ export class ListFilhoComponent implements OnInit {
           this.materialFilho.quantidadeDoada = 0;
           this.materialFilho.statusDoacao = "ABERTO";
           console.log(this.materialFilho);
-          this.doacaoService.salvarMaterialFilho(this.materialFilho).subscribe(result => { this.materialFilho = result; this.materiaisFilho.push(this.materialFilho); alert("Material salvo com sucesso"); });
-        });
+          this.doacaoService.salvarMaterialFilho(this.materialFilho).subscribe(result => { this.materialFilho = result;
+            this.materiaisFilho.push(this.materialFilho);
+            this.materialFilho = new FilhoMaterial();
+            console.log(this.materialFilho)
+            this.material = new Material();
+            alert("Material salvo com sucesso"); });
+          });
       } else {
         alert('Mateial já inserido na sua lista!!!');
         this.materialFilho = new FilhoMaterial();

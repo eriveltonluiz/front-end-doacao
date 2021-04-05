@@ -50,36 +50,47 @@ export class ListMateriaisFilhoComponent implements OnInit {
   }
 
   confirmarDoacao() {
+    if (confirm('Deseja efetuar a doação dos materiais selecionados para ' + this.materialFilho.id.filho.nome)) {
 
-    this.materiais.forEach(i => {
-      if (i.quantidadeDoada === 0)
-        this.cont++;
-    });
-
-    if (this.cont === this.materiais.length) {
-      alert('Necessário inserir algum valor para efetuar a transação!!')
-    } else {
-      this.materiais.forEach(mat => {
-        mat.quantidadeDesejada -= mat.quantidadeDoada;
-        mat.statusDoacao = mat.quantidadeDesejada === 0 ? 'CONFIRMADO' : 'ABERTO';
+      this.materiais.forEach(i => {
+        if (i.quantidadeDoada === 0)
+          this.cont++;
       });
+
+      if (this.cont === this.materiais.length) {
+        alert('Necessário inserir algum valor para efetuar a transação!!')
+      } else {
+        this.materiais.forEach(mat => {
+          mat.quantidadeDesejada -= mat.quantidadeDoada;
+          mat.statusDoacao = mat.quantidadeDesejada === 0 ? 'CONFIRMADO' : 'ABERTO';
+        });
+
+        this.doacaoService.editarMaterialFilho(this.materiais).subscribe(retorno => {
+          this.materiais = retorno;
+          console.log(this.materiais)
+          this.confirmacaoService.setFilhoMateriais(this.materiais.filter(m => m.quantidadeDoada > 0))
+          this.confirmacaoService.setFilho(this.materialFilho);
+          this.router.navigate(['detalhes']);
+        })
+      }
+    }
+  }
+
+  doarTudo() {
+    if (confirm('Deseja efetuar a doação de todos os materiais para ' + this.materialFilho.id.filho.nome)) {
+      this.materiais.forEach(mat => {
+        mat.quantidadeDoada = mat.quantidadeDesejada;
+        mat.quantidadeDesejada = 0;
+        mat.statusDoacao = 'CONFIRMADO'
+      })
 
       this.doacaoService.editarMaterialFilho(this.materiais).subscribe(retorno => {
         this.materiais = retorno;
-        console.log(this.materiais)
         this.confirmacaoService.setFilhoMateriais(this.materiais.filter(m => m.quantidadeDoada > 0))
         this.confirmacaoService.setFilho(this.materialFilho);
         this.router.navigate(['detalhes']);
       })
     }
-  }
-
-  doarTudo() {
-    this.materiais.forEach(mat => {
-      mat.quantidadeDoada = mat.quantidadeDesejada;
-      mat.statusDoacao = 'Confirmado'
-    })
-    console.log(this.materiais);
   }
 
   incrementa(i: number) {

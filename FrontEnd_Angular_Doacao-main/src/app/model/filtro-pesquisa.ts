@@ -1,4 +1,5 @@
 export class FiltroPesquisa {
+    municipio: string;
     escola: string;
-    material: string;
+    material: number;
 }

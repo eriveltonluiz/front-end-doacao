@@ -13,21 +13,22 @@
 <form #formvalidate="ngForm" class="mb-3 mt-5">
   <div class="rounded-pill">
     <div class="input-group input-group-lg container-sm borda">
-      <input
+      <select
+      [(ngModel)]="filtroPesquisa.municipio"
         type="text"
-        placeholder="Estado"
+        placeholder="municipio"
         required
         class="form-control inp inpu"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
         name="estado"
-      />
-      <!-- <option selected><span class="selectprim">Estado</span></option>
-        <option [value]="est.nome" *ngFor="let est of estados">
-          {{ est.nome }}
+      >
+        <option [value]="est" *ngFor="let est of municipios">
+          {{ est }}
         </option>
-      </select> -->
-      <input
+      </select>
+
+      <select
         [(ngModel)]="filtroPesquisa.escola"
         name="escola"
         type="text"
@@ -36,8 +37,13 @@
         class="form-control inp inpu"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
-      />
-      <input
+      >
+        <option [value]="est" *ngFor="let est of escolas">
+          {{ est }}
+        </option>
+      </select>
+
+      <select
         type="text"
         [(ngModel)]="filtroPesquisa.material"
         name="material"
@@ -46,18 +52,15 @@
         placeholder="Material escolar"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
-      />
-      <!-- <option selected>
-          <span class="selectprim">Material escolar</span>
-        </option>
-        <option [value]="mat.descricao" *ngFor="let mat of materiais">
+      >
+        <option [ngValue]="mat.id" *ngFor="let mat of materiais">
           {{ mat.descricao }}
         </option>
-      </select> -->
+     
+      </select>
       <button
         (click)="print()"
         type="button"
-        [disabled]="formvalidate.invalid"
         class="rounded-pill btn btn-danger"
       >
         <i class="bi bi-search"></i>
@@ -67,6 +70,8 @@
 </form>
 
 <div class="d-flex justify-content-center flex-wrap mt-5">
+  <div *ngIf="objFilhos.length < 1" >
+    <p class="fs-4 text-center mt-4" >Sem registros!</p></div>
 <div *ngFor="let i of objFilhos" class="">
   <div
   class="card contorno mb-3 mx-5 my-5"

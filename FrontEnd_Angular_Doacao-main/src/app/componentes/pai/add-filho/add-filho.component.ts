@@ -159,21 +159,41 @@ export class AddFilhoComponent implements OnInit {
           });
           alert('Salvo com sucesso!!!');
         }
-        
+
       });
     }
 
     else {
-      this.filhoService.editarEscola(this.escola).subscribe(resultado => {
-        this.escola = resultado;
-      });
-      this.filho.escola = this.escola;
 
-      this.filhoService.editarFilho(this.filho).subscribe(resultado => {
-        this.filho = resultado;
-        //this.novo();
-      });
-      alert('Editado com sucesso!!!')
+      this.filhoService.buscarEscolaPorNome(this.escola.nome).subscribe(retorno => {
+        if (retorno === null) {
+          this.filhoService.salvarEscola(this.escola).subscribe(resultado => {
+            this.escola = resultado;
+            this.filho.escola = this.escola;
+
+            this.filhoService.editarFilho(this.filho).subscribe(resultado => {
+              this.filho = resultado;
+              //this.novo();
+            });
+          })
+          console.log('aqui')
+        } else {
+          console.log('aqui')
+          this.filhoService.editarEscola(this.escola).subscribe(retorno => {
+            this.escola = retorno;
+            this.filho.escola = this.escola;
+            
+            this.filhoService.editarFilho(this.filho).subscribe(resultado => {
+              this.filho = resultado;
+              //this.novo();
+              alert('Editado com sucesso!!!')
+            });
+          })
+
+        }
+      })
+
+
     }
   }
 
