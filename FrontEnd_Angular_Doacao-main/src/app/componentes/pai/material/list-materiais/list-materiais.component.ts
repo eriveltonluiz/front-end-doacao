@@ -90,7 +90,7 @@ materiais: Material[] = new Array<Material>();
   }
 
   salvarMaterialFilho(){
-    this.filhoService.salvarMaterialFilho(this.materialFilho).subscribe(result => this.materialFilho = result);
+    // this.filhoService.salvarMaterialFilho(this.materialFilho).subscribe(result => this.materialFilho = result);
     alert("Material salvo com sucesso");
   }
 

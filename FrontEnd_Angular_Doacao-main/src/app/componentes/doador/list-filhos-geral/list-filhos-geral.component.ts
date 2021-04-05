@@ -69,7 +69,7 @@ export class ListFilhosGeralComponent implements OnInit {
       this.materiaisFilho = result;
       console.log(this.materiaisFilho)
     });
-    this.filhoService.listarMateriais().subscribe(res => this.materiais = res);
+    // this.filhoService.listarMateriais().subscribe(res => this.materiais = res);
   }
 
   setarMateriaisFilho(objFilho: ObjFilho){

@@ -10,9 +10,6 @@ import { Cep } from '../model/cep';
 
 const baseUrlJava = 'http://localhost:8090/filho/';
 const baseUrlJavaEscola = 'http://localhost:8090/escola/';
-const baseUrl = 'http://localhost:3000/filho/';
-const baseUrlEscola = 'http://localhost:3000/escola/';
-const baseUrlMaterial = 'http://localhost:3000/material/';
 const baseUrlFilhoMaterial = 'http://localhost:3000/filhomaterial/';
 
 @Injectable({
@@ -25,11 +22,7 @@ export class FilhoService {
   consultaCep(cep: string): Observable<Cep>{
     return this.http.get<Cep>(`https://viacep.com.br/ws/${cep}/json/`);
   }
-
-  listarMateriais(): Observable<Material[]> {
-    return this.http.get<Material[]>(baseUrlMaterial);
-  }
-
+ 
   listarFilhos(): Observable<Array<Filho>> {
     return this.http.get<Array<Filho>>(baseUrlJava);
   }
@@ -38,16 +31,8 @@ export class FilhoService {
     return this.http.get<Array<Filho>>(`${baseUrlJava}${id}`);
   }
 
-  buscarMaterialPorID(id: number): Observable<Material>{
-    return this.http.get<Material>(`${baseUrlMaterial}/${id}`)
-  }
-
   listarMateriaisFilhos(): Observable<Array<FilhoMaterial>>{
     return this.http.get<Array<FilhoMaterial>>(`${baseUrlFilhoMaterial}`)
-  }
-
-  salvarMaterialFilho(filhoMaterial: FilhoMaterial): Observable<FilhoMaterial> {
-    return this.http.post<FilhoMaterial>(baseUrlFilhoMaterial, filhoMaterial);
   }
 
   salvarFilho(filho: Filho): Observable<Filho> {
