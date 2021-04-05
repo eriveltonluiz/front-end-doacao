@@ -9,11 +9,17 @@
   </div>
 </div>
 
+
 <p class="fs-4 text-center mt-4" >Procure as crianças mais próximas que precisam da sua ajuda!</p>
-<form #formvalidate="ngForm" class="mb-3 mt-5">
+<div class="d-flex justify-content-evenly">
+  <p class="fs-4 text-end mt-4">Município</p>
+  <p class="fs-4 text-center mt-4" >Escola</p>
+  <p class="fs-4 text-start mt-4 mr-4">Material Escolar</p>
+</div>
+<form #formvalidate="ngForm" class="mb-3">
   <div class="rounded-pill">
     <div class="input-group input-group-lg container-sm borda">
-      <p class="fs-4 text-center mt-4" >Município</p>
+     
       <select
       [(ngModel)]="filtroPesquisa.municipio"
         type="text"
@@ -29,7 +35,7 @@
         </option>
       </select>
 
-      <p class="fs-4 text-center mt-4" >Escola</p>
+      
       <select
         [(ngModel)]="filtroPesquisa.escola"
         name="escola"
@@ -45,7 +51,7 @@
         </option>
       </select>
 
-      <p class="fs-4 text-center mt-4" >Material Escolar</p>
+      
       <select
         type="text"
         [(ngModel)]="filtroPesquisa.material"

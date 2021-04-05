@@ -22,7 +22,8 @@ export class CadastroComponent implements OnInit {
       next: p => {
         alert('Cadastro realizado com sucesso');
         localStorage.clear();
-        this.router.navigate(['listfilho']);
+        let btnFechar = document.getElementById('btnFechar');
+        btnFechar.click();
       },
       error: err =>
         alert("Erro ao se cadastrar informações não podem ser repetidas")

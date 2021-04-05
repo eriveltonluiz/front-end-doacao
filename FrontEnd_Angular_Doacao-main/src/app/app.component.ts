@@ -50,6 +50,11 @@ export class AppComponent implements OnInit {
     return false;
   }
 
+  chamarCadastro(){
+    let btn = document.getElementById("btnCadastro");
+    btn.click();
+  }
+
   sair() {
     localStorage.clear();
     localStorage.removeItem('id')

@@ -1,78 +1,71 @@
 <nav [hidden]="esconderMenuPai()" class="navbar navbar-expand-lg">
   <div class="container-fluid">
-  <a class="navbar-brand ml-4" (click)="sair()"><img src="assets/img-geral/solida.png" width="80" height="80" alt=""></a>
-  <button
-      id="btnMenuPai"
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDarkDropdown"
-      aria-controls="navbarNavDarkDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  <div id="navbarNavDarkDropdown" class="collapse navbar-collapse">
-    <div class="container-fluid d-flex justify-content-end navbar-nav">
-      <div class="">
-    <a
-      class="navbar-brand mx-4"
-      [routerLink]="['/addfilho']"
-      routerLinkActive="active"
-      >Cadastro</a
-    >
-    <a
-      class="navbar-brand mx-4"
-      [routerLink]="['/listfilho']"
-      routerLinkActive="active"
-      >Filhos</a
-    >
-    <a class="navbar-brand mx-4" (click)="sair()"><i class="bi bi-person-circle" style="font-size: 27px;"></i></a>
+    <a class="navbar-brand" style="cursor: pointer" (click)="sair()"
+      ><img src="/assets/img-geral/solida.png" width="100" height="100" alt=""
+    /></a>
+    
+    <div id="navbarNavDarkDropdown" class="ajustar">
+      <div class="container-fluid d-flex justify-content-end navbar-nav">
+        <div class="">
+          <a
+            class="navbar-brand mx-4"
+            [routerLink]="['/addfilho']"
+            routerLinkActive="active"
+            >Cadastro</a
+          >
+          <a
+            class="navbar-brand mx-4"
+            [routerLink]="['/listfilho']"
+            routerLinkActive="active"
+            >Filhos</a
+          >
+          <a class="navbar-brand mx-4" (click)="sair()"
+            ><i class="bi bi-person-circle" style="font-size: 27px"></i
+          ></a>
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
-</div>
-</div>
 </nav>
 
 <nav [hidden]="esconderMenuDoador()" class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <div class="ml-4">
-  <a class="navbar-brand" ><img src="assets/img-geral/solida.png" width="100" height="100" alt=""></a>
-</div>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarDoadorNavDarkDropdown"
-    aria-controls="navbarDoadorNavDarkDropdown"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div id="navbarDoadorNavDarkDropdown" class="collapse navbar-collapse">
-  <div class="container-fluid d-flex justify-content-end">
-    <div class="nav-item dropdown">
-    <a
-      class="navbar-brand mx-4"
-      [routerLink]="['/addfilho']"
-      routerLinkActive="active"
-      >Quem somos</a
-    >
-    <a
-      class="navbar-brand mx-4"
-      [routerLink]="['/listfilho']"
-      routerLinkActive="active"
-      >Dúvidas</a
-    >
-    <a class="navbar-brand mx-4" href="#">Cadastre seus filhos</a>
-    <button class="navbar-brand btn botao-principal mx-4 tam-botao" [routerLink]="[ '/listfilhosgeral' ]" routerLinkActive="active">Doações</button>
+  <div class="container-fluid ajustar">
+    <a class="navbar-brand" id="re"
+      ><img src="/assets/img-geral/solida.png" width="100" height="100" alt=""
+    /></a>
+    
+    <div id="navbarDoadorNavDarkDropdown" class="">
+      <div class="container-fluid d-flex justify-content-end">
+        <div class="nav-item dropdown " >
+          <a
+            class="navbar-brand mx-4"
+            [routerLink]="['/addfilho']"
+            routerLinkActive="active"
+            >Quem somos</a
+          >
+          <a
+            class="navbar-brand mx-4"
+            [routerLink]="['/listfilho']"
+            routerLinkActive="active"
+            >Dúvidas</a
+          >
+          <a
+            class="navbar-brand mx-4"
+            style="cursor: pointer"
+            (click)="chamarCadastro()"
+            >Cadastre seus filhos</a
+          >
+          <button
+            class="navbar-brand btn botao-principal mx-4 tam-botao"
+            [routerLink]="['/listfilhosgeral']"
+            routerLinkActive="active"
+          >
+            Doações
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
 </nav>
-
 
 <router-outlet></router-outlet>

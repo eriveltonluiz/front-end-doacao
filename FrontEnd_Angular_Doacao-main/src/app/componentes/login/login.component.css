@@ -26,3 +26,11 @@ form {
   background: #f8f9fb;
   border-radius: 5px;
 }
+
+ul{
+  list-style: none;
+}
+
+.colors{
+  color: white;
+}
