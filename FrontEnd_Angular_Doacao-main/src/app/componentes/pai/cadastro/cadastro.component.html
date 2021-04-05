@@ -103,6 +103,6 @@
   </section>
 
   <div class="modal-footer justify-content-center">
-    <button type="button" class="col-4 btn btn-primary" [disabled]="formValidate.invalid">Cadastre-se</button>
+    <button type="button" class="col-4 btn btn-primary" (click)="cadastrar()" [disabled]="formValidate.invalid">Cadastre-se</button>
   </div>
 </form>
