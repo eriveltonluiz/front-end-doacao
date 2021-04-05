@@ -13,6 +13,7 @@
 <form #formvalidate="ngForm" class="mb-3 mt-5">
   <div class="rounded-pill">
     <div class="input-group input-group-lg container-sm borda">
+      <p class="fs-4 text-center mt-4" >Município</p>
       <select
       [(ngModel)]="filtroPesquisa.municipio"
         type="text"
@@ -28,6 +29,7 @@
         </option>
       </select>
 
+      <p class="fs-4 text-center mt-4" >Escola</p>
       <select
         [(ngModel)]="filtroPesquisa.escola"
         name="escola"
@@ -43,6 +45,7 @@
         </option>
       </select>
 
+      <p class="fs-4 text-center mt-4" >Material Escolar</p>
       <select
         type="text"
         [(ngModel)]="filtroPesquisa.material"
@@ -61,7 +64,7 @@
       <button
         (click)="print()"
         type="button"
-        class="rounded-pill btn btn-danger"
+        class="rounded-pill btn" style="background-color: #F58251; color: white;"
       >
         <i class="bi bi-search"></i>
       </button>

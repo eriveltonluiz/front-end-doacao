@@ -4,8 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Material } from '../model/material';
+import { FilhoMaterialDTO } from '../model/filho-materialDTO';
 
 const baseUrlMaterialJava = 'http://localhost:8090/doacao/';
+const baseUrlEmailJava = 'http://localhost:8090/email/';
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +54,9 @@ export class DoacaoService {
 
   listarFilhosPorFiiltro(id: number): Observable<Array<Object>>{
     return this.http.get<Array<Object>>(baseUrlMaterialJava + 'filtros/' + id)
+  }
+
+  enviarEmail(materiais: Array<FilhoMaterial>, email: string): Observable<Array<FilhoMaterial>> {
+    return this.http.post<Array<FilhoMaterial>>(baseUrlEmailJava + email, materiais);
   }
 }

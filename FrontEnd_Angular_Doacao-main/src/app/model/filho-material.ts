@@ -5,5 +5,6 @@ export class FilhoMaterial {
     id: Id = new Id();
     quantidadeDesejada: number;
     quantidadeDoada?: number;
+    quantidadeDoadaVariada?: number;
     statusDoacao: string;
 }

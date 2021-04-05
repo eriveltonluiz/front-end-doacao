@@ -1,16 +1,12 @@
-import { ObjFilho } from './../model/obj-filho';
 import { Filho } from 'src/app/model/filho';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Escola } from '../model/escola';
-import { FilhoMaterial } from '../model/filho-material';
-import { Material } from '../model/material';
 import { Cep } from '../model/cep';
 
 const baseUrlJava = 'http://localhost:8090/filho/';
 const baseUrlJavaEscola = 'http://localhost:8090/escola/';
-const baseUrlFilhoMaterial = 'http://localhost:3000/filhomaterial/';
 
 @Injectable({
   providedIn: 'root'

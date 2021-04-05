@@ -29,6 +29,9 @@ export class ListMateriaisFilhoComponent implements OnInit {
 
       this.doacaoService.listarMateriaisFilho(this.dataService.getFilho().nomeFilho).subscribe(retorno => {
         this.materiais = retorno
+        this.materiais.forEach(m => {
+          m.quantidadeDoadaVariada = 0;
+        })
         this._setarMaterialFilho();
         console.log(this.materiais)
       })
@@ -53,8 +56,11 @@ export class ListMateriaisFilhoComponent implements OnInit {
     if (confirm('Deseja efetuar a doação dos materiais selecionados para ' + this.materialFilho.id.filho.nome)) {
 
       this.materiais.forEach(i => {
-        if (i.quantidadeDoada === 0)
+        i.quantidadeDoada = i.quantidadeDoadaVariada;
+        if (i.quantidadeDoada === 0){
           this.cont++;
+        }
+        i.quantidadeDoadaVariada = 0;
       });
 
       if (this.cont === this.materiais.length) {
@@ -82,6 +88,7 @@ export class ListMateriaisFilhoComponent implements OnInit {
         mat.quantidadeDoada = mat.quantidadeDesejada;
         mat.quantidadeDesejada = 0;
         mat.statusDoacao = 'CONFIRMADO'
+        mat.quantidadeDoadaVariada = 0;
       })
 
       this.doacaoService.editarMaterialFilho(this.materiais).subscribe(retorno => {
@@ -94,14 +101,14 @@ export class ListMateriaisFilhoComponent implements OnInit {
   }
 
   incrementa(i: number) {
-    if (this.materiais[i].quantidadeDoada < this.materiais[i].quantidadeDesejada) {
-      this.materiais[i].quantidadeDoada++;
+    if (this.materiais[i].quantidadeDoadaVariada < this.materiais[i].quantidadeDesejada) {
+      this.materiais[i].quantidadeDoadaVariada++;
     }
   }
 
   decrementa(i: number) {
-    if (this.materiais[i].quantidadeDoada > 0) {
-      this.materiais[i].quantidadeDoada--;
+    if (this.materiais[i].quantidadeDoadaVariada > 0) {
+      this.materiais[i].quantidadeDoadaVariada--;
     }
   }
 }
