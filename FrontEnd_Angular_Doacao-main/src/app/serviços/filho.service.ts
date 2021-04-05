@@ -34,8 +34,8 @@ export class FilhoService {
     return this.http.get<Array<Filho>>(baseUrlJava);
   }
 
-  buscarFilhoPorID(id: number): Observable<Filho>{
-    return this.http.get<Filho>(`${baseUrlJava}${id}`);
+  buscarFilhosPorID(id: number): Observable<Array<Filho>>{
+    return this.http.get<Array<Filho>>(`${baseUrlJava}${id}`);
   }
 
   buscarMaterialPorID(id: number): Observable<Material>{
@@ -68,6 +68,10 @@ export class FilhoService {
 
   editarEscola(escola: Escola): Observable<Escola> {
     return this.http.put<Escola>(`${baseUrlJavaEscola}`, escola);
+  }
+
+  buscarEscolaPorNome(nome: string): Observable<Escola>{
+    return this.http.get<Escola>(`${baseUrlJavaEscola}${nome}`);
   }
 
 }

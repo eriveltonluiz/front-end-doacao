@@ -83,7 +83,7 @@ export class AddFilhoComponent implements OnInit {
   escola = new Escola();
 
   pai = new Pai();
-  
+
   material: Material;
   boys: Array<string>;
   girls: Array<string>;
@@ -95,7 +95,7 @@ export class AddFilhoComponent implements OnInit {
     private dataFilhoService: DataFilhoService) { }
 
   ngOnInit(): void {
-this.loginService.retornarPai(+localStorage.getItem('id')).subscribe(retorno => this.pai = retorno)
+    this.loginService.retornarPai(+localStorage.getItem('id')).subscribe(retorno => this.pai = retorno)
     if (localStorage.getItem('id') === null) {
       this.router.navigate(['']);
     }
@@ -124,7 +124,7 @@ this.loginService.retornarPai(+localStorage.getItem('id')).subscribe(retorno => 
     // }
   }
 
-  fecharModal(){
+  fecharModal() {
     let btnFechar = document.getElementById('btnModalFechar');
     btnFechar.click();
   }
@@ -132,32 +132,48 @@ this.loginService.retornarPai(+localStorage.getItem('id')).subscribe(retorno => 
   salvar() {
     this.filho.pai = this.pai;
 
+    console.log(this.filho)
+
     if (this.filho.id === null || this.filho.id === undefined) {
       console.log('Objeto escola: ' + this.escola)
-      this.filhoService.salvarEscola(this.escola).subscribe(resultado => {
-        this.escola = resultado;
-        this.filho.escola = this.escola;
+      this.filhoService.buscarEscolaPorNome(this.escola.nome).subscribe(retorno => {
+        if (retorno === null) {
+          this.filhoService.salvarEscola(this.escola).subscribe(resultado => {
+            this.escola = resultado;
+            this.filho.escola = this.escola;
 
-        this.filhoService.salvarFilho(this.filho).subscribe(resultado => {
-          this.filho = resultado;
-          console.log(this.filho)
-          this.novo();
-        });
-        alert('Salvo com sucesso!!!');
+            this.filhoService.salvarFilho(this.filho).subscribe(resultado => {
+              this.filho = resultado;
+              console.log(this.filho)
+              this.novo();
+            });
+            alert('Salvo com sucesso!!!');
+          });
+        } else {
+          this.filho.escola = retorno;
+
+          this.filhoService.salvarFilho(this.filho).subscribe(resultado => {
+            this.filho = resultado;
+            console.log(this.filho)
+            this.novo();
+          });
+          alert('Salvo com sucesso!!!');
+        }
+        
       });
-    } 
-    
-    else {
-        this.filhoService.editarEscola(this.escola).subscribe(resultado => {
-          this.escola = resultado;
-        });
-        this.filho.escola = this.escola;
+    }
 
-        this.filhoService.editarFilho(this.filho).subscribe(resultado => {
-          this.filho = resultado;
-          //this.novo();
-        });
-        alert('Editado com sucesso!!!')
+    else {
+      this.filhoService.editarEscola(this.escola).subscribe(resultado => {
+        this.escola = resultado;
+      });
+      this.filho.escola = this.escola;
+
+      this.filhoService.editarFilho(this.filho).subscribe(resultado => {
+        this.filho = resultado;
+        //this.novo();
+      });
+      alert('Editado com sucesso!!!')
     }
   }
 

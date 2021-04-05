@@ -16,8 +16,9 @@ export class LoginService {
 
   logar(pai: Pai){
     localStorage.clear();
-    this.http.post<Pai>(baseUrlJava, pai).subscribe(p => {
-      if(p.nome === null || p.nome === undefined){
+    this.http.post<Pai>(baseUrlJava + 'logar', pai).subscribe(p => {
+      console.log(p)
+      if(p === null || p === undefined){
         alert('Erro ao se logar. Senha ou o email incorretos');
       } else{
         localStorage.setItem('id', JSON.stringify(p.id));

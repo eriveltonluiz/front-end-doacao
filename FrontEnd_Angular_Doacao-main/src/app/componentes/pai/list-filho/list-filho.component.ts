@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { Filho } from 'src/app/model/filho';
 import { FilhoService } from 'src/app/serviços/filho.service';
 import { FilhoMaterial } from 'src/app/model/filho-material';
+import { LoginService } from 'src/app/serviços/login.service';
+import { Pai } from 'src/app/model/pai';
 
 @Component({
   selector: 'app-list-filho',
@@ -20,20 +22,28 @@ export class ListFilhoComponent implements OnInit {
   materiais: Material[] = new Array<Material>();
   filhos: Array<Filho> = [];
   materiaisFilho: FilhoMaterial[] = new Array<FilhoMaterial>();
+  pai = new Pai();
 
-  constructor(private filhoService: FilhoService, private router: Router, private dataFilhoService: DataFilhoService) { }
+  constructor(private filhoService: FilhoService,
+    private router: Router,
+    private loginService: LoginService,
+    private dataFilhoService: DataFilhoService) { }
 
   ngOnInit(): void {
     
-    //console.log(this.filhos);
-    //console.log(localStorage.getItem('id'));
     if(localStorage.getItem('id') === null){
       this.router.navigate(['']);
     }
-    this.filhoService.listarFilhos().subscribe(resultado => {
-      this.filhos = resultado;
-      console.log(this.filhos);
-    });
+    
+    this.loginService.retornarPai(+localStorage.getItem('id')).subscribe(retorno => {
+      this.pai = retorno
+      this.filhoService.buscarFilhosPorID(this.pai.id).subscribe(resultado => {
+        this.filhos = resultado;
+        console.log(this.filhos);
+      });
+    
+    })
+    
   }
 
   carregarMateriais(filho: Filho){
@@ -43,22 +53,6 @@ export class ListFilhoComponent implements OnInit {
     this.filhoService.listarMateriaisFilhos().subscribe(resultado => this.materiaisFilho = resultado);
     this.filhoService.listarMateriais().subscribe(resultado => this.materiais = resultado);
     this.filho = filho;
-    let data = new Date();
-    // let aux = {
-    //   "year": 2007,
-    //   "month": 12,
-    //   "day": 13
-    // }
-    console.log(typeof filho.dataNascimento)
-    console.log(data.getDate().valueOf())
-    console.log(data.getDate())
-    console.log(data)
-    console.log(data.getTime())
-    console.log(data.getTime().valueOf())
-    console.log(data.toTimeString())
-    console.log(data.toString())
-    //console.log(new Date(JSON.stringify(aux.day) + '-' + JSON.stringify(aux.month) + '-' + JSON.stringify(aux.year)))
-    console.log(new Date(data.getDate(),data.getMonth() ,data.getDate()))
   }
 
   novoCarou(){
@@ -117,9 +111,4 @@ export class ListFilhoComponent implements OnInit {
     
   }
 
-  teste(){
-    console.log(this.materiais)
-    console.log(this.materialFilho);
-    console.log(this.material.descricao);
-  }
 }
