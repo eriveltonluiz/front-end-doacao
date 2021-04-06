@@ -196,7 +196,7 @@ export class ListFilhosGeralComponent implements OnInit {
     }
 
     else if (this.filtroPesquisa.municipio !== undefined && this.filtroPesquisa.material !== undefined && this.filtroPesquisa.escola === undefined) {
-
+console.log('material e munici')
       this.doacaoService.listarFilhosPorFiiltro(this.filtroPesquisa.material).subscribe(r => {
 
         let array = Array<Object>();
@@ -234,7 +234,7 @@ export class ListFilhosGeralComponent implements OnInit {
 
         })
         this.objFilhos = objFilho;
-        this.objFilhos.filter(obj => obj.localidade === this.filtroPesquisa.municipio)
+        this.objFilhos = this.objFilhos.filter(obj => obj.localidade === this.filtroPesquisa.municipio)
       })
 
     }
@@ -280,6 +280,10 @@ export class ListFilhosGeralComponent implements OnInit {
         this.objFilhos = this.objFilhos.filter(obj => obj.nomeEscola === this.filtroPesquisa.escola)
       })
     }
+  }
+
+  zerar(){
+    this.filtroPesquisa = new FiltroPesquisa();
   }
 
 }
