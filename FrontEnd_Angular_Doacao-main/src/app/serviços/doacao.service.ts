@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 import { Material } from '../model/material';
 import { FilhoMaterialDTO } from '../model/filho-materialDTO';
 
-const baseUrlMaterialJava = 'http://localhost:8090/doacao/';
-const baseUrlEmailJava = 'http://localhost:8090/email/';
+const baseUrlMaterialJava = 'https://api-doacao.herokuapp.com/doacao/';
+const baseUrlEmailJava = 'https://api-doacao.herokuapp.com/email/';
 
 @Injectable({
   providedIn: 'root'
