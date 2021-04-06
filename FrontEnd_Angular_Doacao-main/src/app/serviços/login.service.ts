@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Pai } from '../model/pai';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrlJava = 'http://localhost:8090/login/';
+const baseUrlJava = 'https://api-doacao.herokuapp.com/login/';
 
 
 @Injectable({
