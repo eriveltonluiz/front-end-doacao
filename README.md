@@ -13,7 +13,7 @@ Clone o projeto:
 
 * Instale o [Node](https://nodejs.org/en/)
 
-* Instale o Angular cli no terminal do sistema operacional ou em outra plataforma: npm install -g @angular/cli@9 @angular/core@9
+* Instale o Angular cli no terminal do sistema operacional ou em outra plataforma: npm install -g @angular/cli@9 @angular/core@9 ou se não funcionar npm install @angular/cli@9 @angular/core@9
 
 * Caso já tenha uma versão do Angular cli instalada, para atualizar apenas no projeto local utilizaria o comando ng update @angular/cli@9 @angular/core@9
  
