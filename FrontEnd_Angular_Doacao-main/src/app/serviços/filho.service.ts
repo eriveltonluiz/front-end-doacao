@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { Escola } from '../model/escola';
 import { Cep } from '../model/cep';
 
-const baseUrlJava = 'http://localhost:8090/filho/';
-const baseUrlJavaEscola = 'http://localhost:8090/escola/';
+const baseUrlJava = 'https://api-doacao.herokuapp.com/filho/';
+const baseUrlJavaEscola = 'https://api-doacao.herokuapp.com/escola/';
 
 @Injectable({
   providedIn: 'root'
